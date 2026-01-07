@@ -1,6 +1,6 @@
 // src/hooks/useAllBankLoanProducts.ts
 import { useState, useEffect, useMemo } from 'react';
-import { BANKS_DATA, LOAN_TYPES } from '@/constants/appConstants';
+import { BANKS_DATA, LOAN_TYPES } from '@/lib/data';
 import type { FilteredBankLoanProduct } from '@/types';
 
 /**
@@ -22,6 +22,8 @@ export function useAllBankLoanProducts() {
             bankName: bank.name,
             bankLogoUrl: bank.logoUrl,
             bankCategory: bank.bankCategory,
+            applicationUrl: bank.applicationUrl,
+            reason: bank.reason,
             loanTypeNameKey: loanTypeDetails?.nameKey || product.loanTypeId,
             loanTypeDescriptionKey: loanTypeDetails?.descriptionKey || '',
             loanTypeIcon: loanTypeDetails?.icon,
@@ -44,3 +46,5 @@ export function useAllBankLoanProducts() {
 
   return { allBankLoanProducts: products, isLoading };
 }
+
+    

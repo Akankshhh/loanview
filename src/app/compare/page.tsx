@@ -1,10 +1,9 @@
-
 // src/app/compare/page.tsx
 "use client";
 
 import { useState, useMemo, useEffect } from 'react';
 import { useI18n } from '@/hooks/useI18n';
-import { LOAN_TYPES, BANKS_DATA } from '@/constants/appConstants';
+import { LOAN_TYPES, BANKS_DATA } from '@/lib/data';
 import { calculateLoanDetails } from '@/lib/loanUtils';
 import type { LoanTypeId, FilteredBankLoanProduct } from '@/types';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, TableCaption } from "@/components/ui/table";
@@ -375,3 +374,5 @@ export default function CompareAndCalculatePage() {
     </div>
   );
 }
+
+    

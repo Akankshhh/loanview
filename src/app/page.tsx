@@ -3,7 +3,7 @@
 
 import { useState, useMemo, useCallback } from 'react';
 import { useI18n } from '@/hooks/useI18n';
-import { DASHBOARD_METRICS, BANKS_DATA, LOAN_TYPES } from '@/constants/appConstants';
+import { DASHBOARD_METRICS, BANKS_DATA, LOAN_TYPES } from '@/lib/data';
 import type { Bank, FilteredBankLoanProduct } from '@/types';
 import { MetricCard } from '@/components/dashboard/MetricCard';
 import { DashboardControls } from '@/components/dashboard/DashboardControls';
@@ -135,3 +135,5 @@ export default function DashboardPage() {
     </div>
   );
 }
+
+    

@@ -5,7 +5,7 @@ import type { FC } from 'react';
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { ChartContainer, ChartLegend, ChartLegendContent, ChartTooltipContent, type ChartConfig } from '@/components/ui/chart';
-import { LOAN_TYPES } from '@/constants/appConstants';
+import { LOAN_TYPES } from '@/lib/data';
 import { useI18n } from '@/hooks/useI18n';
 import { BarChart2 } from 'lucide-react';
 
@@ -75,3 +75,5 @@ export const LoanInterestRatesChart: FC = () => {
     </Card>
   );
 };
+
+    

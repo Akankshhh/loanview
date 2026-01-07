@@ -3,7 +3,7 @@
 
 import { useState, useMemo, useCallback } from 'react';
 import { useI18n } from '@/hooks/useI18n';
-import { BANKS_DATA, LOAN_TYPES } from '@/constants/appConstants';
+import { BANKS_DATA, LOAN_TYPES } from '@/lib/data';
 import type { FilteredBankLoanProduct } from '@/types';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
@@ -190,3 +190,5 @@ export default function MarketComparisonPage() {
     </div>
   );
 }
+
+    

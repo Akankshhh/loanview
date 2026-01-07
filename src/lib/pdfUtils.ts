@@ -320,3 +320,5 @@ export const generateLoanReportPdf = (i18n: I18nContextType, loanCalculationData
   const filename = `${t('appName')}_Report_${formatDate(new Date(), { year: 'numeric', month: '2-digit', day: '2-digit' })}.pdf`.replace(/[^a-zA-Z0-9_.-]/g, '_');
   doc.save(filename);
 };
+
+    

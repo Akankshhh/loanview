@@ -126,3 +126,5 @@ export const KeyRateStats: FC<KeyRateStatsProps> = ({ filteredLoanProducts, allL
     </Card>
   );
 };
+
+    

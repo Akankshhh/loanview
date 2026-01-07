@@ -4,7 +4,7 @@
 import type { FC } from 'react';
 import { useI18n } from '@/hooks/useI18n';
 import type { Bank, LoanType, BankCategory } from '@/types';
-import { BANK_CATEGORIES } from '@/constants/appConstants';
+import { BANK_CATEGORIES } from '@/lib/data';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -151,3 +151,5 @@ export const DashboardControls: FC<DashboardControlsProps> = ({
     </div>
   );
 };
+
+    

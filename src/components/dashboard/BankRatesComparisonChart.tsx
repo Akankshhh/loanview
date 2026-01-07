@@ -10,23 +10,26 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import type { FilteredBankLoanProduct, LoanType as LoanTypeInterface, LoanTypeId } from '@/types';
 import { useI18n } from '@/hooks/useI18n';
 import { BarChart3 } from 'lucide-react';
+import { LOAN_TYPES } from '@/lib/data';
 
 interface BankRatesComparisonChartProps {
   filteredLoanProducts: FilteredBankLoanProduct[];
-  allLoanTypes: LoanTypeInterface[]; 
 }
 
-export const BankRatesComparisonChart: FC<BankRatesComparisonChartProps> = ({ filteredLoanProducts, allLoanTypes }) => {
+export const BankRatesComparisonChart: FC<BankRatesComparisonChartProps> = ({ filteredLoanProducts }) => {
   const { t, formatNumber } = useI18n();
-  const [selectedLoanTypeId, setSelectedLoanTypeId] = useState<LoanTypeId | 'all'>('all');
+  const [selectedLoanTypeId, setSelectedLoanTypeId] = useState<LoanTypeId | 'all'>('home');
 
   const availableLoanTypesInProducts = useMemo(() => {
     const uniqueLoanTypeIds = new Set(filteredLoanProducts.map(p => p.loanTypeId));
-    return allLoanTypes.filter(lt => uniqueLoanTypeIds.has(lt.id));
-  }, [filteredLoanProducts, allLoanTypes]);
+    return LOAN_TYPES.filter(lt => uniqueLoanTypeIds.has(lt.id));
+  }, [filteredLoanProducts]);
 
   const chartData = useMemo(() => {
     if (selectedLoanTypeId === 'all' || !availableLoanTypesInProducts.find(lt => lt.id === selectedLoanTypeId)) {
+      if (availableLoanTypesInProducts.length > 0) {
+        setSelectedLoanTypeId(availableLoanTypesInProducts[0].id);
+      }
       return [];
     }
     
@@ -64,7 +67,6 @@ export const BankRatesComparisonChart: FC<BankRatesComparisonChartProps> = ({ fi
             <SelectValue placeholder={t('dashboard.bankRatesComparisonChart.selectLoanTypePlaceholder')} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all" disabled>{t('dashboard.bankRatesComparisonChart.selectLoanTypePlaceholder')}</SelectItem>
             {availableLoanTypesInProducts.map(loanType => (
               <SelectItem key={loanType.id} value={loanType.id}>
                 {t(loanType.nameKey)}
@@ -124,3 +126,5 @@ export const BankRatesComparisonChart: FC<BankRatesComparisonChartProps> = ({ fi
     </Card>
   );
 };
+
+    

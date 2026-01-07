@@ -1,5 +1,6 @@
+// src/lib/data.ts
 
-import type { Language, NavItem, LoanMetric, LoanType, Bank, LoanTypeId, RateType, BankCategory } from '@/types';
+import type { Language, NavItem, LoanMetric, LoanType, Bank, BankCategory } from '@/types';
 import { Home, User, GraduationCap, Car, Landmark, Percent, FileText, GitCompareArrows, HandCoins, FileDown, BadgeIndianRupee, Briefcase, Gem, Building, FileEdit, Calculator, Archive, Sparkles, LogIn, UserCircle, BarChart, HelpCircle } from 'lucide-react';
 
 export const APP_NAME_KEY = "appName";
@@ -53,7 +54,6 @@ export const DASHBOARD_METRICS: LoanMetric[] = [
 ];
 
 export const BANK_CATEGORIES: BankCategory[] = ['Public Sector', 'Private Sector', 'Small Finance Bank', 'Foreign Bank', 'NBFC'];
-
 
 export const LOAN_TYPES: LoanType[] = [
   { 
