@@ -32,8 +32,18 @@ const createSampleLoanData = (): NonNullable<LoanReportData> => ({
   totalPayment: 615480,
 });
 
+// A simple number formatter for the PDF to avoid complex characters
+const formatPdfNumber = (value: number) => {
+  return value.toLocaleString('en-US', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+    useGrouping: true,
+  });
+};
+
+
 export const generateLoanReportPdf = (i18n: I18nContextType, loanCalculationData: LoanReportData, applicationData: DetailedApplicationData | null) => {
-  const { t, formatNumber, formatDate } = i18n;
+  const { t, formatDate } = i18n;
   
   const doc = new jsPDF({ orientation: 'p', unit: 'mm', format: 'a4' });
   
@@ -145,12 +155,12 @@ export const generateLoanReportPdf = (i18n: I18nContextType, loanCalculationData
   finalY = addSectionTitle(t('pdf.keyFacts.title'), finalY);
   
   const keyFactsBody = [
-    [t('pdf.loanSummary.loanAmount'), formatNumber(loanData.loanAmount, { style: 'currency', currency: 'INR' })],
-    [t('pdf.loanSummary.interestRate'), `${formatNumber(loanData.interestRate, { minimumFractionDigits: 2 })}%`],
+    [t('pdf.loanSummary.loanAmount'), formatPdfNumber(loanData.loanAmount)],
+    [t('pdf.loanSummary.interestRate'), `${loanData.interestRate.toFixed(2)}%`],
     [t('pdf.loanSummary.tenure'), `${loanData.loanTenureMonths / 12} ${t('pdf.years')}`],
-    [t('pdf.loanSummary.monthlyEMI'), formatNumber(loanData.emi, { style: 'currency', currency: 'INR' })],
-    [t('pdf.loanSummary.totalInterest'), formatNumber(loanData.totalInterest, { style: 'currency', currency: 'INR' })],
-    [t('pdf.loanSummary.totalPayment'), formatNumber(loanData.totalPayment, { style: 'currency', currency: 'INR' })]
+    [t('pdf.loanSummary.monthlyEMI'), formatPdfNumber(loanData.emi)],
+    [t('pdf.loanSummary.totalInterest'), formatPdfNumber(loanData.totalInterest)],
+    [t('pdf.loanSummary.totalPayment'), formatPdfNumber(loanData.totalPayment)]
   ];
 
   (doc as any).autoTable({
@@ -197,8 +207,8 @@ export const generateLoanReportPdf = (i18n: I18nContextType, loanCalculationData
     head: [[ t('liveMarketAnalysis.bank'), t('liveMarketAnalysis.interestRate'), t('liveMarketAnalysis.estMonthlyEMI')]],
     body: comparisonProducts.map(p => [
       p.bankName,
-      `${formatNumber(p.interestRate, { minimumFractionDigits: 2 })}%`,
-      formatNumber(p.emi, { style: 'currency', currency: 'INR', minimumFractionDigits: 0 })
+      `${p.interestRate.toFixed(2)}%`,
+      formatPdfNumber(p.emi)
     ]),
     didParseCell: forceCustomFontHook
   });
@@ -230,9 +240,9 @@ export const generateLoanReportPdf = (i18n: I18nContextType, loanCalculationData
     if (showRow) {
       scheduleBody.push([
           i,
-          formatNumber(principalPayment, { style: 'currency', currency: 'INR', minimumFractionDigits: 0 }),
-          formatNumber(interestPayment, { style: 'currency', currency: 'INR', minimumFractionDigits: 0 }),
-          formatNumber(Math.max(0, balance), { style: 'currency', currency: 'INR', minimumFractionDigits: 0 }),
+          formatPdfNumber(principalPayment),
+          formatPdfNumber(interestPayment),
+          formatPdfNumber(Math.max(0, balance)),
       ]);
     } else if (i === initialMonthsToShow + 1) {
        scheduleBody.push(['...', '...', '...', '...']);
