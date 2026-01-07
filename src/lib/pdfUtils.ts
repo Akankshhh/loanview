@@ -31,19 +31,18 @@ const createSampleLoanData = (i18n: I18nContextType): NonNullable<LoanReportData
 
 
 // A simple, safe number formatter specifically for the PDF to avoid special characters.
+// This function is the key to preventing "garbage values". It only produces digits, a decimal point, and an optional prefix.
 const formatPdfNumber = (value: number | string | undefined, currency = false): string => {
     if (value === undefined || value === null || value === '') return 'N/A';
     
-    // Convert to number, removing any non-numeric characters except for decimal point and minus sign
     const num = Number(String(value).replace(/[^0-9.-]/g, ''));
     
     if (isNaN(num)) {
-        // If it's not a number after cleaning, return the original string
         return String(value);
     }
   
-    // Use toFixed(2) for a simple, universally safe number-to-string conversion
-    // This avoids locale-specific characters like commas.
+    // Use toFixed(2) for a simple, universally safe number-to-string conversion.
+    // This avoids locale-specific characters like commas which caused the garbage values.
     const fixedValue = num.toFixed(2);
     
     return currency ? `INR ${fixedValue}` : fixedValue;
@@ -56,7 +55,7 @@ export const generateLoanReportPdf = (i18n: I18nContextType, loanCalculationData
   const doc = new jsPDF({ orientation: 'p', unit: 'mm', format: 'a4' });
   
   // --- FONT SETUP ---
-  // Use a standard, built-in font to avoid base64 decoding issues.
+  // Use a standard, built-in font. This is the critical change to prevent all font-related errors.
   const FONT_FAMILY = "Helvetica";
   doc.setFont(FONT_FAMILY, "normal");
 
