@@ -27,7 +27,7 @@ export const SUPPORTED_LANGUAGES: { code: Language; name: string }[] = [
   { code: 'ne', name: 'नेपाली' },
   { code: 'sd', name: 'سنڌي' },
   { code: 'mai', name: 'मैथिली' },
-  { code: 'doi', name: 'डोगरी' },
+  { code:- 'doi', name: 'डोगरी' },
   { code: 'ks', name: 'کٲشُر' },
   { code: 'mni', name: 'মৈতৈলোন্' },
   { code: 'brx', name: 'बर’' },
@@ -245,5 +245,3 @@ export const RATE_THRESHOLDS = {
   medium: 12.0, // Rates > 9.0% and <= 12.0% are medium
   // Rates > 12.0% are high
 };
-
-    

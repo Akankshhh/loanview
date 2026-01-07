@@ -4,7 +4,7 @@ import 'jspdf-autotable';
 import type { I18nContextType } from '@/contexts/I18nContext';
 import type { LoanDetails } from './loanUtils';
 import type { DetailedApplicationData, LoanTypeId } from '@/types';
-import { BANKS_DATA, LOAN_TYPES } from '@/constants/appConstants';
+import { BANKS_DATA, LOAN_TYPES } from '@/lib/data';
 import { calculateLoanDetails } from './loanUtils';
 import { RobotoRegular } from '@/assets/fonts/Roboto-Regular-normal';
 
@@ -21,23 +21,27 @@ const forceCustomFontHook = (data: any) => {
   data.doc.setFont('Roboto', 'normal');
 };
 
-const createSampleLoanData = (): NonNullable<LoanReportData> => ({
-  loanAmount: 500000,
-  interestRate: 8.5,
-  loanTenureMonths: 60,
-  loanType: 'personal',
-  emi: 10258,
-  principal: 500000,
-  totalInterest: 115480,
-  totalPayment: 615480,
-});
+const createSampleLoanData = (): NonNullable<LoanReportData> => {
+    const details = calculateLoanDetails(500000, 8.5, 60);
+    return {
+      loanAmount: 500000,
+      interestRate: 8.5,
+      loanTenureMonths: 60,
+      loanType: 'personal',
+      emi: details?.emi || 0,
+      principal: 500000,
+      totalInterest: details?.totalInterest || 0,
+      totalPayment: details?.totalPayment || 0,
+    };
+};
+
 
 // A simple, safe number formatter specifically for the PDF to avoid special characters.
 const formatPdfNumber = (value: number | string | undefined, currency = false): string => {
     if (value === undefined || value === null || value === '') return 'N/A';
     
     // Attempt to convert to a number, handling potential non-numeric strings gracefully
-    const num = Number(String(value).replace(/[^0-9.]/g, ''));
+    const num = Number(String(value).replace(/[^0-9.-]/g, ''));
     
     if (isNaN(num)) {
         // If it's a string that's not a number (e.g., from form input), return it as is.
@@ -320,5 +324,3 @@ export const generateLoanReportPdf = (i18n: I18nContextType, loanCalculationData
   const filename = `${t('appName')}_Report_${formatDate(new Date(), { year: 'numeric', month: '2-digit', day: '2-digit' })}.pdf`.replace(/[^a-zA-Z0-9_.-]/g, '_');
   doc.save(filename);
 };
-
-    

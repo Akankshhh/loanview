@@ -141,7 +141,7 @@ export const DashboardControls: FC<DashboardControlsProps> = ({
         </div>
 
         {/* Download CSV Button */}
-        <div className="md:col-start-2 lg:col-start-auto xl:col-start-auto flex justify-end">
+        <div className="md:col-start-2 lg:col-start-auto xl:col-span-1 flex justify-end items-end">
           <Button onClick={onDownloadCsv} variant="outline" className="w-full md:w-auto">
             <Download className="mr-2 h-4 w-4" />
             {t('dashboard.bankLoanRates.downloadCsv')}
@@ -151,5 +151,3 @@ export const DashboardControls: FC<DashboardControlsProps> = ({
     </div>
   );
 };
-
-    

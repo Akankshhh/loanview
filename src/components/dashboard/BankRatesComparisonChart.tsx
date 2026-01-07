@@ -7,7 +7,7 @@ import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxi
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { ChartContainer, ChartTooltipContent, type ChartConfig } from '@/components/ui/chart';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import type { FilteredBankLoanProduct, LoanType as LoanTypeInterface, LoanTypeId } from '@/types';
+import type { FilteredBankLoanProduct, LoanTypeId } from '@/types';
 import { useI18n } from '@/hooks/useI18n';
 import { BarChart3 } from 'lucide-react';
 import { LOAN_TYPES } from '@/lib/data';
@@ -26,15 +26,19 @@ export const BankRatesComparisonChart: FC<BankRatesComparisonChartProps> = ({ fi
   }, [filteredLoanProducts]);
 
   const chartData = useMemo(() => {
-    if (selectedLoanTypeId === 'all' || !availableLoanTypesInProducts.find(lt => lt.id === selectedLoanTypeId)) {
-      if (availableLoanTypesInProducts.length > 0) {
-        setSelectedLoanTypeId(availableLoanTypesInProducts[0].id);
-      }
-      return [];
+    let typeId = selectedLoanTypeId;
+    if (typeId === 'all' || !availableLoanTypesInProducts.find(lt => lt.id === typeId)) {
+        if (availableLoanTypesInProducts.length > 0) {
+            typeId = availableLoanTypesInProducts[0].id;
+            // Update state asynchronously to avoid issues during render
+            setTimeout(() => setSelectedLoanTypeId(typeId as LoanTypeId), 0);
+        } else {
+            return [];
+        }
     }
     
     return filteredLoanProducts
-      .filter(product => product.loanTypeId === selectedLoanTypeId)
+      .filter(product => product.loanTypeId === typeId)
       .map(product => ({
         bankName: product.bankName,
         interestRate: product.interestRate,
@@ -87,7 +91,7 @@ export const BankRatesComparisonChart: FC<BankRatesComparisonChartProps> = ({ fi
                 <CartesianGrid horizontal={false} strokeDasharray="3 3" />
                 <XAxis 
                   type="number" 
-                  domain={[0, (dataMax: number) => Math.ceil(dataMax / 2) * 2 + 2]}
+                  domain={['dataMin - 1', 'dataMax + 1']}
                   tickFormatter={(value) => `${value}%`}
                 />
                 <YAxis
@@ -126,5 +130,3 @@ export const BankRatesComparisonChart: FC<BankRatesComparisonChartProps> = ({ fi
     </Card>
   );
 };
-
-    
