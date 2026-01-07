@@ -1,0 +1,262 @@
+{
+  "appName": "LoanView",
+  "nav": {
+    "dashboard": "Tablero",
+    "applyLoan": "Solicitar Préstamo",
+    "compareLoans": "Comparar Préstamos",
+    "interestRates": "Tasas de Interés",
+    "downloadReport": "Descargar Informe"
+  },
+  "dashboard": {
+    "title": "Tablero de Préstamos",
+    "totalLoans": "Préstamos Totales",
+    "avgLoanSize": "Tamaño Promedio Préstamo (INR)",
+    "approvalRate": "Tasa de Aprobación",
+    "aiSuggestions": {
+      "title": "Perspectivas de Localización con IA",
+      "description": "Ingrese un grupo demográfico objetivo para obtener visualizaciones culturalmente relevantes y sugerencias de interpretación para los datos del préstamo.",
+      "demographicLabel": "Grupo Demográfico Objetivo",
+      "demographicPlaceholder": "Ej: Jóvenes Profesionales en Área Urbana",
+      "getSuggestions": "Obtener Sugerencias",
+      "visualizationSuggestion": "Sugerencia de Visualización",
+      "interpretationSuggestion": "Sugerencia de Interpretación",
+      "noSuggestions": "Ingrese un grupo demográfico y haga clic en 'Obtener Sugerencias' para ver las perspectivas de IA.",
+      "loadingSuggestions": "Cargando sugerencias...",
+      "errorSuggestions": "No se pudieron obtener las sugerencias. Inténtalo de nuevo."
+    },
+    "recentActivity": "Actividad Reciente",
+    "noRecentActivity": "No hay actividad reciente para mostrar.",
+    "loanInterestRatesChart": {
+      "title": "Resumen de Tasas de Interés de Préstamos",
+      "description": "Una comparación visual de las tasas de interés para diferentes tipos de préstamos."
+    },
+    "bankLoanRates": {
+      "title": "Ofertas de Préstamos Bancarios",
+      "description": "Compare las tasas de interés para varios préstamos de diferentes bancos.",
+      "bankName": "Nombre del Banco",
+      "loanType": "Tipo de Préstamo",
+      "interestRate": "Tasa de Interés (%)",
+      "filters": {
+        "searchPlaceholder": "Buscar por banco o tipo de préstamo...",
+        "selectBank": "Seleccionar Banco",
+        "allBanks": "Todos los Bancos",
+        "selectLoanType": "Seleccionar Tipo de Préstamo",
+        "allLoanTypes": "Todos los Tipos de Préstamo",
+        "interestRateRange": "Rango de Tasa de Interés",
+        "minRate": "Tasa Mín.",
+        "maxRate": "Tasa Máx.",
+        "selectBankCategory": "Seleccionar Categoría de Banco",
+        "allBankCategories": "Todas las Categorías",
+        "publicSector": "Sector Público",
+        "privateSector": "Sector Privado",
+        "smallFinanceBank": "Banco de Finanzas Pequeñas",
+        "paymentBank": "Banco de Pagos",
+        "nbfc": "NBFC",
+        "foreignBank": "Banco Extranjero"
+      },
+      "downloadCsv": "Descargar CSV",
+      "tooltip": {
+        "tenure": "Plazo: {{min}} - {{max}} meses",
+        "maxAmount": "Monto Máximo: {{amount}}",
+        "processingFee": "Comisión de Tramitación: {{fee}}",
+        "rateType": "Tipo de Tasa: {{type}}"
+      },
+      "noResults": "Ningún producto de préstamo coincide con sus filtros actuales."
+    },
+    "themeToggle": {
+      "light": "Cambiar a Modo Claro",
+      "dark": "Cambiar a Modo Oscuro",
+      "toggle": "Alternar tema"
+    },
+    "keyRateStatistics": {
+      "title": "Estadísticas Clave de Tasas",
+      "description": "Resumen de las tasas de interés según los filtros actuales.",
+      "overallAvgRate": "Tasa Promedio General",
+      "overallMinRate": "Tasa Mínima General",
+      "overallMaxRate": "Tasa Máxima General",
+      "lowestAvgRateLoanType": "Tipo de Préstamo Más Competitivo",
+      "highestAvgRateLoanType": "Tipo de Préstamo Más Caro",
+      "avgRateSuffix": "Tasa Promedio",
+      "noData": "No hay suficientes datos para estadísticas."
+    },
+    "bankRatesComparisonChart": {
+      "title": "Comparación de Tasas Bancarias para el Tipo de Préstamo Seleccionado",
+      "description": "Seleccione un tipo de préstamo para ver cómo se comparan las tasas de interés entre diferentes bancos.",
+      "selectLoanTypePlaceholder": "Seleccione un Tipo de Préstamo para Comparar",
+      "noData": "No hay datos disponibles para el tipo de préstamo y filtros seleccionados.",
+      "yAxisLabel": "Tasa de Interés (%)"
+    }
+  },
+  "loanTypes": {
+    "home": {
+      "name": "Préstamo Hipotecario",
+      "description": "Financie la casa de sus sueños con tasas competitivas.",
+      "processingFee": "Hasta 1% del monto del préstamo"
+    },
+    "personal": {
+      "name": "Préstamo Personal",
+      "description": "Préstamos flexibles para sus necesidades personales.",
+      "processingFee": "1-2% del monto del préstamo"
+    },
+    "education": {
+      "name": "Préstamo Educativo",
+      "description": "Invierta en su futuro con nuestra financiación educativa.",
+      "processingFee": "Generalmente 0.5-1%"
+    },
+    "vehicle": {
+      "name": "Préstamo de Vehículo",
+      "description": "Póngase en marcha con nuestros atractivos préstamos para vehículos.",
+      "processingFee": "Hasta 1.5% del monto del préstamo"
+    },
+    "business": {
+      "name": "Préstamo Comercial",
+      "description": "Impulse el crecimiento de su negocio con nuestros préstamos a medida.",
+      "processingFee": "1-2.5% del monto del préstamo, sujeto a términos"
+    },
+    "gold": {
+      "name": "Préstamo de Oro",
+      "description": "Aproveche sus activos de oro para necesidades financieras inmediatas.",
+      "processingFee": "0.5-1.5% del monto del préstamo"
+    },
+    "rateTypes": {
+      "fixed": "Fija",
+      "floating": "Flotante"
+    }
+  },
+  "loanApplication": {
+    "title": "Solicitud de Préstamo",
+    "steps": {
+      "personalDetails": "Detalles Personales",
+      "incomeDetails": "Detalles de Ingresos",
+      "documentUpload": "Carga de Documentos",
+      "reviewSubmit": "Revisar y Enviar"
+    },
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "submit": "Enviar Solicitud",
+    "selectLoanType": "Seleccionar Tipo de Préstamo",
+    "selectLoanTypePlaceholder": "Elija un tipo de préstamo...",
+    "personalDetailsForm": {
+      "fullName": "Nombre Completo",
+      "fullNamePlaceholder": "Ingrese su nombre completo",
+      "email": "Correo Electrónico",
+      "emailPlaceholder": "Ingrese su correo electrónico",
+      "phone": "Número de Teléfono",
+      "phonePlaceholder": "Ingrese su número de teléfono"
+    },
+    "incomeDetailsForm": {
+      "monthlyIncome": "Ingreso Mensual (INR)",
+      "monthlyIncomePlaceholderINR": "Ej: 50000",
+      "employmentStatus": "Estado Laboral",
+      "employmentStatusPlaceholder": "Seleccione estado laboral",
+      "employed": "Empleado",
+      "selfEmployed": "Autónomo",
+      "unemployed": "Desempleado"
+    },
+    "documentUploadForm": {
+      "idProof": "Prueba de Identidad",
+      "addressProof": "Prueba de Domicilio",
+      "uploadHint": "Haga clic o arrastre el archivo a esta área para cargar",
+      "notUploaded": "No cargado"
+    },
+    "reviewSubmitForm": {
+      "reviewDetails": "Revise los detalles de su solicitud antes de enviar.",
+      "submitting": "Enviando...",
+      "loading": "Cargando detalles..."
+    },
+    "applicationSubmitted": "¡Solicitud Enviada!",
+    "applicationSubmittedDesc": "Su solicitud de préstamo ha sido enviada con éxito. Nos pondremos en contacto con usted en breve."
+  },
+  "compareLoans": {
+    "title": "Comparar Opciones de Préstamo",
+    "loanTypeComparison": "Comparación de Tipos de Préstamo",
+    "loanType": "Tipo de Préstamo",
+    "interestRate": "Tasa de Interés",
+    "maxTenure": "Plazo Máximo (Meses)",
+    "maxAmount": "Monto Máximo (INR)",
+    "calculateEMI": "Calcular EMI",
+    "selectForEMI": "Seleccionar para Cálculo EMI",
+    "loanAmount": "Monto del Préstamo",
+    "loanTenure": "Plazo del Préstamo (Meses)",
+    "monthlyEMI": "EMI Mensual: {{emi}}",
+    "enterAllDetails": "Por favor, ingrese el Monto del Préstamo, Plazo y seleccione/ingrese una Tasa de Interés.",
+    "clickToCalculateEMI": "Haga clic en 'Calcular EMI' para ver el pago mensual.",
+    "usingSelectedRate": "Usando tasa de tipo de préstamo seleccionada: {{rate}}%",
+    "selectOrEnterRate": "Seleccione un tipo de préstamo de la tabla anterior o ingrese una tasa de interés manualmente.",
+    "calculateEMIButton": "Calcular EMI",
+    "emiDetails": "Detalles de EMI",
+    "loanRepaymentBreakdown": "Desglose de Pago de Préstamo",
+    "principalAmount": "Monto Principal",
+    "totalInterest": "Interés Total",
+    "totalPayment": "Pago Total"
+  },
+  "interestRatesPage": {
+    "title": "Tasas de Interés Actuales",
+    "loanCategory": "Categoría de Préstamo",
+    "rate": "Tasa de Interés (anual)",
+    "updatedOn": "Tasas actualizadas el {{date}}"
+  },
+  "reportPage": {
+    "title": "Descargar Informe del Tablero",
+    "generateTitle": "Generar Resumen PDF",
+    "description": "Haga clic en el botón de abajo para generar y descargar un resumen en PDF de los datos actuales del tablero de préstamos.",
+    "infoText": "El PDF incluirá métricas clave, tasas de interés por tipo de préstamo y ofertas de préstamos específicas de cada banco.",
+    "downloadButton": "Generar y Descargar PDF",
+    "imageAlt": "Representación estilizada de un informe financiero",
+    "imageCaption": "Sus datos de préstamo completos, resumidos."
+  },
+  "footer": {
+    "copyRight": "© {{year}} LoanView. Todos los derechos reservados."
+  },
+  "formValidation": {
+    "required": "Este campo es obligatorio.",
+    "invalidEmail": "Dirección de correo electrónico no válida.",
+    "positiveNumber": "Debe ser un número positivo."
+  },
+  "pdf": {
+    "reportGenerated": "Informe generado el",
+    "page": "Página",
+    "years": "Años",
+    "applicationSummary": {
+      "title": "Resumen de la solicitud de préstamo"
+    },
+    "keyFacts": {
+      "title": "Declaración de hechos clave"
+    },
+    "marketComparison": {
+      "title": "Comparación de mercado para {{loanType}}"
+    },
+    "loanSummary": {
+      "loanAmount": "Monto del préstamo",
+      "principalAmount": "Monto principal",
+      "interestRate": "Tasa de interés anual",
+      "tenure": "Plazo",
+      "monthlyEMI": "EMI mensual",
+      "totalInterest": "Total de intereses a pagar",
+      "totalPayment": "Pago total (Principal + Intereses)"
+    },
+    "paymentPlan": {
+      "title": "Plan de pago (Tabla de amortización)",
+      "month": "Mes #",
+      "principal": "Principal",
+      "interest": "Interés",
+      "totalPayment": "Pago total",
+      "balance": "Saldo restante"
+    },
+    "disclaimers": {
+      "title": "Descargos de responsabilidad y alertas",
+      "discrepancy": "Revise esta declaración con atención. Cualquier discrepancia debe ser informada al banco dentro de los 30 días posteriores a la fecha de la declaración.",
+      "fraudWarning": "Alerta de fraude: no comparta su PIN, OTP ni ningún detalle bancario confidencial con nadie. El banco nunca solicita esta información."
+    },
+    "support": {
+      "title": "Soporte e información de contacto",
+      "helpline": "Línea de ayuda de atención al cliente"
+    },
+    "summary": "Resumen",
+    "dashboardMetrics": "Métricas del Tablero"
+  },
+  "currency": {
+    "inr": "INR"
+  },
+  "N/A": "N/D"
+}

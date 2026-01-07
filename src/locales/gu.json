@@ -1,0 +1,262 @@
+{
+  "appName": "LoanView",
+  "nav": {
+    "dashboard": "ડેશબોર્ડ",
+    "applyLoan": "લોન માટે અરજી કરો",
+    "compareLoans": "લોનની સરખામણી કરો",
+    "interestRates": "વ્યાજ દરો",
+    "downloadReport": "રિપોર્ટ ડાઉનલોડ કરો"
+  },
+  "dashboard": {
+    "title": "લોન ડેશબોર્ડ",
+    "totalLoans": "કુલ લોન",
+    "avgLoanSize": "સરેરાશ લોનનું કદ (INR)",
+    "approvalRate": "મંજૂરી દર",
+    "aiSuggestions": {
+      "title": "AI-સંચાલિત સ્થાનિકીકરણ આંતરદૃષ્ટિ",
+      "description": "લોન ડેટા માટે સાંસ્કૃતિક રીતે સંબંધિત વિઝ્યુલાઇઝેશન અને અર્થઘટન સૂચનો મેળવવા માટે લક્ષ્ય વસ્તીવિષયક દાખલ કરો.",
+      "demographicLabel": "લક્ષ્ય વસ્તીવિષયક",
+      "demographicPlaceholder": "દા.ત., શહેરી વિસ્તારમાં યુવાન વ્યાવસાયિકો",
+      "getSuggestions": "સૂચનો મેળવો",
+      "visualizationSuggestion": "વિઝ્યુલાઇઝેશન સૂચન",
+      "interpretationSuggestion": "અર્થઘટન સૂચન",
+      "noSuggestions": "એક વસ્તીવિષયક દાખલ કરો અને AI આંતરદૃષ્ટિ જોવા માટે 'સૂચનો મેળવો' પર ક્લિક કરો.",
+      "loadingSuggestions": "સૂચનો લોડ થઈ રહ્યા છે...",
+      "errorSuggestions": "સૂચનો મેળવી શકાયા નથી. કૃપા કરીને ફરી પ્રયાસ કરો."
+    },
+    "recentActivity": "તાજેતરની પ્રવૃત્તિ",
+    "noRecentActivity": "પ્રદર્શિત કરવા માટે કોઈ તાજેતરની પ્રવૃત્તિ નથી.",
+    "loanInterestRatesChart": {
+      "title": "લોન વ્યાજ દરોની ઝાંખી",
+      "description": "વિવિધ પ્રકારની લોન માટે વ્યાજ દરોની દ્રશ્ય સરખામણી."
+    },
+    "bankLoanRates": {
+      "title": "બેંક લોન ઓફરિંગ્સ",
+      "description": "વિવિધ બેંકોમાંથી વિવિધ લોન માટે વ્યાજ દરોની સરખામણી કરો.",
+      "bankName": "બેંકનું નામ",
+      "loanType": "લોનનો પ્રકાર",
+      "interestRate": "વ્યાજ દર (%)",
+      "filters": {
+        "searchPlaceholder": "બેંક અથવા લોનના પ્રકાર દ્વારા શોધો...",
+        "selectBank": "બેંક પસંદ કરો",
+        "allBanks": "બધી બેંકો",
+        "selectLoanType": "લોનનો પ્રકાર પસંદ કરો",
+        "allLoanTypes": "બધા લોનના પ્રકાર",
+        "interestRateRange": "વ્યાજ દરની શ્રેણી",
+        "minRate": "ન્યૂનતમ દર",
+        "maxRate": "મહત્તમ દર",
+        "selectBankCategory": "બેંક શ્રેણી પસંદ કરો",
+        "allBankCategories": "બધી શ્રેણીઓ",
+        "publicSector": "જાહેર ક્ષેત્ર",
+        "privateSector": "ખાનગી ક્ષેત્ર",
+        "smallFinanceBank": "નાની ફાયનાન્સ બેંક",
+        "paymentBank": "પેમેન્ટ બેંક",
+        "nbfc": "NBFC",
+        "foreignBank": "વિદેશી બેંક"
+      },
+      "downloadCsv": "CSV ડાઉનલોડ કરો",
+      "tooltip": {
+        "tenure": "મુદત: {{min}} - {{max}} મહિના",
+        "maxAmount": "મહત્તમ રકમ: {{amount}}",
+        "processingFee": "પ્રોસેસિંગ ફી: {{fee}}",
+        "rateType": "દરનો પ્રકાર: {{type}}"
+      },
+      "noResults": "તમારા વર્તમાન ફિલ્ટર્સ સાથે કોઈ લોન ઉત્પાદનો મેળ ખાતા નથી."
+    },
+    "themeToggle": {
+      "light": "લાઇટ મોડ પર સ્વિચ કરો",
+      "dark": "ડાર્ક મોડ પર સ્વિચ કરો",
+      "toggle": "થીમ ટૉગલ કરો"
+    },
+    "keyRateStatistics": {
+      "title": "મુખ્ય દર આંકડા",
+      "description": "વર્તમાન ફિલ્ટર્સ પર આધારિત વ્યાજ દરોનો સારાંશ.",
+      "overallAvgRate": "એકંદરે સરેરાશ દર",
+      "overallMinRate": "એકંદરે ન્યૂનતમ દર",
+      "overallMaxRate": "એકંદરે મહત્તમ દર",
+      "lowestAvgRateLoanType": "સૌથી વધુ સ્પર્ધાત્મક લોન પ્રકાર",
+      "highestAvgRateLoanType": "સૌથી મોંઘો લોન પ્રકાર",
+      "avgRateSuffix": "સરેરાશ દર",
+      "noData": "આંકડા માટે પૂરતો ડેટા નથી."
+    },
+    "bankRatesComparisonChart": {
+      "title": "પસંદ કરેલ લોન પ્રકાર માટે બેંક દરોની સરખામણી",
+      "description": "વિવિધ બેંકો વચ્ચે વ્યાજ દરો કેવી રીતે સરખાવવામાં આવે છે તે જોવા માટે લોનનો પ્રકાર પસંદ કરો.",
+      "selectLoanTypePlaceholder": "સરખામણી કરવા માટે લોનનો પ્રકાર પસંદ કરો",
+      "noData": "પસંદ કરેલ લોન પ્રકાર અને ફિલ્ટર્સ માટે કોઈ ડેટા ઉપલબ્ધ નથી.",
+      "yAxisLabel": "વ્યાજ દર (%)"
+    }
+  },
+  "loanTypes": {
+    "home": {
+      "name": "હોમ લોન",
+      "description": "સ્પર્ધાત્મક દરે તમારા સપનાનું ઘર ફાઇનાન્સ કરો.",
+      "processingFee": "લોનની રકમના 1% સુધી"
+    },
+    "personal": {
+      "name": "પર્સનલ લોન",
+      "description": "તમારી વ્યક્તિગત જરૂરિયાતો માટે લવચીક લોન.",
+      "processingFee": "લોનની રકમના 1-2%"
+    },
+    "education": {
+      "name": "એજ્યુકેશન લોન",
+      "description": "અમારા શિક્ષણ ધિરાણ સાથે તમારા ભવિષ્યમાં રોકાણ કરો.",
+      "processingFee": "સામાન્ય રીતે 0.5-1%"
+    },
+    "vehicle": {
+      "name": "વાહન લોન",
+      "description": "અમારી આકર્ષક વાહન લોન સાથે રસ્તા પર ઉતરો.",
+      "processingFee": "લોનની રકમના 1.5% સુધી"
+    },
+    "business": {
+      "name": "બિઝનેસ લોન",
+      "description": "અમારી અનુરૂપ લોન વડે તમારા વ્યવસાય વૃદ્ધિને વેગ આપો.",
+      "processingFee": "લોનની રકમના 1-2.5%, શરતોને આધીન"
+    },
+    "gold": {
+      "name": "ગોલ્ડ લોન",
+      "description": "તાત્કાલિક નાણાકીય જરૂરિયાતો માટે તમારી સોનાની સંપત્તિનો લાભ લો.",
+      "processingFee": "લોનની રકમના 0.5-1.5%"
+    },
+    "rateTypes": {
+      "fixed": "સ્થિર",
+      "floating": "ફ્લોટિંગ"
+    }
+  },
+  "loanApplication": {
+    "title": "લોન અરજી",
+    "steps": {
+      "personalDetails": "વ્યક્તિગત વિગતો",
+      "incomeDetails": "આવકની વિગતો",
+      "documentUpload": "દસ્તાવેજ અપલોડ",
+      "reviewSubmit": "સમીક્ષા અને સબમિટ કરો"
+    },
+    "next": "આગળ",
+    "previous": "પાછલું",
+    "submit": "અરજી સબમિટ કરો",
+    "selectLoanType": "લોનનો પ્રકાર પસંદ કરો",
+    "selectLoanTypePlaceholder": "લોનનો પ્રકાર પસંદ કરો...",
+    "personalDetailsForm": {
+      "fullName": "પૂરું નામ",
+      "fullNamePlaceholder": "તમારું પૂરું નામ દાખલ કરો",
+      "email": "ઈમેલ સરનામું",
+      "emailPlaceholder": "તમારું ઈમેલ દાખલ કરો",
+      "phone": "ફોન નંબર",
+      "phonePlaceholder": "તમારો ફોન નંબર દાખલ કરો"
+    },
+    "incomeDetailsForm": {
+      "monthlyIncome": "માસિક આવક (INR)",
+      "monthlyIncomePlaceholderINR": "દા.ત., 50000",
+      "employmentStatus": "રોજગારની સ્થિતિ",
+      "employmentStatusPlaceholder": "રોજગારની સ્થિતિ પસંદ કરો",
+      "employed": "નોકરીયાત",
+      "selfEmployed": "સ્વ-રોજગાર",
+      "unemployed": "બેરોજગાર"
+    },
+    "documentUploadForm": {
+      "idProof": "ઓળખનો પુરાવો",
+      "addressProof": "સરનામાનો પુરાવો",
+      "uploadHint": "અપલોડ કરવા માટે આ વિસ્તારમાં ફાઇલ પર ક્લિક કરો અથવા ખેંચો",
+      "notUploaded": "અપલોડ કરેલ નથી"
+    },
+    "reviewSubmitForm": {
+      "reviewDetails": "સબમિટ કરતા પહેલા કૃપા કરીને તમારી અરજીની વિગતોની સમીક્ષા કરો.",
+      "submitting": "સબમિટ કરી રહ્યાં છીએ...",
+      "loading": "વિગતો લોડ કરી રહ્યાં છીએ..."
+    },
+    "applicationSubmitted": "અરજી સબમિટ થઈ!",
+    "applicationSubmittedDesc": "તમારી લોન અરજી સફળતાપૂર્વક સબમિટ કરવામાં આવી છે. અમે ટૂંક સમયમાં તમારો સંપર્ક કરીશું."
+  },
+  "compareLoans": {
+    "title": "લોન વિકલ્પોની સરખામણી કરો",
+    "loanTypeComparison": "લોનના પ્રકારની સરખામણી",
+    "loanType": "લોનનો પ્રકાર",
+    "interestRate": "વ્યાજ દર",
+    "maxTenure": "મહત્તમ મુદત (મહિના)",
+    "maxAmount": "મહત્તમ રકમ (INR)",
+    "calculateEMI": "EMI ગણતરી કરો",
+    "selectForEMI": "EMI ગણતરી માટે પસંદ કરો",
+    "loanAmount": "લોનની રકમ",
+    "loanTenure": "લોનની મુદત (મહિના)",
+    "monthlyEMI": "માસિક EMI: {{emi}}",
+    "enterAllDetails": "કૃપા કરીને લોનની રકમ, મુદત દાખલ કરો અને વ્યાજ દર પસંદ/દાખલ કરો.",
+    "clickToCalculateEMI": "માસિક ચુકવણી જોવા માટે 'EMI ગણતરી કરો' પર ક્લિક કરો.",
+    "usingSelectedRate": "પસંદ કરેલ લોન પ્રકાર દરનો ઉપયોગ કરીને: {{rate}}%",
+    "selectOrEnterRate": "ઉપરના કોષ્ટકમાંથી લોનનો પ્રકાર પસંદ કરો અથવા જાતે વ્યાજ દર દાખલ કરો.",
+    "calculateEMIButton": "EMI ગણતરી કરો",
+    "emiDetails": "EMI વિગતો",
+    "loanRepaymentBreakdown": "લોન ચુકવણીનું વિભાજન",
+    "principalAmount": "મૂળ રકમ",
+    "totalInterest": "કુલ વ્યાજ",
+    "totalPayment": "કુલ ચુકવણી"
+  },
+  "interestRatesPage": {
+    "title": "વર્તમાન વ્યાજ દરો",
+    "loanCategory": "લોન શ્રેણી",
+    "rate": "વ્યાજ દર (વાર્ષિક)",
+    "updatedOn": "{{date}} ના રોજ દરો અપડેટ થયા"
+  },
+  "reportPage": {
+    "title": "ડેશબોર્ડ રિપોર્ટ ડાઉનલોડ કરો",
+    "generateTitle": "PDF સારાંશ બનાવો",
+    "description": "વર્તમાન લોન ડેશબોર્ડ ડેટાનો PDF સારાંશ બનાવવા અને ડાઉનલોડ કરવા માટે નીચેના બટન પર ક્લિક કરો.",
+    "infoText": "PDF માં મુખ્ય મેટ્રિક્સ, લોન પ્રકારના વ્યાજ દરો અને બેંક-વિશિષ્ટ લોન ઓફરિંગ્સ શામેલ હશે.",
+    "downloadButton": "PDF બનાવો અને ડાઉનલોડ કરો",
+    "imageAlt": "નાણાકીય અહેવાલનું શૈલીયુક્ત પ્રતિનિધિત્વ",
+    "imageCaption": "તમારો વ્યાપક લોન ડેટા, સારાંશિત."
+  },
+  "footer": {
+    "copyRight": "© {{year}} LoanView. સર્વાધિકાર સુરક્ષિત."
+  },
+  "formValidation": {
+    "required": "આ ક્ષેત્ર જરૂરી છે.",
+    "invalidEmail": "અમાન્ય ઈમેલ સરનામું.",
+    "positiveNumber": "ધન સંખ્યા હોવી જોઈએ."
+  },
+  "pdf": {
+    "reportGenerated": "રિપોર્ટ બનાવવામાં આવ્યો",
+    "page": "પૃષ્ઠ",
+    "years": "વર્ષ",
+    "applicationSummary": {
+      "title": "લોન અરજીનો સારાંશ"
+    },
+    "keyFacts": {
+      "title": "મુખ્ય હકીકતોનું નિવેદન"
+    },
+    "marketComparison": {
+      "title": "{{loanType}} માટે બજારની સરખામણી"
+    },
+    "loanSummary": {
+      "loanAmount": "લોનની રકમ",
+      "principalAmount": "મૂળ રકમ",
+      "interestRate": "વાર્ષિક વ્યાજ દર",
+      "tenure": "મુદત",
+      "monthlyEMI": "માસિક EMI",
+      "totalInterest": "કુલ ચૂકવવાપાત્ર વ્યાજ",
+      "totalPayment": "કુલ ચુકવણી (મૂળ + વ્યાજ)"
+    },
+    "paymentPlan": {
+      "title": "ચુકવણી યોજના (અમોર્ટાઇઝેશન શેડ્યૂલ)",
+      "month": "મહિનો #",
+      "principal": "મૂળ",
+      "interest": "વ્યાજ",
+      "totalPayment": "કુલ ચુકવણી",
+      "balance": "બાકી રહેલી રકમ"
+    },
+    "disclaimers": {
+      "title": "અસ્વીકરણ અને ચેતવણીઓ",
+      "discrepancy": "કૃપા કરીને આ નિવેદનની કાળજીપૂર્વક સમીક્ષા કરો. કોઈપણ વિસંગતતા નિવેદનની તારીખથી 30 દિવસની અંદર બેંકને જાણ કરવી જોઈએ.",
+      "fraudWarning": "છેતરપિંડીની ચેતવણી: તમારો PIN, OTP, અથવા કોઈપણ ગુપ્ત બેંકિંગ વિગતો કોઈની સાથે શેર કરશો નહીં. બેંક ક્યારેય આ માહિતી માંગતી નથી."
+    },
+    "support": {
+      "title": "આધાર અને સંપર્ક માહિતી",
+      "helpline": "ગ્રાહક આધાર હેલ્પલાઇન"
+    },
+    "summary": "સારાંશ",
+    "dashboardMetrics": "ડેશબોર્ડ મેટ્રિક્સ"
+  },
+  "currency": {
+    "inr": "INR"
+  },
+  "N/A": "N/A"
+}

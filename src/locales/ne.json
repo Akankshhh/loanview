@@ -1,0 +1,220 @@
+
+{
+  "appName": "LoanView",
+  "nav": {
+    "dashboard": "Dashboard",
+    "applyLoan": "Apply for Loan",
+    "compareLoans": "Compare Loans",
+    "interestRates": "Interest Rates",
+    "downloadReport": "Download Report"
+  },
+  "dashboard": {
+    "title": "Loan Dashboard",
+    "totalLoans": "Total Loans",
+    "avgLoanSize": "Average Loan Size (INR)",
+    "approvalRate": "Approval Rate",
+    "aiSuggestions": {
+      "title": "AI-Powered Localization Insights",
+      "description": "Enter a target demographic to get culturally relevant visualization and interpretation suggestions for the loan data.",
+      "demographicLabel": "Target Demographic",
+      "demographicPlaceholder": "e.g., Young Professionals in Urban Area",
+      "getSuggestions": "Get Suggestions",
+      "visualizationSuggestion": "Visualization Suggestion",
+      "interpretationSuggestion": "Interpretation Suggestion",
+      "noSuggestions": "Enter a demographic and click 'Get Suggestions' to see AI insights.",
+      "loadingSuggestions": "Loading suggestions...",
+      "errorSuggestions": "Could not fetch suggestions. Please try again."
+    },
+    "recentActivity": "Recent Activity",
+    "noRecentActivity": "No recent activity to display.",
+    "loanInterestRatesChart": {
+      "title": "Loan Interest Rates Overview",
+      "description": "A visual comparison of interest rates for different loan types."
+    },
+    "bankLoanRates": {
+      "title": "Bank Loan Offerings",
+      "description": "Compare interest rates for various loans from different banks.",
+      "bankName": "Bank Name",
+      "loanType": "Loan Type",
+      "interestRate": "Interest Rate (%)",
+      "filters": {
+        "searchPlaceholder": "Search by bank or loan type...",
+        "selectBank": "Select Bank",
+        "allBanks": "All Banks",
+        "selectLoanType": "Select Loan Type",
+        "allLoanTypes": "All Loan Types",
+        "interestRateRange": "Interest Rate Range",
+        "minRate": "Min Rate",
+        "maxRate": "Max Rate",
+        "selectBankCategory": "Select Bank Category",
+        "allBankCategories": "All Categories",
+        "publicSector": "Public Sector",
+        "privateSector": "Private Sector",
+        "smallFinanceBank": "Small Finance Bank",
+        "paymentBank": "Payment Bank",
+        "nbfc": "NBFC",
+        "foreignBank": "Foreign Bank"
+      },
+      "downloadCsv": "Download CSV",
+      "tooltip": {
+        "tenure": "Tenure: {{min}} - {{max}} months",
+        "maxAmount": "Max Amount: {{amount}}",
+        "processingFee": "Processing Fee: {{fee}}",
+        "rateType": "Rate Type: {{type}}"
+      },
+       "noResults": "No loan products match your current filters."
+    },
+    "themeToggle": {
+      "light": "Switch to Light Mode",
+      "dark": "Switch to Dark Mode",
+      "toggle": "Toggle theme"
+    },
+    "keyRateStatistics": {
+      "title": "Key Rate Statistics",
+      "description": "Summary of interest rates based on current filters.",
+      "overallAvgRate": "Overall Avg. Rate",
+      "overallMinRate": "Overall Min. Rate",
+      "overallMaxRate": "Overall Max. Rate",
+      "lowestAvgRateLoanType": "Most Competitive Loan Type",
+      "highestAvgRateLoanType": "Most Expensive Loan Type",
+      "avgRateSuffix": "Avg. Rate",
+      "noData": "Not enough data for statistics."
+    },
+    "bankRatesComparisonChart": {
+      "title": "Bank Rates Comparison for Selected Loan Type",
+      "description": "Select a loan type to see how interest rates compare across different banks.",
+      "selectLoanTypePlaceholder": "Select a Loan Type to Compare",
+      "noData": "No data available for the selected loan type and filters.",
+      "yAxisLabel": "Interest Rate (%)"
+    }
+  },
+  "loanTypes": {
+    "home": {
+      "name": "Home Loan",
+      "description": "Finance your dream home with competitive rates.",
+      "processingFee": "Up to 1% of loan amount"
+    },
+    "personal": {
+      "name": "Personal Loan",
+      "description": "Flexible loans for your personal needs.",
+      "processingFee": "1-2% of loan amount"
+    },
+    "education": {
+      "name": "Education Loan",
+      "description": "Invest in your future with our education financing.",
+      "processingFee": "Typically 0.5-1%"
+    },
+    "vehicle": {
+      "name": "Vehicle Loan",
+      "description": "Get on the road with our attractive vehicle loans.",
+      "processingFee": "Up to 1.5% of loan amount"
+    },
+    "business": {
+      "name": "Business Loan",
+      "description": "Fuel your business growth with our tailored loans.",
+      "processingFee": "1-2.5% of loan amount, subject to terms"
+    },
+    "gold": {
+      "name": "Gold Loan",
+      "description": "Leverage your gold assets for immediate financial needs.",
+      "processingFee": "0.5-1.5% of loan amount"
+    },
+    "rateTypes": {
+      "fixed": "Fixed",
+      "floating": "Floating"
+    }
+  },
+  "loanApplication": {
+    "title": "Loan Application",
+    "steps": {
+      "personalDetails": "Personal Details",
+      "incomeDetails": "Income Details",
+      "documentUpload": "Document Upload",
+      "reviewSubmit": "Review & Submit"
+    },
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit Application",
+    "selectLoanType": "Select Loan Type",
+    "selectLoanTypePlaceholder": "Choose a loan type...",
+    "personalDetailsForm": {
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "Enter your full name",
+      "email": "Email Address",
+      "emailPlaceholder": "Enter your email",
+      "phone": "Phone Number",
+      "phonePlaceholder": "Enter your phone number"
+    },
+    "incomeDetailsForm": {
+      "monthlyIncome": "Monthly Income (INR)",
+      "monthlyIncomePlaceholderINR": "e.g., 50000",
+      "employmentStatus": "Employment Status",
+      "employmentStatusPlaceholder": "Select employment status",
+      "employed": "Employed",
+      "selfEmployed": "Self-Employed",
+      "unemployed": "Unemployed"
+    },
+    "documentUploadForm": {
+      "idProof": "ID Proof",
+      "addressProof": "Address Proof",
+      "uploadHint": "Click or drag file to this area to upload",
+      "notUploaded": "Not Uploaded"
+    },
+    "reviewSubmitForm": {
+      "reviewDetails": "Please review your application details before submitting.",
+      "submitting": "Submitting...",
+      "loading": "Loading details..."
+    },
+    "applicationSubmitted": "Application Submitted!",
+    "applicationSubmittedDesc": "Your loan application has been successfully submitted. We will contact you shortly."
+  },
+  "compareLoans": {
+    "title": "Compare Loan Options",
+    "loanTypeComparison": "Loan Type Comparison",
+    "loanType": "Loan Type",
+    "interestRate": "Interest Rate",
+    "maxTenure": "Max Tenure (Months)",
+    "maxAmount": "Max Amount (INR)",
+    "calculateEMI": "Calculate EMI",
+    "selectForEMI": "Select for EMI Calc",
+    "loanAmount": "Loan Amount",
+    "loanTenure": "Loan Tenure (Months)",
+    "monthlyEMI": "Monthly EMI: {{emi}}",
+    "enterAllDetails": "Please enter Loan Amount, Tenure, and select/enter an Interest Rate.",
+    "clickToCalculateEMI": "Click 'Calculate EMI' to see the monthly payment.",
+    "usingSelectedRate": "Using selected loan type rate: {{rate}}%",
+    "selectOrEnterRate": "Select a loan type from the table above or enter an interest rate manually.",
+    "calculateEMIButton": "Calculate EMI"
+  },
+  "interestRatesPage": {
+    "title": "Current Interest Rates",
+    "loanCategory": "Loan Category",
+    "rate": "Interest Rate (p.a.)",
+    "updatedOn": "Rates updated on {{date}}"
+  },
+  "reportPage": {
+    "title": "Download Dashboard Report",
+    "generateTitle": "Generate PDF Summary",
+    "description": "Click the button below to generate and download a PDF summary of the current loan dashboard data.",
+    "infoText": "The PDF will include key metrics, loan type interest rates, and bank-specific loan offerings.",
+    "downloadButton": "Generate and Download PDF",
+    "imageAlt": "Stylized representation of a financial report",
+    "imageCaption": "Your comprehensive loan data, summarized."
+  },
+  "footer": {
+    "copyRight": "© {{year}} LoanView. All rights reserved."
+  },
+  "formValidation": {
+    "required": "This field is required.",
+    "invalidEmail": "Invalid email address.",
+    "positiveNumber": "Must be a positive number."
+  },
+  "pdf": {
+    "summary": "Summary",
+    "dashboardMetrics": "Dashboard Metrics"
+  },
+  "currency": {
+    "inr": "INR"
+  },
+  "N/A": "N/A"
+}

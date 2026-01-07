@@ -1,0 +1,262 @@
+{
+  "appName": "LoanView",
+  "nav": {
+    "dashboard": "Dashboard",
+    "applyLoan": "Kredit Beantragen",
+    "compareLoans": "Kredite Vergleichen",
+    "interestRates": "Zinssätze",
+    "downloadReport": "Bericht Herunterladen"
+  },
+  "dashboard": {
+    "title": "Kredit-Dashboard",
+    "totalLoans": "Gesamtkredite",
+    "avgLoanSize": "Ø Kreditgröße (INR)",
+    "approvalRate": "Genehmigungsrate",
+    "aiSuggestions": {
+      "title": "KI-gestützte Lokalisierungseinblicke",
+      "description": "Geben Sie eine Zielgruppe ein, um kulturell relevante Visualisierungs- und Interpretationsvorschläge für die Kreditdaten zu erhalten.",
+      "demographicLabel": "Zielgruppe",
+      "demographicPlaceholder": "z.B. Junge Berufstätige im städtischen Raum",
+      "getSuggestions": "Vorschläge Erhalten",
+      "visualizationSuggestion": "Visualisierungsvorschlag",
+      "interpretationSuggestion": "Interpretationsvorschlag",
+      "noSuggestions": "Geben Sie eine Zielgruppe ein und klicken Sie auf 'Vorschläge Erhalten', um KI-Einblicke zu sehen.",
+      "loadingSuggestions": "Vorschläge werden geladen...",
+      "errorSuggestions": "Vorschläge konnten nicht abgerufen werden. Bitte versuchen Sie es erneut."
+    },
+    "recentActivity": "Letzte Aktivität",
+    "noRecentActivity": "Keine aktuellen Aktivitäten zum Anzeigen.",
+    "loanInterestRatesChart": {
+      "title": "Übersicht Kreditzinsen",
+      "description": "Ein visueller Vergleich der Zinssätze für verschiedene Kreditarten."
+    },
+    "bankLoanRates": {
+      "title": "Bankkreditangebote",
+      "description": "Vergleichen Sie die Zinssätze für verschiedene Kredite von verschiedenen Banken.",
+      "bankName": "Name der Bank",
+      "loanType": "Kreditart",
+      "interestRate": "Zinssatz (%)",
+       "filters": {
+        "searchPlaceholder": "Suche nach Bank oder Kreditart...",
+        "selectBank": "Bank Auswählen",
+        "allBanks": "Alle Banken",
+        "selectLoanType": "Kreditart Auswählen",
+        "allLoanTypes": "Alle Kreditarten",
+        "interestRateRange": "Zinssatzbereich",
+        "minRate": "Min. Zinssatz",
+        "maxRate": "Max. Zinssatz",
+        "selectBankCategory": "Bankkategorie Auswählen",
+        "allBankCategories": "Alle Kategorien",
+        "publicSector": "Öffentlicher Sektor",
+        "privateSector": "Privater Sektor",
+        "smallFinanceBank": "Kleine Finanzbank",
+        "paymentBank": "Zahlungsbank",
+        "nbfc": "NBFC",
+        "foreignBank": "Ausländische Bank"
+      },
+      "downloadCsv": "CSV Herunterladen",
+      "tooltip": {
+        "tenure": "Laufzeit: {{min}} - {{max}} Monate",
+        "maxAmount": "Max. Betrag: {{amount}}",
+        "processingFee": "Bearbeitungsgebühr: {{fee}}",
+        "rateType": "Zinssatzart: {{type}}"
+      },
+       "noResults": "Keine Kreditprodukte entsprechen Ihren aktuellen Filtern."
+    },
+    "themeToggle": {
+      "light": "Zum Hellen Modus wechseln",
+      "dark": "Zum Dunklen Modus wechseln",
+      "toggle": "Thema wechseln"
+    },
+    "keyRateStatistics": {
+      "title": "Wichtige Zinsstatistiken",
+      "description": "Zusammenfassung der Zinssätze basierend auf aktuellen Filtern.",
+      "overallAvgRate": "Gesamtdurchschnittszins",
+      "overallMinRate": "Gesamtmindestzins",
+      "overallMaxRate": "Gesamthöchstzins",
+      "lowestAvgRateLoanType": "Wettbewerbsfähigste Kreditart",
+      "highestAvgRateLoanType": "Teuerste Kreditart",
+      "avgRateSuffix": "Durchschnittszins",
+      "noData": "Nicht genügend Daten für Statistiken."
+    },
+    "bankRatesComparisonChart": {
+      "title": "Bankzinsvergleich für ausgewählte Kreditart",
+      "description": "Wählen Sie eine Kreditart, um zu sehen, wie sich die Zinssätze verschiedener Banken vergleichen.",
+      "selectLoanTypePlaceholder": "Wählen Sie eine Kreditart zum Vergleichen",
+      "noData": "Für die ausgewählte Kreditart und Filter sind keine Daten verfügbar.",
+      "yAxisLabel": "Zinssatz (%)"
+    }
+  },
+  "loanTypes": {
+    "home": {
+      "name": "Immobilienkredit",
+      "description": "Finanzieren Sie Ihr Traumhaus zu wettbewerbsfähigen Konditionen.",
+      "processingFee": "Bis zu 1% des Kreditbetrags"
+    },
+    "personal": {
+      "name": "Privatkredit",
+      "description": "Flexible Kredite für Ihre persönlichen Bedürfnisse.",
+      "processingFee": "1-2% des Kreditbetrags"
+    },
+    "education": {
+      "name": "Bildungskredit",
+      "description": "Investieren Sie in Ihre Zukunft mit unserer Bildungsfinanzierung.",
+       "processingFee": "Typischerweise 0,5-1%"
+    },
+    "vehicle": {
+      "name": "Fahrzeugkredit",
+      "description": "Starten Sie durch mit unseren attraktiven Fahrzeugkrediten.",
+      "processingFee": "Bis zu 1,5% des Kreditbetrags"
+    },
+    "business": {
+      "name": "Geschäftskredit",
+      "description": "Fördern Sie Ihr Geschäftswachstum mit unseren maßgeschneiderten Krediten.",
+      "processingFee": "1-2,5% des Kreditbetrags, vorbehaltlich Bedingungen"
+    },
+    "gold": {
+      "name": "Goldkredit",
+      "description": "Nutzen Sie Ihre Goldanlagen für sofortige finanzielle Bedürfnisse.",
+      "processingFee": "0,5-1,5% des Kreditbetrags"
+    },
+    "rateTypes": {
+      "fixed": "Fest",
+      "floating": "Variabel"
+    }
+  },
+  "loanApplication": {
+    "title": "Kreditantrag",
+    "steps": {
+      "personalDetails": "Persönliche Angaben",
+      "incomeDetails": "Einkommensnachweise",
+      "documentUpload": "Dokumentenupload",
+      "reviewSubmit": "Überprüfen & Absenden"
+    },
+    "next": "Weiter",
+    "previous": "Zurück",
+    "submit": "Antrag Absenden",
+    "selectLoanType": "Kreditart Auswählen",
+    "selectLoanTypePlaceholder": "Wählen Sie eine Kreditart...",
+    "personalDetailsForm": {
+      "fullName": "Vollständiger Name",
+      "fullNamePlaceholder": "Geben Sie Ihren vollständigen Namen ein",
+      "email": "E-Mail-Adresse",
+      "emailPlaceholder": "Geben Sie Ihre E-Mail-Adresse ein",
+      "phone": "Telefonnummer",
+      "phonePlaceholder": "Geben Sie Ihre Telefonnummer ein"
+    },
+    "incomeDetailsForm": {
+      "monthlyIncome": "Monatliches Einkommen (INR)",
+      "monthlyIncomePlaceholderINR": "z.B. 50000",
+      "employmentStatus": "Beschäftigungsstatus",
+      "employmentStatusPlaceholder": "Wählen Sie den Beschäftigungsstatus",
+      "employed": "Angestellt",
+      "selfEmployed": "Selbstständig",
+      "unemployed": "Arbeitslos"
+    },
+    "documentUploadForm": {
+      "idProof": "Identitätsnachweis",
+      "addressProof": "Adressnachweis",
+      "uploadHint": "Klicken oder ziehen Sie eine Datei in diesen Bereich, um sie hochzuladen",
+      "notUploaded": "Nicht hochgeladen"
+    },
+    "reviewSubmitForm": {
+      "reviewDetails": "Bitte überprüfen Sie Ihre Antragsdetails vor dem Absenden.",
+      "submitting": "Wird gesendet...",
+      "loading": "Details werden geladen..."
+    },
+    "applicationSubmitted": "Antrag Gesendet!",
+    "applicationSubmittedDesc": "Ihr Kreditantrag wurde erfolgreich übermittelt. Wir werden Sie in Kürze kontaktieren."
+  },
+  "compareLoans": {
+    "title": "Kreditoptionen Vergleichen",
+    "loanTypeComparison": "Vergleich der Kreditarten",
+    "loanType": "Kreditart",
+    "interestRate": "Zinssatz",
+    "maxTenure": "Max. Laufzeit (Monate)",
+    "maxAmount": "Max. Betrag (INR)",
+    "calculateEMI": "EMI Berechnen",
+    "selectForEMI": "Für EMI-Berechnung Auswählen",
+    "loanAmount": "Kreditbetrag",
+    "loanTenure": "Kreditlaufzeit (Monate)",
+    "monthlyEMI": "Monatliche EMI: {{emi}}",
+    "enterAllDetails": "Bitte geben Sie Kreditbetrag, Laufzeit ein und wählen/geben Sie einen Zinssatz ein.",
+    "clickToCalculateEMI": "Klicken Sie auf 'EMI Berechnen', um die monatliche Zahlung anzuzeigen.",
+    "usingSelectedRate": "Verwendung des ausgewählten Kreditzinssatzes: {{rate}}%",
+    "selectOrEnterRate": "Wählen Sie eine Kreditart aus der obigen Tabelle oder geben Sie einen Zinssatz manuell ein.",
+    "calculateEMIButton": "EMI Berechnen",
+    "emiDetails": "EMI-Details",
+    "loanRepaymentBreakdown": "Kreditrückzahlungsaufschlüsselung",
+    "principalAmount": "Hauptbetrag",
+    "totalInterest": "Gesamtzinsen",
+    "totalPayment": "Gesamtzahlung"
+  },
+  "interestRatesPage": {
+    "title": "Aktuelle Zinssätze",
+    "loanCategory": "Kreditkategorie",
+    "rate": "Zinssatz (p.a.)",
+    "updatedOn": "Zinsen aktualisiert am {{date}}"
+  },
+  "reportPage": {
+    "title": "Dashboard-Bericht Herunterladen",
+    "generateTitle": "PDF-Zusammenfassung Erstellen",
+    "description": "Klicken Sie auf die Schaltfläche unten, um eine PDF-Zusammenfassung der aktuellen Dashboard-Daten zu erstellen und herunterzuladen.",
+    "infoText": "Das PDF enthält Kennzahlen, Zinssätze nach Kreditart und bankenspezifische Kreditangebote.",
+    "downloadButton": "PDF Erstellen und Herunterladen",
+    "imageAlt": "Stilisierte Darstellung eines Finanzberichts",
+    "imageCaption": "Ihre umfassenden Kreditdaten, zusammengefasst."
+  },
+  "footer": {
+    "copyRight": "© {{year}} LoanView. Alle Rechte vorbehalten."
+  },
+  "formValidation": {
+    "required": "Dieses Feld ist erforderlich.",
+    "invalidEmail": "Ungültige E-Mail-Adresse.",
+    "positiveNumber": "Muss eine positive Zahl sein."
+  },
+  "pdf": {
+    "reportGenerated": "Bericht erstellt am",
+    "page": "Seite",
+    "years": "Jahre",
+    "applicationSummary": {
+      "title": "Zusammenfassung des Kreditantrags"
+    },
+    "keyFacts": {
+      "title": "Wichtige Fakten"
+    },
+    "marketComparison": {
+      "title": "Marktvergleich für {{loanType}}"
+    },
+    "loanSummary": {
+      "loanAmount": "Kreditbetrag",
+      "principalAmount": "Kapitalbetrag",
+      "interestRate": "Jährlicher Zinssatz",
+      "tenure": "Laufzeit",
+      "monthlyEMI": "Monatliche EMI",
+      "totalInterest": "Gesamte zu zahlende Zinsen",
+      "totalPayment": "Gesamtzahlung (Kapital + Zinsen)"
+    },
+    "paymentPlan": {
+      "title": "Zahlungsplan (Tilgungsplan)",
+      "month": "Monat #",
+      "principal": "Kapital",
+      "interest": "Zinsen",
+      "totalPayment": "Gesamtzahlung",
+      "balance": "Restbetrag"
+    },
+    "disclaimers": {
+      "title": "Haftungsausschlüsse und Warnungen",
+      "discrepancy": "Bitte überprüfen Sie diese Aufstellung sorgfältig. Jede Unstimmigkeit sollte der Bank innerhalb von 30 Tagen nach dem Aufstellungsdatum gemeldet werden.",
+      "fraudWarning": "Betrugswarnung: Teilen Sie Ihre PIN, Ihr OTP oder andere vertrauliche Bankdaten mit niemandem. Die Bank fragt niemals nach diesen Informationen."
+    },
+    "support": {
+      "title": "Support & Kontaktinformationen",
+      "helpline": "Kunden-Support-Hotline"
+    },
+    "summary": "Zusammenfassung",
+    "dashboardMetrics": "Dashboard-Metriken"
+  },
+  "currency": {
+    "inr": "INR"
+  },
+  "N/A": "N/V"
+}

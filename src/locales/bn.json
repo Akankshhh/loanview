@@ -1,0 +1,262 @@
+{
+  "appName": "LoanView",
+  "nav": {
+    "dashboard": "ড্যাশবোর্ড",
+    "applyLoan": "ঋণের জন্য আবেদন করুন",
+    "compareLoans": "ঋণ তুলনা করুন",
+    "interestRates": "সুদের হার",
+    "downloadReport": "রিপোর্ট ডাউনলোড করুন"
+  },
+  "dashboard": {
+    "title": "ঋণ ড্যাশবোর্ড",
+    "totalLoans": "মোট ঋণ",
+    "avgLoanSize": "গড় ঋণের আকার (INR)",
+    "approvalRate": "অনুমোদনের হার",
+    "aiSuggestions": {
+      "title": "এআই-চালিত স্থানীয়করণ অন্তর্দৃষ্টি",
+      "description": "ঋণের ডেটার জন্য সাংস্কৃতিকভাবে প্রাসঙ্গিক ভিজ্যুয়ালাইজেশন এবং ব্যাখ্যার পরামর্শ পেতে একটি লক্ষ্য জনসংখ্যা লিখুন।",
+      "demographicLabel": "লক্ষ্য জনসংখ্যা",
+      "demographicPlaceholder": "যেমন, শহরাঞ্চলের তরুণ পেশাদার",
+      "getSuggestions": "পরামর্শ পান",
+      "visualizationSuggestion": "ভিজ্যুয়ালাইজেশন পরামর্শ",
+      "interpretationSuggestion": "ব্যাখ্যার পরামর্শ",
+      "noSuggestions": "একটি জনসংখ্যা লিখুন এবং এআই অন্তর্দৃষ্টি দেখতে 'পরামর্শ পান' ক্লিক করুন।",
+      "loadingSuggestions": "পরামর্শ লোড হচ্ছে...",
+      "errorSuggestions": "পরামর্শ আনতে পারা যায়নি। অনুগ্রহ করে আবার চেষ্টা করুন।"
+    },
+    "recentActivity": "সাম্প্রতিক কার্যকলাপ",
+    "noRecentActivity": "প্রদর্শনের জন্য কোনও সাম্প্রতিক কার্যকলাপ নেই।",
+    "loanInterestRatesChart": {
+      "title": "ঋণের সুদের হারের সংক্ষিপ্ত বিবরণ",
+      "description": "বিভিন্ন ধরনের ঋণের জন্য সুদের হারের একটি ভিজ্যুয়াল তুলনা।"
+    },
+    "bankLoanRates": {
+      "title": "ব্যাংক ঋণ অফার",
+      "description": "বিভিন্ন ব্যাংক থেকে বিভিন্ন ঋণের জন্য সুদের হার তুলনা করুন।",
+      "bankName": "ব্যাংকের নাম",
+      "loanType": "ঋণের প্রকার",
+      "interestRate": "সুদের হার (%)",
+      "filters": {
+        "searchPlaceholder": "ব্যাংক বা ঋণের প্রকার দ্বারা অনুসন্ধান করুন...",
+        "selectBank": "ব্যাংক নির্বাচন করুন",
+        "allBanks": "সকল ব্যাংক",
+        "selectLoanType": "ঋণের প্রকার নির্বাচন করুন",
+        "allLoanTypes": "সকল ঋণের প্রকার",
+        "interestRateRange": "সুদের হারের পরিসর",
+        "minRate": "সর্বনিম্ন হার",
+        "maxRate": "সর্বোচ্চ হার",
+        "selectBankCategory": "ব্যাংকের বিভাগ নির্বাচন করুন",
+        "allBankCategories": "সকল বিভাগ",
+        "publicSector": "সরকারি খাত",
+        "privateSector": "বেসরকারি খাত",
+        "smallFinanceBank": "ক্ষুদ্র অর্থ ব্যাংক",
+        "paymentBank": "পেমেন্ট ব্যাংক",
+        "nbfc": "এনবিএফসি",
+        "foreignBank": "বিদেশী ব্যাংক"
+      },
+      "downloadCsv": "CSV ডাউনলোড করুন",
+      "tooltip": {
+        "tenure": "মেয়াদ: {{min}} - {{max}} মাস",
+        "maxAmount": "সর্বোচ্চ পরিমাণ: {{amount}}",
+        "processingFee": "প্রসেসিং ফি: {{fee}}",
+        "rateType": "হারের প্রকার: {{type}}"
+      },
+      "noResults": "আপনার বর্তমান ফিল্টারগুলির সাথে কোনও ঋণ পণ্য মেলেনি।"
+    },
+    "themeToggle": {
+      "light": "লাইট মোডে স্যুইচ করুন",
+      "dark": "ডার্ক মোডে স্যুইচ করুন",
+      "toggle": "থিম পরিবর্তন করুন"
+    },
+    "keyRateStatistics": {
+      "title": "মূল হার পরিসংখ্যান",
+      "description": "বর্তমান ফিল্টারগুলির উপর ভিত্তি করে সুদের হারের সারাংশ।",
+      "overallAvgRate": "সামগ্রিক গড় হার",
+      "overallMinRate": "সামগ্রিক সর্বনিম্ন হার",
+      "overallMaxRate": "সামগ্রিক সর্বোচ্চ হার",
+      "lowestAvgRateLoanType": "সবচেয়ে প্রতিযোগিতামূলক ঋণের প্রকার",
+      "highestAvgRateLoanType": "সবচেয়ে ব্যয়বহুল ঋণের প্রকার",
+      "avgRateSuffix": "গড় হার",
+      "noData": "পরিসংখ্যানের জন্য পর্যাপ্ত ডেটা নেই।"
+    },
+    "bankRatesComparisonChart": {
+      "title": "নির্বাচিত ঋণের প্রকারের জন্য ব্যাংক হারের তুলনা",
+      "description": "বিভিন্ন ব্যাংকের মধ্যে সুদের হার কীভাবে তুলনা করা হয় তা দেখতে একটি ঋণের প্রকার নির্বাচন করুন।",
+      "selectLoanTypePlaceholder": "তুলনা করার জন্য একটি ঋণের প্রকার নির্বাচন করুন",
+      "noData": "নির্বাচিত ঋণের প্রকার এবং ফিল্টারগুলির জন্য কোনও ডেটা উপলব্ধ নেই।",
+      "yAxisLabel": "সুদের হার (%)"
+    }
+  },
+  "loanTypes": {
+    "home": {
+      "name": "হোম লোন",
+      "description": "প্রতিযোগিতামূলক হারে আপনার স্বপ্নের বাড়ির অর্থায়ন করুন।",
+      "processingFee": "ঋণের পরিমাণের ১% পর্যন্ত"
+    },
+    "personal": {
+      "name": "পার্সোনাল লোন",
+      "description": "আপনার ব্যক্তিগত প্রয়োজনের জন্য নমনীয় ঋণ।",
+      "processingFee": "ঋণের পরিমাণের ১-২%"
+    },
+    "education": {
+      "name": "শিক্ষা ঋণ",
+      "description": "আমাদের শিক্ষা অর্থায়নের মাধ্যমে আপনার ভবিষ্যতে বিনিয়োগ করুন।",
+      "processingFee": "সাধারণত ০.৫-১%"
+    },
+    "vehicle": {
+      "name": "যানবাহন ঋণ",
+      "description": "আমাদের আকর্ষণীয় যানবাহন ঋণের সাথে রাস্তায় নামুন।",
+      "processingFee": "ঋণের পরিমাণের ১.৫% পর্যন্ত"
+    },
+    "business": {
+      "name": "ব্যবসা ঋণ",
+      "description": "আমাদের উপযোগী ঋণ দিয়ে আপনার ব্যবসার বৃদ্ধিকে উৎসাহিত করুন।",
+      "processingFee": "ঋণের পরিমাণের ১-২.৫%, শর্তাবলী প্রযোজ্য"
+    },
+    "gold": {
+      "name": "সোনা ঋণ",
+      "description": "অবিলম্বে আর্থিক প্রয়োজনের জন্য আপনার সোনার সম্পদ ব্যবহার করুন।",
+      "processingFee": "ঋণের পরিমাণের ০.৫-১.৫%"
+    },
+    "rateTypes": {
+      "fixed": "স্থির",
+      "floating": "পরিবর্তনশীল"
+    }
+  },
+  "loanApplication": {
+    "title": "ঋণ আবেদন",
+    "steps": {
+      "personalDetails": "ব্যক্তিগত বিবরণ",
+      "incomeDetails": "আয়ের বিবরণ",
+      "documentUpload": "নথি আপলোড",
+      "reviewSubmit": "পর্যালোচনা ও জমা দিন"
+    },
+    "next": "পরবর্তী",
+    "previous": "পূর্ববর্তী",
+    "submit": "আবেদন জমা দিন",
+    "selectLoanType": "ঋণের প্রকার নির্বাচন করুন",
+    "selectLoanTypePlaceholder": "একটি ঋণের প্রকার নির্বাচন করুন...",
+    "personalDetailsForm": {
+      "fullName": "পুরো নাম",
+      "fullNamePlaceholder": "আপনার পুরো নাম লিখুন",
+      "email": "ইমেইল ঠিকানা",
+      "emailPlaceholder": "আপনার ইমেইল লিখুন",
+      "phone": "ফোন নম্বর",
+      "phonePlaceholder": "আপনার ফোন নম্বর লিখুন"
+    },
+    "incomeDetailsForm": {
+      "monthlyIncome": "মাসিক আয় (INR)",
+      "monthlyIncomePlaceholderINR": "যেমন, ৫০০০০",
+      "employmentStatus": "কর্মসংস্থানের অবস্থা",
+      "employmentStatusPlaceholder": "কর্মসংস্থানের অবস্থা নির্বাচন করুন",
+      "employed": "কর্মরত",
+      "selfEmployed": "স্ব-নিযুক্ত",
+      "unemployed": "বেকার"
+    },
+    "documentUploadForm": {
+      "idProof": "পরিচয়পত্র",
+      "addressProof": "ঠিকানার প্রমাণ",
+      "uploadHint": "আপলোড করতে এই এলাকায় ফাইল ক্লিক করুন বা টেনে আনুন",
+      "notUploaded": "আপলোড করা হয়নি"
+    },
+    "reviewSubmitForm": {
+      "reviewDetails": "জমা দেওয়ার আগে অনুগ্রহ করে আপনার আবেদনের বিবরণ পর্যালোচনা করুন।",
+      "submitting": "জমা দেওয়া হচ্ছে...",
+      "loading": "বিবরণ লোড হচ্ছে..."
+    },
+    "applicationSubmitted": "আবেদন জমা দেওয়া হয়েছে!",
+    "applicationSubmittedDesc": "আপনার ঋণ আবেদন সফলভাবে জমা দেওয়া হয়েছে। আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব।"
+  },
+  "compareLoans": {
+    "title": "ঋণের বিকল্পগুলি তুলনা করুন",
+    "loanTypeComparison": "ঋণের প্রকারের তুলনা",
+    "loanType": "ঋণের প্রকার",
+    "interestRate": "সুদের হার",
+    "maxTenure": "সর্বোচ্চ মেয়াদ (মাস)",
+    "maxAmount": "সর্বোচ্চ পরিমাণ (INR)",
+    "calculateEMI": "EMI গণনা করুন",
+    "selectForEMI": "EMI গণনার জন্য নির্বাচন করুন",
+    "loanAmount": "ঋণের পরিমাণ",
+    "loanTenure": "ঋণের মেয়াদ (মাস)",
+    "monthlyEMI": "মাসিক EMI: {{emi}}",
+    "enterAllDetails": "অনুগ্রহ করে ঋণের পরিমাণ, মেয়াদ এবং সুদের হার নির্বাচন/লিখুন।",
+    "clickToCalculateEMI": "মাসিক পেমেন্ট দেখতে 'EMI গণনা করুন' ক্লিক করুন।",
+    "usingSelectedRate": "নির্বাচিত ঋণের প্রকারের হার ব্যবহার করে: {{rate}}%",
+    "selectOrEnterRate": "উপরের টেবিল থেকে একটি ঋণের প্রকার নির্বাচন করুন বা ম্যানুয়ালি একটি সুদের হার লিখুন।",
+    "calculateEMIButton": "EMI গণনা করুন",
+    "emiDetails": "ইএমআই বিবরণ",
+    "loanRepaymentBreakdown": "ঋণ পরিশোধের ভাঙ্গন",
+    "principalAmount": "মূল পরিমাণ",
+    "totalInterest": "মোট সুদ",
+    "totalPayment": "মোট পেমেন্ট"
+  },
+  "interestRatesPage": {
+    "title": "বর্তমান সুদের হার",
+    "loanCategory": "ঋণ বিভাগ",
+    "rate": "সুদের হার (বার্ষিক)",
+    "updatedOn": "{{date}} তারিখে হার আপডেট করা হয়েছে"
+  },
+  "reportPage": {
+    "title": "ড্যাশবোর্ড রিপোর্ট ডাউনলোড করুন",
+    "generateTitle": "PDF সারাংশ তৈরি করুন",
+    "description": "বর্তমান ঋণ ড্যাশবোর্ড ডেটার একটি PDF সারাংশ তৈরি এবং ডাউনলোড করতে নীচের বোতামে ক্লিক করুন।",
+    "infoText": "পিডিএফ-এ মূল মেট্রিক্স, ঋণের প্রকার অনুযায়ী সুদের হার এবং ব্যাংক-নির্দিষ্ট ঋণ অফার অন্তর্ভুক্ত থাকবে।",
+    "downloadButton": "PDF তৈরি ও ডাউনলোড করুন",
+    "imageAlt": "একটি আর্থিক প্রতিবেদনের শৈল্পিক উপস্থাপনা",
+    "imageCaption": "আপনার ব্যাপক ঋণ তথ্য, সংক্ষিপ্ত।"
+  },
+  "footer": {
+    "copyRight": "© {{year}} LoanView. সর্বস্বত্ব সংরক্ষিত।"
+  },
+  "formValidation": {
+    "required": "এই ক্ষেত্রটি প্রয়োজনীয়।",
+    "invalidEmail": "অবৈধ ইমেইল ঠিকানা।",
+    "positiveNumber": "একটি ধনাত্মক সংখ্যা হতে হবে।"
+  },
+  "pdf": {
+    "reportGenerated": "রিপোর্ট তৈরি হয়েছে",
+    "page": "পৃষ্ঠা",
+    "years": "বছর",
+    "applicationSummary": {
+      "title": "ঋণ আবেদনের সারাংশ"
+    },
+    "keyFacts": {
+      "title": "মূল তথ্য বিবৃতি"
+    },
+    "marketComparison": {
+      "title": "{{loanType}} এর জন্য বাজার তুলনা"
+    },
+    "loanSummary": {
+      "loanAmount": "ঋণের পরিমাণ",
+      "principalAmount": "মূল পরিমাণ",
+      "interestRate": "বার্ষিক সুদের হার",
+      "tenure": "মেয়াদ",
+      "monthlyEMI": "মাসিক ইএমআই",
+      "totalInterest": "মোট প্রদেয় সুদ",
+      "totalPayment": "মোট পেমেন্ট (মূল + সুদ)"
+    },
+    "paymentPlan": {
+      "title": "পেমেন্ট প্ল্যান (অ্যামোর্টাইজেশন শিডিউল)",
+      "month": "মাস #",
+      "principal": "মূল",
+      "interest": "সুদ",
+      "totalPayment": "মোট পেমেন্ট",
+      "balance": "বাকি ব্যালেন্স"
+    },
+    "disclaimers": {
+      "title": "দাবিত্যাগ এবং সতর্কতা",
+      "discrepancy": "অনুগ্রহ করে এই বিবৃতিটি সাবধানে পর্যালোচনা করুন। বিবৃতির তারিখের 30 দিনের মধ্যে ব্যাংকে যেকোনো অমিলের বিষয়ে রিপোর্ট করতে হবে।",
+      "fraudWarning": "জালিয়াতি সতর্কতা: আপনার পিন, ওটিপি, বা কোনো গোপনীয় ব্যাংকিং বিবরণ কারও সাথে শেয়ার করবেন না। ব্যাংক কখনই এই তথ্য চায় না।"
+    },
+    "support": {
+      "title": "সহায়তা ও যোগাযোগের তথ্য",
+      "helpline": "গ্রাহক সহায়তা हेल्पलाइन"
+    },
+    "summary": "সারাংশ",
+    "dashboardMetrics": "ড্যাশবোর্ড মেট্রিক্স"
+  },
+  "currency": {
+    "inr": "টাকা"
+  },
+  "N/A": "N/A"
+}

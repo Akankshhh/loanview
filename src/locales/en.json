@@ -1,0 +1,370 @@
+
+{
+  "appName": "LoanView",
+  "nav": {
+    "dashboard": "Dashboard",
+    "applyLoan": "Apply for Loan",
+    "compareAndCalculate": "Compare & Calculate",
+    "marketComparison": "Market Comparison",
+    "interestRates": "Interest Rates",
+    "emiCalculator": "EMI Calculator",
+    "downloadReport": "Download Report",
+    "viewApplications": "View Applications",
+    "bankingAdvisor": "Banking Advisor",
+    "login": "Login",
+    "profile": "Profile"
+  },
+  "dashboard": {
+    "title": "Loan Dashboard",
+    "totalLoans": "Total Loans",
+    "avgLoanSize": "Average Loan Size (INR)",
+    "approvalRate": "Approval Rate",
+    "recentActivity": "Recent Activity",
+    "noRecentActivity": "No recent activity to display.",
+    "loanInterestRatesChart": {
+      "title": "Loan Interest Rates Overview",
+      "description": "A visual comparison of interest rates for different loan types."
+    },
+    "bankLoanRates": {
+      "title": "Bank Loan Offerings",
+      "description": "Compare interest rates for various loans from different banks.",
+      "bankName": "Bank Name",
+      "loanType": "Loan Type",
+      "interestRate": "Interest Rate (%)",
+      "filters": {
+        "searchPlaceholder": "Search by bank or loan type...",
+        "selectBank": "Select Bank",
+        "allBanks": "All Banks",
+        "selectLoanType": "Select Loan Type",
+        "allLoanTypes": "All Loan Types",
+        "interestRateRange": "Interest Rate Range",
+        "minRate": "Min Rate",
+        "maxRate": "Max Rate",
+        "selectBankCategory": "Select Bank Category",
+        "allBankCategories": "All Categories",
+        "publicSector": "Public Sector",
+        "privateSector": "Private Sector",
+        "smallFinanceBank": "Small Finance Bank",
+        "paymentBank": "Payment Bank",
+        "nbfc": "NBFC",
+        "foreignBank": "Foreign Bank"
+      },
+      "downloadCsv": "Download CSV",
+      "tooltip": {
+        "tenure": "Tenure: {{min}} - {{max}} months",
+        "maxAmount": "Max Amount: {{amount}}",
+        "processingFee": "Processing Fee: {{fee}}",
+        "rateType": "Rate Type: {{type}}"
+      },
+      "noResults": "No loan products match your current filters."
+    },
+    "themeToggle": {
+      "light": "Switch to Light Mode",
+      "dark": "Switch to Dark Mode",
+      "toggle": "Toggle theme"
+    },
+    "keyRateStatistics": {
+      "title": "Key Rate Statistics",
+      "description": "Summary of interest rates based on current filters.",
+      "overallAvgRate": "Overall Avg. Rate",
+      "overallMinRate": "Overall Min. Rate",
+      "overallMaxRate": "Overall Max. Rate",
+      "lowestAvgRateLoanType": "Most Competitive Loan Type",
+      "highestAvgRateLoanType": "Most Expensive Loan Type",
+      "avgRateSuffix": "Avg. Rate",
+      "noData": "Not enough data for statistics."
+    },
+    "bankRatesComparisonChart": {
+      "title": "Visual Comparison",
+      "description": "Select a loan type to see how interest rates compare across different banks.",
+      "selectLoanTypePlaceholder": "Select a Loan Type to Compare",
+      "noData": "No data available for the selected loan type and filters.",
+      "yAxisLabel": "Interest Rate (%)"
+    }
+  },
+  "marketComparison": {
+    "fullMarketComparison": "Full Market Comparison",
+    "totalProducts": "Total Products",
+    "avgInterestRate": "Avg. Interest Rate",
+    "bankWithMostOfferings": "Bank with Most Offerings",
+    "description": "A complete overview of every loan product offered by our partner banks. Sort by any column to find the best option for you.",
+    "processingFee": "Processing Fee"
+  },
+  "liveMarketAnalysis": {
+    "title": "Market Comparison",
+    "description": "Select a loan type to compare real-time offers from top Indian banks.",
+    "bank": "Bank",
+    "loanType": "Loan Type",
+    "interestRate": "Interest Rate (p.a.)",
+    "estMonthlyEMI": "Est. Monthly EMI",
+    "whyChooseThis": "Why Choose This?",
+    "action": "Action",
+    "applyNow": "Apply Now"
+  },
+  "loanTypes": {
+    "home": {
+      "name": "Home Loan",
+      "description": "Finance your dream home with competitive rates.",
+      "processingFee": "Up to 1% of loan amount"
+    },
+    "personal": {
+      "name": "Personal Loan",
+      "description": "Flexible loans for your personal needs.",
+      "processingFee": "1-2% of loan amount"
+    },
+    "education": {
+      "name": "Education Loan",
+      "description": "Invest in your future with our education financing.",
+      "processingFee": "Typically 0.5-1%"
+    },
+    "vehicle": {
+      "name": "Vehicle Loan",
+      "description": "Get on the road with our attractive vehicle loans.",
+      "processingFee": "Up to 1.5% of loan amount"
+    },
+    "business": {
+      "name": "Business Loan",
+      "description": "Fuel your business growth with our tailored loans.",
+      "processingFee": "1-2.5% of loan amount, subject to terms"
+    },
+    "gold": {
+      "name": "Gold Loan",
+      "description": "Leverage your gold assets for immediate financial needs.",
+      "processingFee": "0.5-1.5% of loan amount"
+    },
+    "rateTypes": {
+      "fixed": "Fixed",
+      "floating": "Floating"
+    }
+  },
+  "banks": {
+    "sbi": {
+      "reason": "Best for lowest interest rates and government trust. Special concessions for women borrowers."
+    },
+    "hdfc": {
+      "reason": "Best for speed. Digital approval in 10 minutes for pre-approved customers. Minimal documentation."
+    },
+    "icici": {
+      "reason": "Excellent mobile app interface and flexible tenure options. Good for self-employed individuals."
+    },
+    "axis": {
+      "reason": "Offers 'Holiday Period' (EMI waivers) on specific products. Good for those expecting future cash flow."
+    },
+    "pnb": {
+      "reason": "Strong rural presence and special schemes for agricultural loans."
+    },
+    "kotak": {
+      "reason": "Competitive rates for high credit score applicants (750+). Personalized doorstep service."
+    },
+    "bob": {
+      "reason": "Good rates for vehicle loans and a wide network of branches."
+    }
+  },
+  "loanApplication": {
+    "title": "Loan Application",
+    "steps": {
+      "personalDetails": "Personal Details",
+      "incomeDetails": "Income Details",
+      "documentUpload": "Document Upload",
+      "reviewSubmit": "Review & Submit"
+    },
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit Application",
+    "personalDetailsForm": {
+      "fullNamePlaceholder": "Enter your full name"
+    },
+    "reviewSubmitForm": {
+      "reviewDetails": "Please review your application details before submitting.",
+      "submitting": "Submitting...",
+      "loading": "Loading details..."
+    },
+    "applicationSubmitted": "Application Submitted!",
+    "applicationSubmittedDesc": "Your loan application has been successfully submitted. We will contact you shortly."
+  },
+  "applicationForm": {
+    "title": "Loan Application Form",
+    "formTitle": "Loan Application Details",
+    "formDescription": "Please fill out all sections accurately and completely.",
+    "submitButton": "Save & Submit Application",
+    "sections": {
+      "personalDetails": {
+        "title": "1. Personal Details",
+        "fullName": "Full Name",
+        "fatherHusbandName": "Father's / Husband's Name",
+        "dob": "Date of Birth / Age",
+        "gender": "Gender",
+        "maritalStatus": "Marital Status",
+        "currentAddress": "Address (Current)",
+        "permanentAddress": "Address (Permanent)",
+        "phone": "Phone Number",
+        "email": "Email",
+        "photo": "Photo (Upload)",
+        "idNumber": "Aadhaar / Voter ID / PAN Number"
+      },
+      "loanRequirement": {
+        "title": "2. Loan Requirement",
+        "purpose": "Purpose of Loan",
+        "amount": "Loan Amount Needed",
+        "repaymentPeriod": "Preferred Repayment Period",
+        "loanType": "Type of Loan"
+      }
+    }
+  },
+  "compareLoans": {
+    "title": "Compare Loan Options",
+    "loanTypeComparison": "Loan Type Comparison",
+    "loanType": "Loan Type",
+    "interestRate": "Interest Rate",
+    "maxTenure": "Max Tenure (Yrs)",
+    "maxAmount": "Max Amount (INR)",
+    "calculateEMI": "Calculate EMI",
+    "selectForEMI": "Select for EMI Calc",
+    "loanAmount": "Loan Amount",
+    "loanTenure": "Loan Tenure (Months)",
+    "monthlyEMI": "Monthly EMI",
+    "enterAllDetails": "Please enter Loan Amount, Tenure, and select/enter an Interest Rate.",
+    "clickToCalculateEMI": "Click 'Calculate' to see the monthly payment and save for your report.",
+    "usingSelectedRate": "Using selected loan type rate: {{rate}}%",
+    "selectOrEnterRate": "Select a loan type from the table above or enter an interest rate manually.",
+    "calculateEMIButton": "Calculate & Save for Report",
+    "calculationSavedTitle": "Calculation Saved",
+    "calculationSavedDesc": "Your EMI calculation details have been saved for the PDF report.",
+    "emiDetails": "Repayment Summary",
+    "loanRepaymentBreakdown": "Loan Repayment Breakdown",
+    "principalAmount": "Principal Amount",
+    "totalInterest": "Total Interest",
+    "totalPayment": "Total Payment"
+  },
+  "emiCalculator": {
+    "title": "EMI Calculator",
+    "calculatorTitle": "Loan Repayment Calculator",
+    "calculatorDescription": "Enter your loan details to calculate your monthly payment and see a full amortization schedule.",
+    "tenureInYears": "Tenure (Yrs)",
+    "emiOptionsTitle": "EMI Options for Different Tenures",
+    "emiOptionsDescription": "Based on a loan amount of {{amount}} at {{rate}}% interest.",
+    "amortizationDescription": "This table shows the breakdown of each monthly payment into principal and interest over the entire loan tenure."
+  },
+  "viewApplications": {
+    "noApplicationsTitle": "No Saved Applications",
+    "noApplicationsDesc": "Submitted applications from the 'Apply for Loan' form will appear here.",
+    "submittedOn": "Submitted",
+    "purpose": "Purpose",
+    "delete": "Delete",
+    "saveSuccess": "Your application has been saved to your profile and can be viewed on this page.",
+    "submitAnother": "Submit Another Application",
+    "clearAll": "Clear All Applications",
+    "confirmClearAll": "Are you sure you want to delete all saved applications? This action cannot be undone.",
+    "confirmDelete": "Are you sure you want to delete this application?",
+    "deleteSuccess": "Application deleted successfully.",
+    "deleteError": "Failed to delete application."
+  },
+  "interestRatesPage": {
+    "title": "Current Interest Rates",
+    "loanCategory": "Loan Category",
+    "rate": "Interest Rate (p.a.)",
+    "updatedOn": "Rates updated on {{date}}"
+  },
+  "reportPage": {
+    "title": "Download Loan Report",
+    "generateTitle": "Generate Loan Report",
+    "description": "Generate a PDF report based on your calculated loan data from the 'Compare & Calculate' page and your latest detailed application.",
+    "infoText_v1": "The report will use loan details you last calculated on the 'Compare & Calculate' page.",
+    "infoText_v2": "No loan data calculated yet. Please go to the 'Compare & Calculate' page to calculate your EMI. The report will be generated using sample data.",
+    "infoText_v3_application": "It will also include details from your most recently saved detailed application.",
+    "infoText_v3_no_application": "No detailed application has been saved yet. You can save one from the 'Apply for Loan' page.",
+    "downloadButton_v1": "Download Your Loan Report",
+    "downloadButton_v2": "Download Sample Report"
+  },
+  "footer": {
+    "copyRight": "© {{year}} LoanView. All rights reserved."
+  },
+  "formValidation": {
+    "required": "This field is required.",
+    "invalidEmail": "Invalid email address.",
+    "positiveNumber": "Must be a positive number.",
+    "minLength": "Must be at least {{length}} characters."
+  },
+  "login": {
+    "title": "Sign In to your Account",
+    "description": "Enter your credentials to access your dashboard.",
+    "emailLabel": "Email",
+    "passwordLabel": "Password",
+    "signInButton": "Sign In",
+    "signOutButton": "Sign Out",
+    "signingIn": "Signing In...",
+    "signInSuccessTitle": "Sign In Successful",
+    "signInSuccessDesc": "Welcome back! Redirecting you to the dashboard.",
+    "signInFailed": "Sign-in Failed",
+    "signUp": "Sign Up",
+    "createAccount": "Create an Account",
+    "signUpDescription": "Enter your details to create a new account.",
+    "signUpSuccess": "Account Created!",
+    "signUpSuccessDesc": "You have been successfully signed up and logged in.",
+    "signUpFailed": "Sign-up Failed",
+    "creatingAccount": "Creating Account..."
+  },
+  "profilePage": {
+    "title": "User Profile",
+    "description": "View and manage your profile information.",
+    "updateSuccess": "Profile updated successfully!",
+    "updateError": "Failed to update profile.",
+    "personalInfo": "Personal Information",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "phoneNumber": "Phone Number",
+    "address": "Address",
+    "saveChanges": "Save Changes",
+    "saving": "Saving..."
+  },
+  "pdf": {
+    "loadingReport": "Loading report data...",
+    "reportGenerated": "Report Generated on",
+    "page": "Page",
+    "years": "Years",
+    "applicationSummary": {
+      "title": "Loan Application Summary"
+    },
+    "keyFacts": {
+      "title": "Key Facts Statement"
+    },
+    "marketComparison": {
+      "title": "Market Comparison for {{loanType}}"
+    },
+    "loanSummary": {
+      "loanAmount": "Loan Amount",
+      "principalAmount": "Principal Amount",
+      "interestRate": "Annual Interest Rate",
+      "tenure": "Tenure",
+      "monthlyEMI": "Monthly EMI",
+      "totalInterest": "Total Interest Payable",
+      "totalPayment": "Total Payment (Principal + Interest)"
+    },
+    "paymentPlan": {
+      "title": "Payment Plan (Amortization Schedule)",
+      "month": "Month #",
+      "principal": "Principal",
+      "interest": "Interest",
+      "totalPayment": "Total Payment",
+      "balance": "Remaining Balance"
+    },
+    "nextSteps": {
+        "title": "Next Steps & Recommendations",
+        "contactBank": "1. Contact the banks with the most favorable rates from the 'Market Comparison' section to confirm their offers.",
+        "prepareDocuments": "2. Prepare necessary documents such as ID proof, address proof, and income statements for a faster application process."
+    },
+    "disclaimers": {
+      "title": "Disclaimers and Alerts",
+      "discrepancy": "Please review this statement carefully. Any discrepancy should be reported to the bank within 30 days of the statement date.",
+      "fraudWarning": "Fraud Alert: Do not share your PIN, OTP, or any confidential banking details with anyone. The bank never asks for this information."
+    },
+    "support": {
+      "title": "Support & Contact Information",
+      "helpline": "Customer Support Helpline"
+    }
+  },
+  "currency": {
+    "inr": "INR"
+  },
+  "N/A": "N/A"
+}

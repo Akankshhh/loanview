@@ -1,0 +1,262 @@
+{
+  "appName": "LoanView",
+  "nav": {
+    "dashboard": "డాష్‌బోర్డ్",
+    "applyLoan": "రుణం కోసం దరఖాస్తు చేసుకోండి",
+    "compareLoans": "రుణాలను పోల్చండి",
+    "interestRates": "వడ్డీ రేట్లు",
+    "downloadReport": "నివేదికను డౌన్‌లోడ్ చేయండి"
+  },
+  "dashboard": {
+    "title": "రుణ డాష్‌బోర్డ్",
+    "totalLoans": "మొత్తం రుణాలు",
+    "avgLoanSize": "సగటు రుణ పరిమాణం (INR)",
+    "approvalRate": "ఆమోదం రేటు",
+    "aiSuggestions": {
+      "title": "AI-ఆధారిత స్థానికీకరణ అంతర్దృష్టులు",
+      "description": "రుణ డేటా కోసం సాంస్కృతికంగా సంబంధిత విజువలైజేషన్ మరియు వ్యాఖ్యాన సూచనలను పొందడానికి లక్ష్య జనాభాను నమోదు చేయండి.",
+      "demographicLabel": "లక్ష్య జనాభా",
+      "demographicPlaceholder": "ఉదా., పట్టణ ప్రాంతంలోని యువ నిపుణులు",
+      "getSuggestions": "సూచనలను పొందండి",
+      "visualizationSuggestion": "విజువలైజేషన్ సూచన",
+      "interpretationSuggestion": "వ్యాఖ్యాన సూచన",
+      "noSuggestions": "ఒక జనాభాను నమోదు చేసి, AI అంతర్దృష్టులను చూడటానికి 'సూచనలను పొందండి' క్లిక్ చేయండి.",
+      "loadingSuggestions": "సూచనలు లోడ్ అవుతున్నాయి...",
+      "errorSuggestions": "సూచనలను పొందలేకపోయాము. దయచేసి మళ్లీ ప్రయత్నించండి."
+    },
+    "recentActivity": "ఇటీవలి కార్యాచరణ",
+    "noRecentActivity": "ప్రదర్శించడానికి ఇటీవలి కార్యాచరణ ఏదీ లేదు.",
+    "loanInterestRatesChart": {
+      "title": "రుణ వడ్డీ రేట్ల అవలోకనం",
+      "description": "వివిధ రకాల రుణాల కోసం వడ్డీ రేట్ల దృశ్య పోలిక."
+    },
+    "bankLoanRates": {
+      "title": "బ్యాంక్ రుణ ఆఫర్‌లు",
+      "description": "వివిధ బ్యాంకుల నుండి వివిధ రుణాల కోసం వడ్డీ రేట్లను పోల్చండి.",
+      "bankName": "బ్యాంక్ పేరు",
+      "loanType": "రుణ రకం",
+      "interestRate": "వడ్డీ రేటు (%)",
+      "filters": {
+        "searchPlaceholder": "బ్యాంక్ లేదా రుణ రకం ద్వారా శోధించండి...",
+        "selectBank": "బ్యాంక్‌ను ఎంచుకోండి",
+        "allBanks": "అన్ని బ్యాంకులు",
+        "selectLoanType": "రుణ రకాన్ని ఎంచుకోండి",
+        "allLoanTypes": "అన్ని రుణ రకాలు",
+        "interestRateRange": "వడ్డీ రేటు పరిధి",
+        "minRate": "కనిష్ట రేటు",
+        "maxRate": "గరిష్ట రేటు",
+        "selectBankCategory": "బ్యాంక్ వర్గాన్ని ఎంచుకోండి",
+        "allBankCategories": "అన్ని వర్గాలు",
+        "publicSector": "ప్రభుత్వ రంగం",
+        "privateSector": "ప్రైవేట్ రంగం",
+        "smallFinanceBank": "చిన్న ఫైనాన్స్ బ్యాంక్",
+        "paymentBank": "చెల్లింపు బ్యాంక్",
+        "nbfc": "NBFC",
+        "foreignBank": "విదేశీ బ్యాంక్"
+      },
+      "downloadCsv": "CSV డౌన్‌లోడ్ చేయండి",
+      "tooltip": {
+        "tenure": "కాలపరిమితి: {{min}} - {{max}} నెలలు",
+        "maxAmount": "గరిష్ట మొత్తం: {{amount}}",
+        "processingFee": "ప్రాసెసింగ్ ఫీజు: {{fee}}",
+        "rateType": "రేటు రకం: {{type}}"
+      },
+      "noResults": "మీ ప్రస్తుత ఫిల్టర్‌లకు ఏ రుణ ఉత్పత్తులు సరిపోలడం లేదు."
+    },
+    "themeToggle": {
+      "light": "లైట్ మోడ్‌కు మారండి",
+      "dark": "డార్క్ మోడ్‌కు మారండి",
+      "toggle": "థీమ్‌ను టోగుల్ చేయండి"
+    },
+    "keyRateStatistics": {
+      "title": "కీలక రేటు గణాంకాలు",
+      "description": "ప్రస్తుత ఫిల్టర్‌ల ఆధారంగా వడ్డీ రేట్ల సారాంశం.",
+      "overallAvgRate": "మొత్తం సగటు రేటు",
+      "overallMinRate": "మొత్తం కనిష్ట రేటు",
+      "overallMaxRate": "మొత్తం గరిష్ట రేటు",
+      "lowestAvgRateLoanType": "అత్యంత పోటీతత్వ రుణ రకం",
+      "highestAvgRateLoanType": "అత్యంత ఖరీదైన రుణ రకం",
+      "avgRateSuffix": "సగటు రేటు",
+      "noData": "గణాంకాలకు తగినంత డేటా లేదు."
+    },
+    "bankRatesComparisonChart": {
+      "title": "ఎంచుకున్న రుణ రకం కోసం బ్యాంక్ రేట్ల పోలిక",
+      "description": "వివిధ బ్యాంకుల మధ్య వడ్డీ రేట్లు ఎలా పోల్చబడతాయో చూడటానికి రుణ రకాన్ని ఎంచుకోండి.",
+      "selectLoanTypePlaceholder": "పోల్చడానికి రుణ రకాన్ని ఎంచుకోండి",
+      "noData": "ఎంచుకున్న రుణ రకం మరియు ఫిల్టర్‌ల కోసం డేటా అందుబాటులో లేదు.",
+      "yAxisLabel": "వడ్డీ రేటు (%)"
+    }
+  },
+  "loanTypes": {
+    "home": {
+      "name": "గృహ రుణం",
+      "description": "పోటీ రేట్లలో మీ కలల ఇంటికి ఆర్థిక సహాయం చేయండి.",
+      "processingFee": "రుణ మొత్తంలో 1% వరకు"
+    },
+    "personal": {
+      "name": "వ్యక్తిగత రుణం",
+      "description": "మీ వ్యక్తిగత అవసరాల కోసం సౌకర్యవంతమైన రుణాలు.",
+      "processingFee": "రుణ మొత్తంలో 1-2%"
+    },
+    "education": {
+      "name": "విద్యా రుణం",
+      "description": "మా విద్యా ఫైనాన్సింగ్‌తో మీ భవిష్యత్తులో పెట్టుబడి పెట్టండి.",
+      "processingFee": "సాధారణంగా 0.5-1%"
+    },
+    "vehicle": {
+      "name": "వాహన రుణం",
+      "description": "మా ఆకర్షణీయమైన వాహన రుణాలతో రహదారిపైకి వెళ్లండి.",
+      "processingFee": "రుణ మొత్తంలో 1.5% వరకు"
+    },
+    "business": {
+      "name": "వ్యాపార రుణం",
+      "description": "మా అనుకూల రుణాలతో మీ వ్యాపార వృద్ధికి ఇంధనం నింపండి.",
+      "processingFee": "రుణ మొత్తంలో 1-2.5%, నిబంధనలకు లోబడి"
+    },
+    "gold": {
+      "name": "బంగారు రుణం",
+      "description": "తక్షణ ఆర్థిక అవసరాల కోసం మీ బంగారు ఆస్తులను పరపతి చేయండి.",
+      "processingFee": "రుణ మొత్తంలో 0.5-1.5%"
+    },
+    "rateTypes": {
+      "fixed": "స్థిర",
+      "floating": "తేలియాడే"
+    }
+  },
+  "loanApplication": {
+    "title": "రుణ దరఖాస్తు",
+    "steps": {
+      "personalDetails": "వ్యక్తిగత వివరాలు",
+      "incomeDetails": "ఆదాయ వివరాలు",
+      "documentUpload": "పత్రాల అప్‌లోడ్",
+      "reviewSubmit": "సమీక్షించి సమర్పించండి"
+    },
+    "next": "తదుపరి",
+    "previous": "మునుపటి",
+    "submit": "దరఖాస్తును సమర్పించండి",
+    "selectLoanType": "రుణ రకాన్ని ఎంచుకోండి",
+    "selectLoanTypePlaceholder": "రుణ రకాన్ని ఎంచుకోండి...",
+    "personalDetailsForm": {
+      "fullName": "పూర్తి పేరు",
+      "fullNamePlaceholder": "మీ పూర్తి పేరును నమోదు చేయండి",
+      "email": "ఇమెయిల్ చిరునామా",
+      "emailPlaceholder": "మీ ఇమెయిల్‌ను నమోదు చేయండి",
+      "phone": "ఫోన్ నంబర్",
+      "phonePlaceholder": "మీ ఫోన్ నంబర్‌ను నమోదు చేయండి"
+    },
+    "incomeDetailsForm": {
+      "monthlyIncome": "నెలవారీ ఆదాయం (INR)",
+      "monthlyIncomePlaceholderINR": "ఉదా., 50000",
+      "employmentStatus": "ఉద్యోగ స్థితి",
+      "employmentStatusPlaceholder": "ఉద్యోగ స్థితిని ఎంచుకోండి",
+      "employed": "ఉద్యోగి",
+      "selfEmployed": "స్వయం ఉపాధి",
+      "unemployed": "నిరుద్యోగి"
+    },
+    "documentUploadForm": {
+      "idProof": "గుర్తింపు రుజువు",
+      "addressProof": "చిరునామా రుజువు",
+      "uploadHint": "అప్‌లోడ్ చేయడానికి ఈ ప్రాంతానికి ఫైల్‌ను క్లిక్ చేయండి లేదా లాగండి",
+      "notUploaded": "అప్‌లోడ్ చేయబడలేదు"
+    },
+    "reviewSubmitForm": {
+      "reviewDetails": "సమర్పించే ముందు దయచేసి మీ దరఖాస్తు వివరాలను సమీక్షించండి.",
+      "submitting": "సమర్పిస్తోంది...",
+      "loading": "వివరాలు లోడ్ అవుతున్నాయి..."
+    },
+    "applicationSubmitted": "దరఖాస్తు సమర్పించబడింది!",
+    "applicationSubmittedDesc": "మీ రుణ దరఖాస్తు విజయవంతంగా సమర్పించబడింది. మేము త్వరలో మిమ్మల్ని సంప్రదిస్తాము."
+  },
+  "compareLoans": {
+    "title": "రుణ ఎంపికలను పోల్చండి",
+    "loanTypeComparison": "రుణ రకం పోలిక",
+    "loanType": "రుణ రకం",
+    "interestRate": "వడ్డీ రేటు",
+    "maxTenure": "గరిష్ట కాలపరిమితి (నెలలు)",
+    "maxAmount": "గరిష్ట మొత్తం (INR)",
+    "calculateEMI": "EMI లెక్కించండి",
+    "selectForEMI": "EMI లెక్కల కోసం ఎంచుకోండి",
+    "loanAmount": "రుణ మొత్తం",
+    "loanTenure": "రుణ కాలపరిమితి (నెలలు)",
+    "monthlyEMI": "నెలవారీ EMI: {{emi}}",
+    "enterAllDetails": "దయచేసి రుణ మొత్తం, కాలపరిమితిని నమోదు చేసి, వడ్డీ రేటును ఎంచుకోండి/నమోదు చేయండి.",
+    "clickToCalculateEMI": "నెలవారీ చెల్లింపును చూడటానికి 'EMI లెక్కించండి' క్లిక్ చేయండి.",
+    "usingSelectedRate": "ఎంచుకున్న రుణ రకం రేటును ఉపయోగిస్తోంది: {{rate}}%",
+    "selectOrEnterRate": "పై పట్టిక నుండి రుణ రకాన్ని ఎంచుకోండి లేదా మాన్యువల్‌గా వడ్డీ రేటును నమోదు చేయండి.",
+    "calculateEMIButton": "EMI లెక్కించండి",
+    "emiDetails": "EMI వివరాలు",
+    "loanRepaymentBreakdown": "రుణ తిరిగి చెల్లింపు విచ్ఛిన్నం",
+    "principalAmount": "అసలు మొత్తం",
+    "totalInterest": "మొత్తం వడ్డీ",
+    "totalPayment": "మొత్తం చెల్లింపు"
+  },
+  "interestRatesPage": {
+    "title": "ప్రస్తుత వడ్డీ రేట్లు",
+    "loanCategory": "రుణ వర్గం",
+    "rate": "వడ్డీ రేటు (వార్షిక)",
+    "updatedOn": "{{date}} న రేట్లు నవీకరించబడ్డాయి"
+  },
+  "reportPage": {
+    "title": "డాష్‌బోర్డ్ నివేదికను డౌన్‌లోడ్ చేయండి",
+    "generateTitle": "PDF సారాంశాన్ని రూపొందించండి",
+    "description": "ప్రస్తుత రుణ డాష్‌బోర్డ్ డేటా యొక్క PDF సారాంశాన్ని రూపొందించడానికి మరియు డౌన్‌లోడ్ చేయడానికి దిగువ బటన్‌ను క్లిక్ చేయండి.",
+    "infoText": "PDFలో కీలక కొలమానాలు, రుణ రకం వడ్డీ రేట్లు మరియు బ్యాంక్-నిర్దిష్ట రుణ ఆఫర్‌లు ఉంటాయి.",
+    "downloadButton": "PDFని రూపొందించి డౌన్‌లోడ్ చేయండి",
+    "imageAlt": "ఆర్థిక నివేదిక యొక్క శైలీకృత ప్రాతినిధ్యం",
+    "imageCaption": "మీ సమగ్ర రుణ డేటా, సంగ్రహించబడింది."
+  },
+  "footer": {
+    "copyRight": "© {{year}} LoanView. సర్వ హక్కులు ప్రత్యేకించబడ్డాయి."
+  },
+  "formValidation": {
+    "required": "ఈ ఫీల్డ్ అవసరం.",
+    "invalidEmail": "చెల్లని ఇమెయిల్ చిరునామా.",
+    "positiveNumber": "ధనాత్మక సంఖ్య అయి ఉండాలి."
+  },
+  "pdf": {
+    "reportGenerated": "నివేదిక రూపొందించబడింది",
+    "page": "పేజీ",
+    "years": "సంవత్సరాలు",
+    "applicationSummary": {
+      "title": "రుణ దరఖాస్తు సారాంశం"
+    },
+    "keyFacts": {
+      "title": "కీలక వాస్తవాల ప్రకటన"
+    },
+    "marketComparison": {
+      "title": "{{loanType}} కోసం మార్కెట్ పోలిక"
+    },
+    "loanSummary": {
+      "loanAmount": "రుణ మొత్తం",
+      "principalAmount": "అసలు మొత్తం",
+      "interestRate": "వార్షిక వడ్డీ రేటు",
+      "tenure": "కాలపరిమితి",
+      "monthlyEMI": "నెలవారీ EMI",
+      "totalInterest": "చెల్లించవలసిన మొత్తం వడ్డీ",
+      "totalPayment": "మొత్తం చెల్లింపు (అసలు + వడ్డీ)"
+    },
+    "paymentPlan": {
+      "title": "చెల్లింపు ప్రణాళిక (అమోర్టైజేషన్ షెడ్యూల్)",
+      "month": "నెల #",
+      "principal": "అసలు",
+      "interest": "వడ్డీ",
+      "totalPayment": "మొత్తం చెల్లింపు",
+      "balance": "మిగిలిన బ్యాలెన్స్"
+    },
+    "disclaimers": {
+      "title": "నిరాకరణలు మరియు హెచ్చరికలు",
+      "discrepancy": "దయచేసి ఈ ప్రకటనను జాగ్రత్తగా సమీక్షించండి. ఏదైనా వ్యత్యాసాన్ని ప్రకటన తేదీ నుండి 30 రోజులలోపు బ్యాంకుకు నివేదించాలి.",
+      "fraudWarning": "మోసం హెచ్చరిక: మీ పిన్, OTP, లేదా ఏదైనా గోప్యమైన బ్యాంకింగ్ వివరాలను ఎవరితోనూ పంచుకోవద్దు. బ్యాంకు ఈ సమాచారాన్ని ఎప్పుడూ అడగదు."
+    },
+    "support": {
+      "title": "మద్దతు మరియు సంప్రదింపు సమాచారం",
+      "helpline": "వినియోగదారుల మద్దతు హెల్ప్‌లైన్"
+    },
+    "summary": "సారాంశం",
+    "dashboardMetrics": "డాష్‌బోర్డ్ కొలమానాలు"
+  },
+  "currency": {
+    "inr": "INR"
+  },
+  "N/A": "N/A"
+}

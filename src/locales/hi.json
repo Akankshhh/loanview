@@ -1,0 +1,291 @@
+
+{
+  "appName": "LoanView",
+  "nav": {
+    "dashboard": "डैशबोर्ड",
+    "applyLoan": "ऋण के लिए आवेदन करें",
+    "compareLoans": "ऋणों की तुलना करें",
+    "interestRates": "ब्याज दरें",
+    "downloadReport": "रिपोर्ट डाउनलोड करें"
+  },
+  "dashboard": {
+    "title": "ऋण डैशबोर्ड",
+    "totalLoans": "कुल ऋण",
+    "avgLoanSize": "औसत ऋण आकार (INR)",
+    "approvalRate": "स्वीकृति दर",
+    "aiSuggestions": {
+      "title": "एआई-संचालित स्थानीयकरण अंतर्दृष्टि",
+      "description": "ऋण डेटा के लिए सांस्कृतिक रूप से प्रासंगिक विज़ुअलाइज़ेशन और व्याख्या सुझाव प्राप्त करने के लिए एक लक्ष्य जनसांख्यिकी दर्ज करें।",
+      "demographicLabel": "लक्ष्य जनसांख्यिकी",
+      "demographicPlaceholder": "जैसे, शहरी क्षेत्र में युवा पेशेवर",
+      "getSuggestions": "सुझाव प्राप्त करें",
+      "visualizationSuggestion": "विज़ुअलाइज़ेशन सुझाव",
+      "interpretationSuggestion": "व्याख्या सुझाव",
+      "noSuggestions": "एक जनसांख्यिकी दर्ज करें और एआई अंतर्दृष्टि देखने के लिए 'सुझाव प्राप्त करें' पर क्लिक करें।",
+      "loadingSuggestions": "सुझाव लोड हो रहे हैं...",
+      "errorSuggestions": "सुझाव प्राप्त नहीं किए जा सके। कृपया पुनः प्रयास करें।"
+    },
+    "recentActivity": "हाल की गतिविधि",
+    "noRecentActivity": "प्रदर्शित करने के लिए कोई हाल की गतिविधि नहीं है।",
+    "loanInterestRatesChart": {
+      "title": "ऋण ब्याज दरों का अवलोकन",
+      "description": "विभिन्न प्रकार के ऋणों के लिए ब्याज दरों की एक दृश्य तुलना।"
+    },
+    "bankLoanRates": {
+      "title": "बैंक ऋण प्रस्ताव",
+      "description": "विभिन्न बैंकों से विभिन्न ऋणों के लिए ब्याज दरों की तुलना करें।",
+      "bankName": "बैंक का नाम",
+      "loanType": "ऋण का प्रकार",
+      "interestRate": "ब्याज दर (%)",
+      "filters": {
+        "searchPlaceholder": "बैंक या ऋण प्रकार से खोजें...",
+        "selectBank": "बैंक चुनें",
+        "allBanks": "सभी बैंक",
+        "selectLoanType": "ऋण का प्रकार चुनें",
+        "allLoanTypes": "सभी ऋण प्रकार",
+        "interestRateRange": "ब्याज दर सीमा",
+        "minRate": "न्यूनतम दर",
+        "maxRate": "अधिकतम दर",
+        "selectBankCategory": "बैंक श्रेणी चुनें",
+        "allBankCategories": "सभी श्रेणियाँ",
+        "publicSector": "सार्वजनिक क्षेत्र",
+        "privateSector": "निजी क्षेत्र",
+        "smallFinanceBank": "लघु वित्त बैंक",
+        "paymentBank": "भुगतान बैंक",
+        "nbfc": "एनबीएफसी",
+        "foreignBank": "विदेशी बैंक"
+      },
+      "downloadCsv": "CSV डाउनलोड करें",
+      "tooltip": {
+        "tenure": "अवधि: {{min}} - {{max}} महीने",
+        "maxAmount": "अधिकतम राशि: {{amount}}",
+        "processingFee": "प्रसंस्करण शुल्क: {{fee}}",
+        "rateType": "दर प्रकार: {{type}}"
+      },
+      "noResults": "आपके वर्तमान फ़िल्टर से कोई ऋण उत्पाद मेल नहीं खाता।"
+    },
+    "themeToggle": {
+      "light": "लाइट मोड में बदलें",
+      "dark": "डार्क मोड में बदलें",
+      "toggle": "थीम बदलें"
+    },
+    "keyRateStatistics": {
+      "title": "मुख्य दर सांख्यिकी",
+      "description": "वर्तमान फ़िल्टर के आधार पर ब्याज दरों का सारांश।",
+      "overallAvgRate": "समग्र औसत दर",
+      "overallMinRate": "समग्र न्यूनतम दर",
+      "overallMaxRate": "समग्र अधिकतम दर",
+      "lowestAvgRateLoanType": "सबसे प्रतिस्पर्धी ऋण प्रकार",
+      "highestAvgRateLoanType": "सबसे महंगा ऋण प्रकार",
+      "avgRateSuffix": "औसत दर",
+      "noData": "सांख्यिकी के लिए पर्याप्त डेटा नहीं।"
+    },
+    "bankRatesComparisonChart": {
+      "title": "चयनित ऋण प्रकार के लिए बैंक दरों की तुलना",
+      "description": "विभिन्न बैंकों के बीच ब्याज दरें कैसे तुलना करती हैं, यह देखने के लिए एक ऋण प्रकार चुनें।",
+      "selectLoanTypePlaceholder": "तुलना करने के लिए एक ऋण प्रकार चुनें",
+      "noData": "चयनित ऋण प्रकार और फ़िल्टर के लिए कोई डेटा उपलब्ध नहीं है।",
+      "yAxisLabel": "ब्याज दर (%)"
+    }
+  },
+  "loanTypes": {
+    "home": {
+      "name": "गृह ऋण",
+      "description": "प्रतिस्पर्धी दरों पर अपने सपनों का घर वित्तपोषित करें।",
+      "processingFee": "ऋण राशि का 1% तक"
+    },
+    "personal": {
+      "name": "व्यक्तिगत ऋण",
+      "description": "आपकी व्यक्तिगत जरूरतों के लिए लचीले ऋण।",
+      "processingFee": "ऋण राशि का 1-2%"
+    },
+    "education": {
+      "name": "शिक्षा ऋण",
+      "description": "हमारे शिक्षा वित्तपोषण के साथ अपने भविष्य में निवेश करें।",
+      "processingFee": "आमतौर पर 0.5-1%"
+    },
+    "vehicle": {
+      "name": "वाहन ऋण",
+      "description": "हमारे आकर्षक वाहन ऋणों के साथ सड़क पर उतरें।",
+      "processingFee": "ऋण राशि का 1.5% तक"
+    },
+    "business": {
+      "name": "व्यापार ऋण",
+      "description": "हमारे अनुरूप ऋणों के साथ अपने व्यवसाय के विकास को बढ़ावा दें।",
+      "processingFee": "ऋण राशि का 1-2.5%, शर्तों के अधीन"
+    },
+    "gold": {
+      "name": "स्वर्ण ऋण",
+      "description": "तत्काल वित्तीय जरूरतों के लिए अपनी स्वर्ण संपत्ति का लाभ उठाएं।",
+      "processingFee": "ऋण राशि का 0.5-1.5%"
+    },
+    "rateTypes": {
+      "fixed": "निश्चित",
+      "floating": "अस्थिर"
+    }
+  },
+  "banks": {
+    "sbi": {
+      "reason": "सबसे कम ब्याज दरों और सरकारी भरोसे के लिए सर्वश्रेष्ठ। महिला उधारकर्ताओं के लिए विशेष रियायतें।"
+    },
+    "hdfc": {
+      "reason": "गति के लिए सर्वश्रेष्ठ। पूर्व-अनुमोदित ग्राहकों के लिए 10 मिनट में डिजिटल अनुमोदन। न्यूनतम दस्तावेज़ीकरण।"
+    },
+    "icici": {
+      "reason": "उत्कृष्ट मोबाइल ऐप इंटरफ़ेस और लचीले कार्यकाल विकल्प। स्व-नियोजित व्यक्तियों के लिए अच्छा है।"
+    },
+    "axis": {
+      "reason": "विशिष्ट उत्पादों पर 'हॉलिडे पीरियड' (ईएमआई छूट) प्रदान करता है। भविष्य में नकदी प्रवाह की उम्मीद करने वालों के लिए अच्छा है।"
+    },
+    "pnb": {
+      "reason": "मजबूत ग्रामीण उपस्थिति और कृषि ऋणों के लिए विशेष योजनाएं।"
+    },
+    "kotak": {
+      "reason": "उच्च क्रेडिट स्कोर आवेदकों (750+) के लिए प्रतिस्पर्धी दरें। व्यक्तिगत द्वार सेवा।"
+    },
+    "bob": {
+      "reason": "वाहन ऋणों के लिए अच्छी दरें और शाखाओं का एक विस्तृत नेटवर्क।"
+    }
+  },
+  "loanApplication": {
+    "title": "ऋण आवेदन",
+    "steps": {
+      "personalDetails": "व्यक्तिगत विवरण",
+      "incomeDetails": "आय विवरण",
+      "documentUpload": "दस्तावेज़ अपलोड",
+      "reviewSubmit": "समीक्षा करें और जमा करें"
+    },
+    "next": "अगला",
+    "previous": "पिछला",
+    "submit": "आवेदन जमा करें",
+    "selectLoanType": "ऋण का प्रकार चुनें",
+    "selectLoanTypePlaceholder": "एक ऋण प्रकार चुनें...",
+    "personalDetailsForm": {
+      "fullName": "पूरा नाम",
+      "fullNamePlaceholder": "अपना पूरा नाम दर्ज करें",
+      "email": "ईमेल पता",
+      "emailPlaceholder": "अपना ईमेल दर्ज करें",
+      "phone": "फ़ोन नंबर",
+      "phonePlaceholder": "अपना फ़ोन नंबर दर्ज करें"
+    },
+    "incomeDetailsForm": {
+      "monthlyIncome": "मासिक आय (INR)",
+      "monthlyIncomePlaceholderINR": "जैसे, 50000",
+      "employmentStatus": "रोजगार की स्थिति",
+      "employmentStatusPlaceholder": "रोजगार की स्थिति चुनें",
+      "employed": "कार्यरत",
+      "selfEmployed": "स्वरोज़गार",
+      "unemployed": "बेरोजगार"
+    },
+    "documentUploadForm": {
+      "idProof": "पहचान प्रमाण",
+      "addressProof": "पता प्रमाण",
+      "uploadHint": "अपलोड करने के लिए फ़ाइल पर क्लिक करें या खींचें",
+      "notUploaded": "अपलोड नहीं किया गया"
+    },
+    "reviewSubmitForm": {
+      "reviewDetails": "कृपया जमा करने से पहले अपने आवेदन विवरण की समीक्षा करें।",
+      "submitting": "जमा किया जा रहा है...",
+      "loading": "विवरण लोड हो रहे हैं..."
+    },
+    "applicationSubmitted": "आवेदन जमा हो गया!",
+    "applicationSubmittedDesc": "आपका ऋण आवेदन सफलतापूर्वक जमा कर दिया गया है। हम जल्द ही आपसे संपर्क करेंगे।"
+  },
+  "compareLoans": {
+    "title": "ऋण विकल्पों की तुलना करें",
+    "loanTypeComparison": "ऋण प्रकार की तुलना",
+    "loanType": "ऋण का प्रकार",
+    "interestRate": "ब्याज दर",
+    "maxTenure": "अधिकतम अवधि (महीने)",
+    "maxAmount": "अधिकतम राशि (INR)",
+    "calculateEMI": "EMI की गणना करें",
+    "selectForEMI": "EMI गणना के लिए चुनें",
+    "loanAmount": "ऋण राशि",
+    "loanTenure": "ऋण अवधि (महीने)",
+    "monthlyEMI": "मासिक EMI: {{emi}}",
+    "enterAllDetails": "कृपया ऋण राशि, अवधि दर्ज करें, और ब्याज दर चुनें/दर्ज करें।",
+    "clickToCalculateEMI": "मासिक भुगतान देखने के लिए 'EMI की गणना करें' पर क्लिक करें।",
+    "usingSelectedRate": "चयनित ऋण प्रकार दर का उपयोग करते हुए: {{rate}}%",
+    "selectOrEnterRate": "उपरोक्त तालिका से एक ऋण प्रकार चुनें या मैन्युअल रूप से ब्याज दर दर्ज करें।",
+    "calculateEMIButton": "EMI की गणना करें",
+    "emiDetails": "ईएमआई विवरण",
+    "loanRepaymentBreakdown": "ऋण चुकौती का विवरण",
+    "principalAmount": "मूल राशि",
+    "totalInterest": "कुल ब्याज",
+    "totalPayment": "कुल भुगतान"
+  },
+  "interestRatesPage": {
+    "title": "वर्तमान ब्याज दरें",
+    "loanCategory": "ऋण श्रेणी",
+    "rate": "ब्याज दर (वार्षिक)",
+    "updatedOn": "{{date}} को दरें अपडेट की गईं"
+  },
+  "reportPage": {
+    "title": "डैशबोर्ड रिपोर्ट डाउनलोड करें",
+    "generateTitle": "PDF सारांश उत्पन्न करें",
+    "description": "वर्तमान ऋण डैशबोर्ड डेटा का PDF सारांश उत्पन्न करने और डाउनलोड करने के लिए नीचे दिए गए बटन पर क्लिक करें।",
+    "infoText": "PDF में मुख्य मैट्रिक्स, ऋण प्रकार की ब्याज दरें और बैंक-विशिष्ट ऋण प्रस्ताव शामिल होंगे।",
+    "downloadButton": "PDF उत्पन्न करें और डाउनलोड करें",
+    "imageAlt": "एक वित्तीय रिपोर्ट का शैलीगत प्रतिनिधित्व",
+    "imageCaption": "आपका व्यापक ऋण डेटा, सारांशित।"
+  },
+  "footer": {
+    "copyRight": "© {{year}} LoanView. सर्वाधिकार सुरक्षित।"
+  },
+  "formValidation": {
+    "required": "यह फ़ील्ड आवश्यक है।",
+    "invalidEmail": "अमान्य ईमेल पता।",
+    "positiveNumber": "एक सकारात्मक संख्या होनी चाहिए।"
+  },
+  "pdf": {
+    "reportGenerated": "रिपोर्ट उत्पन्न करने की तिथि",
+    "page": "पृष्ठ",
+    "years": "वर्ष",
+    "applicationSummary": {
+      "title": "ऋण आवेदन सारांश"
+    },
+    "keyFacts": {
+      "title": "मुख्य तथ्य विवरण"
+    },
+    "marketComparison": {
+      "title": "{{loanType}} के लिए बाजार तुलना"
+    },
+    "loanSummary": {
+      "loanAmount": "ऋण राशि",
+      "principalAmount": "मूलधन राशि",
+      "interestRate": "वार्षिक ब्याज दर",
+      "tenure": "अवधि",
+      "monthlyEMI": "मासिक ईएमआई",
+      "totalInterest": "कुल देय ब्याज",
+      "totalPayment": "कुल भुगतान (मूलधन + ब्याज)"
+    },
+    "paymentPlan": {
+      "title": "भुगतान योजना (ऋण परिशोधन अनुसूची)",
+      "month": "महीना #",
+      "principal": "मूलधन",
+      "interest": "ब्याज",
+      "totalPayment": "कुल भुगतान",
+      "balance": "शेष राशि"
+    },
+    "nextSteps": {
+        "title": "अगले चरण और सिफारिशें",
+        "contactBank": "1. 'बाजार तुलना' अनुभाग से सबसे अनुकूल दरों वाले बैंकों से संपर्क करके उनके प्रस्तावों की पुष्टि करें।",
+        "prepareDocuments": "2. एक तेज आवेदन प्रक्रिया के लिए आवश्यक दस्तावेज जैसे आईडी प्रूफ, पता प्रूफ और आय विवरण तैयार करें।"
+    },
+    "disclaimers": {
+      "title": "अस्वीकरण और अलर्ट",
+      "discrepancy": "कृपया इस विवरण को ध्यान से देखें। किसी भी विसंगति की सूचना विवरण की तारीख से 30 दिनों के भीतर बैंक को दी जानी चाहिए।",
+      "fraudWarning": "धोखाधड़ी अलर्ट: अपना पिन, ओटीपी, या कोई भी गोपनीय बैंकिंग विवरण किसी के साथ साझा न करें। बैंक कभी भी यह जानकारी नहीं मांगता है।"
+    },
+    "support": {
+      "title": "समर्थन और संपर्क जानकारी",
+      "helpline": "ग्राहक सहायता हेल्पलाइन"
+    },
+    "summary": "सारांश",
+    "dashboardMetrics": "डैशबोर्ड मैट्रिक्स"
+  },
+  "currency": {
+    "inr": "INR"
+  },
+  "N/A": "N/A"
+}

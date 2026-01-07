@@ -1,0 +1,128 @@
+/**
+ * This ruleset enforces a strict user-ownership model for a loan application platform.
+ * It is designed for rapid prototyping, prioritizing strong authorization controls while
+ * maintaining flexibility in the data schema.
+ *
+ * Core Philosophy:
+ * Users have complete control over their own data, and no one else can access it.
+ * All user-specific information, including profiles, loan applications, and related
+ * documents, is strictly isolated. Application-wide configuration data is publicly
+ * readable but not writable by clients.
+ *
+ * Data Structure:
+ * - /users/{userId}: The root for all of a user's private data.
+ * - /users/{userId}/loanApplications/{loanApplicationId}: A user's loan applications.
+ * - /users/{userId}/loanApplications/{loanApplicationId}/documents/{documentId}: Documents for an application.
+ * - /loanCategories/{loanCategoryId}: Public, read-only data available to all users.
+ *
+ * Key Security Decisions:
+ * - User data is segregated using path-based security, where the {userId} wildcard
+ *   is matched against the authenticated user's UID.
+ * - Listing all users is explicitly disallowed to protect user privacy.
+ * - The `loanCategories` collection is treated as read-only configuration data,
+ *   preventing any client-side modifications.
+ * - The default security posture is deny-all, with permissions granted explicitly.
+ *
+ * Denormalization for Authorization:
+ * The ruleset relies on the path structure (`/users/{userId}`) for primary authorization,
+ * avoiding costly `get()` calls. For data integrity, it validates that internal IDs
+ * (e.g., `UserProfile.id`, `LoanApplication.userId`) match the corresponding IDs in the
+ * document path upon creation and ensures they are immutable upon update.
+ *
+ * Structural Segregation:
+ * Private user data is stored in the `/users` collection, while public, read-only
+ * data is in the separate `/loanCategories` collection. This separation simplifies
+ * rules and enhances security and performance for list operations.
+ */
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions to improve readability and reuse of logic.
+
+    /**
+     * Checks if a user is authenticated.
+     */
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    /**
+     * Validates that the requesting user is the owner of the document,
+     * based on the userId provided in the path.
+     * @param userId The user ID from the document path.
+     */
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    /**
+     * Ensures the document being updated or deleted already exists and
+     * that the requesting user is the owner.
+     * @param userId The user ID from the document path.
+     */
+    function isExistingOwner(userId) {
+      return isOwner(userId) && resource != null;
+    }
+
+    /**
+     * @description Secures a user's profile, allowing only the owner to access or modify it.
+     * @path /users/{userId}
+     * @allow An authenticated user (uid: 'user123') can (create) their own profile at `/users/user123`.
+     * @deny An authenticated user (uid: 'user456') cannot (get) or (update) a profile at `/users/user123`.
+     * @principle Enforces self-creation and ownership of a user's root document.
+     */
+    match /users/{userId} {
+      allow get: if isOwner(userId);
+      allow list: if false;
+      allow create: if isOwner(userId) && request.resource.data.id == userId;
+      allow update: if isExistingOwner(userId) && request.resource.data.id == resource.data.id;
+      allow delete: if isExistingOwner(userId);
+
+      /**
+       * @description Secures a user's loan applications, granting access only to the owner.
+       * @path /users/{userId}/loanApplications/{loanApplicationId}
+       * @allow A user (uid: 'user123') can (create) a new application at `/users/user123/loanApplications/appABC`.
+       * @deny A different user (uid: 'user456') cannot (list) applications at `/users/user123/loanApplications`.
+       * @principle Restricts access to a user's own data tree using path-based ownership.
+       */
+      match /loanApplications/{loanApplicationId} {
+        allow get: if isOwner(userId);
+        allow list: if isOwner(userId);
+        allow create: if isOwner(userId) && request.resource.data.userId == userId;
+        allow update: if isExistingOwner(userId) && request.resource.data.userId == resource.data.userId;
+        allow delete: if isExistingOwner(userId);
+
+        /**
+         * @description Secures documents for a specific loan application, accessible only by the application owner.
+         * @path /users/{userId}/loanApplications/{loanApplicationId}/documents/{documentId}
+         * @allow A user (uid: 'user123') can (get) a document at `/users/user123/loanApplications/appABC/documents/docXYZ`.
+         * @deny A different user (uid: 'user456') cannot (create) a document at that path.
+         * @principle Extends path-based ownership to deeply nested subcollections for comprehensive security.
+         */
+        match /documents/{documentId} {
+          allow get: if isOwner(userId);
+          allow list: if isOwner(userId);
+          allow create: if isOwner(userId) && request.resource.data.loanApplicationId == loanApplicationId;
+          allow update: if isExistingOwner(userId) && request.resource.data.loanApplicationId == resource.data.loanApplicationId;
+          allow delete: if isExistingOwner(userId);
+        }
+      }
+    }
+
+    /**
+     * @description Provides public, read-only access to loan categories for all users.
+     * @path /loanCategories/{loanCategoryId}
+     * @allow Any user, authenticated or not, can (get) or (list) all loan categories.
+     * @deny No user can (create), (update), or (delete) a loan category.
+     * @principle Secures application-wide configuration data by making it read-only for clients.
+     */
+    match /loanCategories/{loanCategoryId} {
+      allow get: if true;
+      allow list: if true;
+      allow create: if false;
+      allow update: if false;
+      allow delete: if false;
+    }
+  }
+}

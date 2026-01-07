@@ -1,0 +1,262 @@
+{
+  "appName": "LoanView",
+  "nav": {
+    "dashboard": "ڈیش بورڈ",
+    "applyLoan": "قرض کے لئے درخواست دیں",
+    "compareLoans": "قرضوں کا موازنہ کریں",
+    "interestRates": "سود کی شرحیں",
+    "downloadReport": "رپورٹ ڈاؤن لوڈ کریں"
+  },
+  "dashboard": {
+    "title": "قرض ڈیش بورڈ",
+    "totalLoans": "کل قرضے",
+    "avgLoanSize": "اوسط قرض کا سائز (INR)",
+    "approvalRate": "منظوری کی شرح",
+    "aiSuggestions": {
+      "title": "AI سے چلنے والی لوکلائزیشن بصیرتیں",
+      "description": "قرض کے ڈیٹا کے لئے ثقافتی طور پر متعلقہ تصوراتی اور تشریحی تجاویز حاصل کرنے کے لئے ہدف آبادی درج کریں۔",
+      "demographicLabel": "ہدف آبادی",
+      "demographicPlaceholder": "مثال کے طور پر، شہری علاقے میں نوجوان پیشہ ور افراد",
+      "getSuggestions": "تجاویز حاصل کریں",
+      "visualizationSuggestion": "تصوراتی تجویز",
+      "interpretationSuggestion": "تشریحی تجویز",
+      "noSuggestions": "ایک آبادی درج کریں اور AI بصیرتیں دیکھنے کے لئے 'تجاویز حاصل کریں' پر کلک کریں۔",
+      "loadingSuggestions": "تجاویز لوڈ ہو رہی ہیں...",
+      "errorSuggestions": "تجاویز حاصل نہیں کی جا سکیں۔ براہ کرم دوبارہ کوشش کریں۔"
+    },
+    "recentActivity": "حالیہ سرگرمی",
+    "noRecentActivity": "دکھانے کے لئے کوئی حالیہ سرگرمی نہیں ہے۔",
+    "loanInterestRatesChart": {
+      "title": "قرض کی سود کی شرحوں کا جائزہ",
+      "description": "مختلف قسم کے قرضوں کے لئے سود کی شرحوں کا بصری موازنہ۔"
+    },
+    "bankLoanRates": {
+      "title": "بینک لون آفرز",
+      "description": "مختلف بینکوں سے مختلف قرضوں کے لئے سود کی شرحوں کا موازنہ کریں۔",
+      "bankName": "بینک کا نام",
+      "loanType": "قرض کی قسم",
+      "interestRate": "سود کی شرح (%)",
+      "filters": {
+        "searchPlaceholder": "بینک یا قرض کی قسم سے تلاش کریں...",
+        "selectBank": "بینک منتخب کریں",
+        "allBanks": "تمام بینک",
+        "selectLoanType": "قرض کی قسم منتخب کریں",
+        "allLoanTypes": "تمام قرض کی قسمیں",
+        "interestRateRange": "سود کی شرح کی حد",
+        "minRate": "کم از کم شرح",
+        "maxRate": "زیادہ سے زیادہ شرح",
+        "selectBankCategory": "بینک کیٹیگری منتخب کریں",
+        "allBankCategories": "تمام کیٹیگریز",
+        "publicSector": "عوامی شعبہ",
+        "privateSector": "نجی شعبہ",
+        "smallFinanceBank": "چھوٹا مالیاتی بینک",
+        "paymentBank": "ادائیگی بینک",
+        "nbfc": "NBFC",
+        "foreignBank": "غیر ملکی بینک"
+      },
+      "downloadCsv": "CSV ڈاؤن لوڈ کریں",
+      "tooltip": {
+        "tenure": "مدت: {{min}} - {{max}} ماہ",
+        "maxAmount": "زیادہ سے زیادہ رقم: {{amount}}",
+        "processingFee": "پروسیسنگ فیس: {{fee}}",
+        "rateType": "شرح کی قسم: {{type}}"
+      },
+      "noResults": "آپ کے موجودہ فلٹرز سے کوئی قرض کی مصنوعات مماثل نہیں ہیں۔"
+    },
+    "themeToggle": {
+      "light": "لائٹ موڈ میں تبدیل کریں",
+      "dark": "ڈارک موڈ میں تبدیل کریں",
+      "toggle": "تھیم تبدیل کریں"
+    },
+    "keyRateStatistics": {
+      "title": "کلیدی شرح کے اعدادوشمار",
+      "description": "موجودہ فلٹرز کی بنیاد پر سود کی شرحوں کا خلاصہ۔",
+      "overallAvgRate": "مجموعی اوسط شرح",
+      "overallMinRate": "مجموعی کم از کم شرح",
+      "overallMaxRate": "مجموعی زیادہ سے زیادہ شرح",
+      "lowestAvgRateLoanType": "سب سے زیادہ مسابقتی قرض کی قسم",
+      "highestAvgRateLoanType": "سب سے مہنگی قرض کی قسم",
+      "avgRateSuffix": "اوسط شرح",
+      "noData": "اعدادوشمار کے لئے کافی ڈیٹا نہیں ہے۔"
+    },
+    "bankRatesComparisonChart": {
+      "title": "منتخب کردہ قرض کی قسم کے لئے بینک کی شرحوں کا موازنہ",
+      "description": "مختلف بینکوں کے درمیان سود کی شرحیں کیسے موازنہ کرتی ہیں یہ دیکھنے کے لئے قرض کی قسم منتخب کریں۔",
+      "selectLoanTypePlaceholder": "موازنہ करने के لئے قرض کی قسم منتخب کریں",
+      "noData": "منتخب کردہ قرض کی قسم اور فلٹرز کے لئے کوئی ڈیٹا دستیاب نہیں ہے۔",
+      "yAxisLabel": "سود کی شرح (%)"
+    }
+  },
+  "loanTypes": {
+    "home": {
+      "name": "ہوم لون",
+      "description": "مسابقتی شرحوں پر اپنے خوابوں کے گھر کی مالی اعانت کریں۔",
+      "processingFee": "قرض کی رقم کا 1% تک"
+    },
+    "personal": {
+      "name": "پرسنل لون",
+      "description": "آپ کی ذاتی ضروریات کے لئے لچکدار قرضے۔",
+      "processingFee": "قرض کی رقم کا 1-2%"
+    },
+    "education": {
+      "name": "تعلیمی قرض",
+      "description": "ہماری تعلیمی مالی اعانت کے ساتھ اپنے مستقبل میں سرمایہ کاری کریں۔",
+      "processingFee": "عام طور پر 0.5-1%"
+    },
+    "vehicle": {
+      "name": "گاڑی کا قرض",
+      "description": "ہماری پرکشش گاڑیوں کے قرضوں کے ساتھ سڑک پر نکلیں۔",
+      "processingFee": "قرض کی رقم کا 1.5% تک"
+    },
+    "business": {
+      "name": "کاروباری قرض",
+      "description": "ہمارے موزوں قرضوں کے ساتھ اپنے کاروبار کی ترقی کو فروغ دیں۔",
+      "processingFee": "قرض کی رقم کا 1-2.5%، شرائط کے ساتھ مشروط"
+    },
+    "gold": {
+      "name": "سونے کا قرض",
+      "description": "فوری مالی ضروریات کے لئے اپنے سونے کے اثاثوں کا فائدہ اٹھائیں۔",
+      "processingFee": "قرض کی رقم کا 0.5-1.5%"
+    },
+    "rateTypes": {
+      "fixed": "مقررہ",
+      "floating": "تیرتا ہوا"
+    }
+  },
+  "loanApplication": {
+    "title": "قرض کی درخواست",
+    "steps": {
+      "personalDetails": "ذاتی تفصیلات",
+      "incomeDetails": "آمدنی کی تفصیلات",
+      "documentUpload": "دستاویز اپ لوڈ",
+      "reviewSubmit": "جائزہ لیں اور جمع کروائیں"
+    },
+    "next": "اگلا",
+    "previous": "پچھلا",
+    "submit": "درخواست جمع کروائیں",
+    "selectLoanType": "قرض کی قسم منتخب کریں",
+    "selectLoanTypePlaceholder": "قرض کی قسم منتخب کریں...",
+    "personalDetailsForm": {
+      "fullName": "پورا نام",
+      "fullNamePlaceholder": "اپنا پورا نام درج کریں",
+      "email": "ای میل ایڈریس",
+      "emailPlaceholder": "اپنا ای میل درج کریں",
+      "phone": "فون نمبر",
+      "phonePlaceholder": "اپنا فون نمبر درج کریں"
+    },
+    "incomeDetailsForm": {
+      "monthlyIncome": "ماہانہ آمدنی (INR)",
+      "monthlyIncomePlaceholderINR": "مثال کے طور پر، 50000",
+      "employmentStatus": "ملازمت کی حیثیت",
+      "employmentStatusPlaceholder": "ملازمت کی حیثیت منتخب کریں",
+      "employed": "ملازم",
+      "selfEmployed": "خود ملازم",
+      "unemployed": "بے روزگار"
+    },
+    "documentUploadForm": {
+      "idProof": "شناختی ثبوت",
+      "addressProof": "پتہ کا ثبوت",
+      "uploadHint": "اپ لوڈ کرنے کے لئے اس علاقے میں فائل پر کلک کریں یا گھسیٹیں",
+      "notUploaded": "اپ لوڈ نہیں کیا گیا"
+    },
+    "reviewSubmitForm": {
+      "reviewDetails": "جمع کروانے سے پہلے براہ کرم اپنی درخواست کی تفصیلات کا جائزہ لیں۔",
+      "submitting": "جمع کیا جا رہا ہے...",
+      "loading": "تفصیلات لوڈ ہو رہی ہیں..."
+    },
+    "applicationSubmitted": "درخواست جمع ہوگئی!",
+    "applicationSubmittedDesc": "آپ کی قرض کی درخواست کامیابی کے ساتھ جمع کر دی گئی ہے۔ ہم جلد ہی آپ سے رابطہ کریں گے۔"
+  },
+  "compareLoans": {
+    "title": "قرض کے اختیارات کا موازنہ کریں",
+    "loanTypeComparison": "قرض کی قسم کا موازنہ",
+    "loanType": "قرض کی قسم",
+    "interestRate": "سود کی شرح",
+    "maxTenure": "زیادہ سے زیادہ مدت (مہینے)",
+    "maxAmount": "زیادہ سے زیادہ رقم (INR)",
+    "calculateEMI": "EMI کا حساب لگائیں",
+    "selectForEMI": "EMI کیلکولیشن کے لئے منتخب کریں",
+    "loanAmount": "قرض کی رقم",
+    "loanTenure": "قرض کی مدت (مہینے)",
+    "monthlyEMI": "ماہانہ EMI: {{emi}}",
+    "enterAllDetails": "براہ کرم قرض کی رقم، مدت درج کریں، اور سود کی شرح منتخب/درج کریں۔",
+    "clickToCalculateEMI": "ماہانہ ادائیگی دیکھنے کے لئے 'EMI کا حساب لگائیں' پر کلک کریں۔",
+    "usingSelectedRate": "منتخب کردہ قرض کی قسم کی شرح کا استعمال کرتے ہوئے: {{rate}}%",
+    "selectOrEnterRate": "اوپر دی گئی جدول سے قرض کی قسم منتخب کریں یا دستی طور پر سود کی شرح درج کریں۔",
+    "calculateEMIButton": "EMI کا حساب لگائیں",
+    "emiDetails": "ای ایم آئی کی تفصیلات",
+    "loanRepaymentBreakdown": "قرض کی واپسی کا بریک ڈاؤن",
+    "principalAmount": "اصل رقم",
+    "totalInterest": "کل سود",
+    "totalPayment": "کل ادائیگی"
+  },
+  "interestRatesPage": {
+    "title": "موجودہ سود کی شرحیں",
+    "loanCategory": "قرض کا زمرہ",
+    "rate": "سود کی شرح (سالانہ)",
+    "updatedOn": "{{date}} کو شرحیں اپ ڈیٹ کی گئیں"
+  },
+  "reportPage": {
+    "title": "ڈیش بورڈ رپورٹ ڈاؤن لوڈ کریں",
+    "generateTitle": "PDF خلاصہ تیار کریں",
+    "description": "موجودہ قرض ڈیش بورڈ ڈیٹا کا PDF خلاصہ تیار کرنے اور ڈاؤن لوڈ کرنے کے لئے نیچے دیئے گئے بٹن پر کلک کریں۔",
+    "infoText": "PDF میں کلیدی میٹرکس، قرض کی قسم کی سود کی شرحیں، اور بینک کے مخصوص قرض کی پیشکشیں شامل ہوں گی۔",
+    "downloadButton": "PDF تیار کریں اور ڈاؤن لوڈ کریں",
+    "imageAlt": "مالی رپورٹ کی ایک اسٹائلائزڈ نمائندگی",
+    "imageCaption": "آپ کا جامع قرض کا ڈیٹا، خلاصہ۔"
+  },
+  "footer": {
+    "copyRight": "© {{year}} LoanView. جملہ حقوق محفوظ ہیں۔"
+  },
+  "formValidation": {
+    "required": "یہ فیلڈ ضروری ہے۔",
+    "invalidEmail": "غلط ای میل ایڈریس۔",
+    "positiveNumber": "ایک مثبت عدد ہونا چاہیے۔"
+  },
+  "pdf": {
+    "reportGenerated": "رپورٹ تیار کی گئی",
+    "page": "صفحہ",
+    "years": "سال",
+    "applicationSummary": {
+      "title": "قرض کی درخواست کا خلاصہ"
+    },
+    "keyFacts": {
+      "title": "کلیدی حقائق کا بیان"
+    },
+    "marketComparison": {
+      "title": "{{loanType}} کے لئے مارکیٹ کا موازنہ"
+    },
+    "loanSummary": {
+      "loanAmount": "قرض کی رقم",
+      "principalAmount": "اصل رقم",
+      "interestRate": "سالانہ سود کی شرح",
+      "tenure": "مدت",
+      "monthlyEMI": "ماہانہ EMI",
+      "totalInterest": "کل قابل ادائیگی سود",
+      "totalPayment": "کل ادائیگی (اصل + سود)"
+    },
+    "paymentPlan": {
+      "title": "ادائیگی کا منصوبہ (ایمورٹائزیشن شیڈول)",
+      "month": "مہینہ #",
+      "principal": "اصل",
+      "interest": "سود",
+      "totalPayment": "کل ادائیگی",
+      "balance": "بقیہ بیلنس"
+    },
+    "disclaimers": {
+      "title": "دستبرداری اور انتباہات",
+      "discrepancy": "براہ کرم اس بیان کا بغور جائزہ لیں۔ کسی بھی تضاد کی اطلاع بیان کی تاریخ سے 30 دن کے اندر بینک کو دی جانی چاہئے۔",
+      "fraudWarning": "دھوکہ دہی کا انتباہ: اپنا پن، او ٹی پی، یا کوئی بھی خفیہ بینکنگ تفصیلات کسی کے ساتھ شیئر نہ کریں۔ بینک کبھی بھی یہ معلومات نہیں مانگتا۔"
+    },
+    "support": {
+      "title": "سپورٹ اور رابطہ کی معلومات",
+      "helpline": "کسٹمر سپورٹ ہیلپ لائن"
+    },
+    "summary": "خلاصہ",
+    "dashboardMetrics": "ڈیش بورڈ میٹرکس"
+  },
+  "currency": {
+    "inr": "INR"
+  },
+  "N/A": "N/A"
+}

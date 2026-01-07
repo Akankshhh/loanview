@@ -1,0 +1,262 @@
+{
+  "appName": "LoanView",
+  "nav": {
+    "dashboard": "ডেশ্বৰ্ড",
+    "applyLoan": "ঋণৰ বাবে আবেদন কৰক",
+    "compareLoans": "ঋণ তুলনা কৰক",
+    "interestRates": "সুদৰ হাৰ",
+    "downloadReport": "প্ৰতিবেদন ডাউনলোড কৰক"
+  },
+  "dashboard": {
+    "title": "ঋণ ডেশ্বৰ্ড",
+    "totalLoans": "মুঠ ঋণ",
+    "avgLoanSize": "গড় ঋণৰ আকাৰ (INR)",
+    "approvalRate": "অনুমোদনৰ হাৰ",
+    "aiSuggestions": {
+      "title": "AI-চালিত থলুৱাকৰণ অন্তৰ্দৃষ্টি",
+      "description": "ঋণৰ তথ্যৰ বাবে সংস্কৃতিগতভাৱে প্ৰাসঙ্গিক দৃশ্যায়ন আৰু ব্যাখ্যাৰ পৰামৰ্শ ল'বলৈ এটা লক্ষ্য জনগাঁথনি প্ৰবিষ্ট কৰক।",
+      "demographicLabel": "লক্ষ্য জনগাঁথনি",
+      "demographicPlaceholder": "যেনে, চহৰ অঞ্চলৰ যুৱ পেছাদাৰীসকল",
+      "getSuggestions": "পৰামৰ্ש লওক",
+      "visualizationSuggestion": "দৃশ্যায়নৰ পৰামৰ্ש",
+      "interpretationSuggestion": "ব্যাখ্যাৰ পৰামৰ্ש",
+      "noSuggestions": "এটা জনগাঁথনি প্ৰবিষ্ট কৰক আৰু AI অন্তৰ্দৃষ্টি চাবলৈ 'পৰামৰ্ש লওক' ক্লিক কৰক।",
+      "loadingSuggestions": "পৰামৰ্ש লোড হৈ আছে...",
+      "errorSuggestions": "পৰামৰ্ש আনিব পৰা ন'গ'ল। অনুগ্ৰহ কৰি পুনৰ চেষ্টা কৰক।"
+    },
+    "recentActivity": "শেহতীয়া কাৰ্যকলাপ",
+    "noRecentActivity": "প্ৰদৰ্শন কৰিবলৈ কোনো শেহতীয়া কাৰ্যকলাপ নাই।",
+    "loanInterestRatesChart": {
+      "title": "ঋণৰ সুদৰ হাৰৰ আভাস",
+      "description": "বিভিন্ন প্ৰকাৰৰ ঋণৰ বাবে সুদৰ হাৰৰ এক দৃশ্যগত তুলনা।"
+    },
+    "bankLoanRates": {
+      "title": "বেংক ঋণৰ অফাৰসমূহ",
+      "description": "বিভিন্ন বেংকৰ পৰা বিভিন্ন ঋণৰ বাবে সুদৰ হাৰ তুলনা কৰক।",
+      "bankName": "বেংকৰ নাম",
+      "loanType": "ঋণৰ প্ৰকাৰ",
+      "interestRate": "সুদৰ হাৰ (%)",
+      "filters": {
+        "searchPlaceholder": "বেংক বা ঋণৰ প্ৰকাৰৰ দ্বাৰা সন্ধান কৰক...",
+        "selectBank": "বেংক বাছনি কৰক",
+        "allBanks": "সকলো বেংক",
+        "selectLoanType": "ঋণৰ প্ৰকাৰ বাছনি কৰক",
+        "allLoanTypes": "সকলো ঋণৰ প্ৰকাৰ",
+        "interestRateRange": "সুদৰ হাৰৰ পৰিসৰ",
+        "minRate": "নিম্নতম হাৰ",
+        "maxRate": "সৰ্বোচ্চ হাৰ",
+        "selectBankCategory": "বেংকৰ শ্ৰেণী বাছনি কৰক",
+        "allBankCategories": "সকলো শ্ৰেণী",
+        "publicSector": "ৰাজহুৱা খণ্ড",
+        "privateSector": "ব্যক্তিগত খণ্ড",
+        "smallFinanceBank": "ক্ষুদ্ৰ বিত্তীয় বেংক",
+        "paymentBank": "পেমেন্ট বেংক",
+        "nbfc": "NBFC",
+        "foreignBank": "বিদেশী বেংক"
+      },
+      "downloadCsv": "CSV ডাউনলোড কৰক",
+      "tooltip": {
+        "tenure": "কাৰ্যকাল: {{min}} - {{max}} মাহ",
+        "maxAmount": "সৰ্বোচ্চ পৰিমাণ: {{amount}}",
+        "processingFee": "প্ৰক্ৰিয়াকৰণ মাচুল: {{fee}}",
+        "rateType": "হাৰৰ প্ৰকাৰ: {{type}}"
+      },
+      "noResults": "আপোনাৰ বৰ্তমানৰ ফিল্টাৰৰ সৈতে কোনো ঋণ সামগ্ৰী মিল নাখায়।"
+    },
+    "themeToggle": {
+      "light": "লাইট মোডলৈ সলনি কৰক",
+      "dark": "ডাৰ্ক মোডলৈ সলনি কৰক",
+      "toggle": "থীম সলনি কৰক"
+    },
+    "keyRateStatistics": {
+      "title": "মুখ্য হাৰৰ পৰিসংখ্যা",
+      "description": "বৰ্তমানৰ ফিল্টাৰৰ ওপৰত ভিত্তি কৰি সুদৰ হাৰৰ সাৰাংশ।",
+      "overallAvgRate": "সামগ্ৰিক গড় হাৰ",
+      "overallMinRate": "সামগ্ৰিক নূন্যতম হাৰ",
+      "overallMaxRate": "সামগ্ৰিক সৰ্বোচ্চ হাৰ",
+      "lowestAvgRateLoanType": "আটাইতকৈ প্ৰতিযোগিতামূলক ঋণৰ প্ৰকাৰ",
+      "highestAvgRateLoanType": "আটাইতকৈ ব্যয়বহুল ঋণৰ প্ৰকাৰ",
+      "avgRateSuffix": "গড় হাৰ",
+      "noData": "পৰিসংখ্যাৰ বাবে পৰ্যাপ্ত তথ্য নাই।"
+    },
+    "bankRatesComparisonChart": {
+      "title": "বাছনি কৰা ঋণৰ প্ৰকাৰৰ বাবে বেংকৰ হাৰৰ তুলনা",
+      "description": "বিভিন্ন বেংকৰ মাজত সুদৰ হাৰ কেনেদৰে তুলনা কৰা হয় চাবলৈ এটা ঋণৰ প্ৰকাৰ বাছনি কৰক।",
+      "selectLoanTypePlaceholder": "তুলনা কৰিবলৈ এটা ঋণৰ প্ৰকাৰ বাছনি কৰক",
+      "noData": "বাছনি কৰা ঋণৰ প্ৰকাৰ আৰু ফিল্টাৰৰ বাবে কোনো তথ্য উপলব্ধ নাই।",
+      "yAxisLabel": "সুদৰ হাৰ (%)"
+    }
+  },
+  "loanTypes": {
+    "home": {
+      "name": "গৃহ ঋণ",
+      "description": "প্ৰতিযোগিতামূলক হাৰত আপোনাৰ সপোনৰ ঘৰ বিত্তায়ন কৰক।",
+      "processingFee": "ঋণৰ পৰিমাণৰ ১% লৈকে"
+    },
+    "personal": {
+      "name": "ব্যক্তিগত ঋণ",
+      "description": "আপোনাৰ ব্যক্তিগত প্ৰয়োজনৰ বাবে নমনীয় ঋণ।",
+      "processingFee": "ঋণৰ পৰিমাণৰ ১-২%"
+    },
+    "education": {
+      "name": "শিক্ষা ঋণ",
+      "description": "আমাৰ শিক্ষা বিত্তায়নেৰে আপোনাৰ ভৱিষ্যতত বিনিয়োগ কৰক।",
+      "processingFee": "সাধাৰণতে ০.৫-১%"
+    },
+    "vehicle": {
+      "name": "বাহন ঋণ",
+      "description": "আমাৰ আকৰ্ষণীয় বাহন ঋণেৰে পথত নামি পৰক।",
+      "processingFee": "ঋণৰ পৰিমাণৰ ১.৫% লৈকে"
+    },
+    "business": {
+      "name": "ব্যৱসায়িক ঋণ",
+      "description": "আমাৰ বিশেষভাৱে তৈয়াৰ কৰা ঋণেৰে আপোনাৰ ব্যৱসায়ৰ বৃদ্ধিত ইন্ধন যোগাওক।",
+      "processingFee": "ঋণৰ পৰিমাণৰ ১-২.৫%, চৰ্ত সাপেক্ষে"
+    },
+    "gold": {
+      "name": "সোণৰ ঋণ",
+      "description": " তৎকালীন বিত্তীয় প্ৰয়োজনৰ বাবে আপোনাৰ সোণৰ সম্পদ ব্যৱহাৰ কৰক।",
+      "processingFee": "ঋণৰ পৰিমাণৰ ০.৫-১.৫%"
+    },
+    "rateTypes": {
+      "fixed": "স্থিৰ",
+      "floating": "অস্থিৰ"
+    }
+  },
+  "loanApplication": {
+    "title": "ঋণ আবেদন",
+    "steps": {
+      "personalDetails": "ব্যক্তিগত বিৱৰণ",
+      "incomeDetails": "আয়ৰ বিৱৰণ",
+      "documentUpload": "নথি আপলোড",
+      "reviewSubmit": "পুনৰীক্ষণ আৰু দাখিল"
+    },
+    "next": "পৰৱৰ্তী",
+    "previous": "পূৰ্বৱৰ্তী",
+    "submit": "আবেদন দাখিল কৰক",
+    "selectLoanType": "ঋণৰ প্ৰকাৰ বাছনি কৰক",
+    "selectLoanTypePlaceholder": "এটা ঋণৰ প্ৰকাৰ বাছনি কৰক...",
+    "personalDetailsForm": {
+      "fullName": "সম্পূৰ্ণ নাম",
+      "fullNamePlaceholder": "আপোনাৰ সম্পূৰ্ণ নাম লিখক",
+      "email": "ইমেইল ঠিকনা",
+      "emailPlaceholder": "আপোনাৰ ইমেইল লিখক",
+      "phone": "ফোন নম্বৰ",
+      "phonePlaceholder": "আপোনাৰ ফোন নম্বৰ লিখক"
+    },
+    "incomeDetailsForm": {
+      "monthlyIncome": "মাহিলী আয় (INR)",
+      "monthlyIncomePlaceholderINR": "যেনে, ৫০০০০",
+      "employmentStatus": "নিয়োগৰ স্থিতি",
+      "employmentStatusPlaceholder": "নিয়োগৰ স্থিতি বাছনি কৰক",
+      "employed": "নিয়োজিত",
+      "selfEmployed": "স্ব-নিয়োজিত",
+      "unemployed": "বেকাৰ"
+    },
+    "documentUploadForm": {
+      "idProof": "পৰিচয় পত্ৰ",
+      "addressProof": "ঠিকনাৰ প্ৰমাণ",
+      "uploadHint": "আপলোড কৰিবলৈ ফাইল ইয়াত ক্লিক কৰক বা টানি আনক",
+      "notUploaded": "আপলোড কৰা হোৱা নাই"
+    },
+    "reviewSubmitForm": {
+      "reviewDetails": "দাখিল কৰাৰ আগতে অনুগ্ৰহ কৰি আপোনাৰ আবেদনৰ বিৱৰণ পুনৰীক্ষণ কৰক।",
+      "submitting": "দাখিল কৰি থকা হৈছে...",
+      "loading": "বিৱৰণ লোড হৈ আছে..."
+    },
+    "applicationSubmitted": "আবেদন দাখিল হ'ল!",
+    "applicationSubmittedDesc": "আপোনাৰ ঋণ আবেদন সফলতাৰে দাখিল কৰা হৈছে। আমি সোনকালেই আপোনাৰ সৈতে যোগাযোগ কৰিম।"
+  },
+  "compareLoans": {
+    "title": "ঋণ বিকল্পসমূহ তুলনা কৰক",
+    "loanTypeComparison": "ঋণৰ প্ৰকাৰৰ তুলনা",
+    "loanType": "ঋণৰ প্ৰকাৰ",
+    "interestRate": "সুদৰ হাৰ",
+    "maxTenure": "সৰ্বোচ্চ ম্যাদ (মাহ)",
+    "maxAmount": "সৰ্বোচ্চ পৰিমাণ (INR)",
+    "calculateEMI": "EMI গণনা কৰক",
+    "selectForEMI": "EMI গণনাৰ বাবে বাছনি কৰক",
+    "loanAmount": "ঋণৰ পৰিমাণ",
+    "loanTenure": "ঋণৰ ম্যাদ (মাহ)",
+    "monthlyEMI": "মাহিলী EMI: {{emi}}",
+    "enterAllDetails": "অনুগ্ৰহ কৰি ঋণৰ পৰিমাণ, ম্যাদ, আৰু সুদৰ হাৰ বাছনি/প্ৰবিষ্ট কৰক।",
+    "clickToCalculateEMI": "মাহিলী পৰিশোধ চাবলৈ 'EMI গণনা কৰক' ক্লিক কৰক।",
+    "usingSelectedRate": "বাছনি কৰা ঋণৰ প্ৰকাৰৰ হাৰ ব্যৱহাৰ কৰি: {{rate}}%",
+    "selectOrEnterRate": "ওপৰৰ তালিকাৰ পৰা এটা ঋণৰ প্ৰকাৰ বাছনি কৰক বা নিজে এটা সুদৰ হাৰ প্ৰবিষ্ট কৰক।",
+    "calculateEMIButton": "EMI গণনা কৰক",
+    "emiDetails": "EMI বিৱৰণ",
+    "loanRepaymentBreakdown": "ঋণ পৰিশোধৰ বিভাজন",
+    "principalAmount": "মূলধনৰ পৰিমাণ",
+    "totalInterest": "মুঠ সুদ",
+    "totalPayment": "মুঠ পৰিশোধ"
+  },
+  "interestRatesPage": {
+    "title": "বৰ্তমানৰ সুদৰ হাৰ",
+    "loanCategory": "ঋণ শ্ৰেণী",
+    "rate": "সুদৰ হাৰ (বাৰ্ষিক)",
+    "updatedOn": "{{date}} তাৰিখে হাৰ আপডেট কৰা হৈছে"
+  },
+  "reportPage": {
+    "title": "ডেশ্বৰ্ড প্ৰতিবেদন ডাউনলোড কৰক",
+    "generateTitle": "PDF সাৰাংশ সৃষ্টি কৰক",
+    "description": "বৰ্তমানৰ ঋণ ডেশ্বৰ্ড তথ্যৰ PDF সাৰাংশ সৃষ্টি আৰু ডাউনলোড কৰিবলৈ তলৰ বুটামত ক্লিক কৰক।",
+    "infoText": "PDFত মুখ্য মেট্ৰিক, ঋণৰ প্ৰকাৰ অনুযায়ী সুদৰ হাৰ, আৰু বেংক-নিৰ্দিষ্ট ঋণ অফাৰ অন্তৰ্ভুক্ত থাকিব।",
+    "downloadButton": "PDF সৃষ্টি আৰু ডাউনলোড কৰক",
+    "imageAlt": "এটা বিত্তীয় প্ৰতিবেদনৰ শৈলীগত উপস্থাপন",
+    "imageCaption": "আপোনাৰ ব্যাপক ঋণ তথ্য, সাৰাংশিত।"
+  },
+  "footer": {
+    "copyRight": "© {{year}} LoanView. সকলো অধিকাৰ সংৰক্ষিত।"
+  },
+  "formValidation": {
+    "required": "এই ফিল্ডখন প্ৰয়োজনীয়।",
+    "invalidEmail": "অবৈধ ইমেইল ঠিকনা।",
+    "positiveNumber": "ধনাত্মক সংখ্যা হ'ব লাগিব।"
+  },
+  "pdf": {
+    "reportGenerated": "প্ৰতিবেদন সৃষ্টি কৰা হৈছে",
+    "page": "পৃষ্ঠা",
+    "years": "বছৰ",
+    "applicationSummary": {
+      "title": "ঋণ আবেদনৰ সাৰাংশ"
+    },
+    "keyFacts": {
+      "title": "मुख्य तथ्य विवरण"
+    },
+    "marketComparison": {
+      "title": "{{loanType}} ৰ বাবে বজাৰ তুলনা"
+    },
+    "loanSummary": {
+      "loanAmount": "ঋণৰ পৰিমাণ",
+      "principalAmount": "মূলধনৰ পৰিমাণ",
+      "interestRate": "বাৰ্ষিক সুদৰ হাৰ",
+      "tenure": "কাৰ্যকাল",
+      "monthlyEMI": "মাহিলী ইএমআই",
+      "totalInterest": "দেয় মুঠ সুদ",
+      "totalPayment": "মুঠ পৰিশোধ (মূলধন + সুদ)"
+    },
+    "paymentPlan": {
+      "title": "পৰিশোধ পৰিকল্পনা (এমৰ্টাইজেচন অনুসূচী)",
+      "month": "মাহ #",
+      "principal": "মূলধন",
+      "interest": "সুদ",
+      "totalPayment": "মুঠ পৰিশোধ",
+      "balance": "বাকী থকা পৰিমাণ"
+    },
+    "disclaimers": {
+      "title": "অস্বীকাৰ আৰু সতৰ্কবাণী",
+      "discrepancy": "অনুগ্ৰহ কৰি এই বিৱৰণ ভালদৰে চাওক। কোনো বিসংগতি থাকিলে বিৱৰণৰ তাৰিখৰ পৰা ৩০ দিনৰ ভিতৰত বেংকক জনাব লাগে।",
+      "fraudWarning": "প্ৰৱಂಚনা সতৰ্কবাণী: আপোনাৰ পিন, অ’টিপি, বা কোনো গোপনীয় বেংকিং বিৱৰণ কাৰো সৈতে শ্বেয়াৰ নকৰিব। বেংকে কেতিয়াও এই তথ্য নিবিচাৰে।"
+    },
+    "support": {
+      "title": "সমৰ্থন আৰু যোগাযোগৰ তথ্য",
+      "helpline": "গ্ৰাহক সমৰ্থন হেল্পলাইন"
+    },
+    "summary": "সাৰাংশ",
+    "dashboardMetrics": "ডেশ্বৰ্ড মেট্ৰিকসমূহ"
+  },
+  "currency": {
+    "inr": "টকা"
+  },
+  "N/A": "N/A"
+}

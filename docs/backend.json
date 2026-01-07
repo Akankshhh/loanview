@@ -1,0 +1,261 @@
+{
+  "entities": {
+    "LoanApplication": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "LoanApplication",
+      "type": "object",
+      "description": "Represents a loan application submitted by a user.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the loan application."
+        },
+        "userId": {
+          "type": "string",
+          "description": "Reference to UserProfile. (Relationship: UserProfile 1:N LoanApplication)"
+        },
+        "loanCategory": {
+          "type": "string",
+          "description": "Category of the loan (e.g., Home Loan, Personal Loan)."
+        },
+        "loanAmount": {
+          "type": "number",
+          "description": "The amount of the loan requested."
+        },
+        "interestRate": {
+          "type": "number",
+          "description": "The interest rate applied to the loan."
+        },
+        "loanTenure": {
+          "type": "number",
+          "description": "The duration of the loan in months."
+        },
+        "emiAmount": {
+          "type": "number",
+          "description": "The calculated EMI amount for the loan."
+        },
+        "applicationDate": {
+          "type": "string",
+          "description": "The date when the loan application was submitted.",
+          "format": "date-time"
+        },
+        "status": {
+          "type": "string",
+          "description": "The current status of the loan application (e.g., Pending, Approved, Rejected)."
+        },
+        "documents": {
+          "type": "array",
+          "description": "References to Documents. (Relationship: LoanApplication 1:N Document)",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "userId",
+        "loanCategory",
+        "loanAmount",
+        "interestRate",
+        "loanTenure",
+        "emiAmount",
+        "applicationDate",
+        "status"
+      ]
+    },
+    "UserProfile": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "UserProfile",
+      "type": "object",
+      "description": "Represents a user profile within the application.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the user profile."
+        },
+        "firstName": {
+          "type": "string",
+          "description": "The first name of the user."
+        },
+        "lastName": {
+          "type": "string",
+          "description": "The last name of the user."
+        },
+        "email": {
+          "type": "string",
+          "description": "The email address of the user.",
+          "format": "email"
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "The phone number of the user."
+        },
+        "address": {
+          "type": "string",
+          "description": "The address of the user."
+        },
+        "preferredLanguage": {
+          "type": "string",
+          "description": "The user's preferred language for the application."
+        }
+      },
+      "required": [
+        "id",
+        "firstName",
+        "lastName",
+        "email"
+      ]
+    },
+    "Document": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Document",
+      "type": "object",
+      "description": "Represents a document uploaded for a loan application.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the document."
+        },
+        "loanApplicationId": {
+          "type": "string",
+          "description": "Reference to LoanApplication. (Relationship: LoanApplication 1:N Document)"
+        },
+        "documentType": {
+          "type": "string",
+          "description": "Type of document (e.g., proof of income, ID)."
+        },
+        "fileUrl": {
+          "type": "string",
+          "description": "URL or path to the stored document file."
+        },
+        "uploadDate": {
+          "type": "string",
+          "description": "The date when the document was uploaded.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "loanApplicationId",
+        "documentType",
+        "fileUrl",
+        "uploadDate"
+      ]
+    },
+    "LoanCategory": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "LoanCategory",
+      "type": "object",
+      "description": "Represents a category of loan (e.g., Home Loan, Personal Loan).",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the loan category."
+        },
+        "categoryName": {
+          "type": "string",
+          "description": "The name of the loan category."
+        },
+        "description": {
+          "type": "string",
+          "description": "A description of the loan category."
+        },
+        "interestRate": {
+          "type": "number",
+          "description": "Default interest rate for this loan category."
+        }
+      },
+      "required": [
+        "id",
+        "categoryName"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/users/{userId}",
+        "definition": {
+          "entityName": "UserProfile",
+          "schema": {
+            "$ref": "#/backend/entities/UserProfile"
+          },
+          "description": "Stores user profile information. The `userId` parameter corresponds to the authenticated user's UID. Enables path-based ownership for secure access.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier of the user."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}/loanApplications/{loanApplicationId}",
+        "definition": {
+          "entityName": "LoanApplication",
+          "schema": {
+            "$ref": "#/backend/entities/LoanApplication"
+          },
+          "description": "Stores loan applications for each user. Includes denormalized 'userId' for authorization independence. The `userId` and `loanApplicationId` parameters ensure secure, path-based access.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier of the user."
+            },
+            {
+              "name": "loanApplicationId",
+              "description": "The unique identifier of the loan application."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}/loanApplications/{loanApplicationId}/documents/{documentId}",
+        "definition": {
+          "entityName": "Document",
+          "schema": {
+            "$ref": "#/backend/entities/Document"
+          },
+          "description": "Stores documents related to loan applications. Implicit authorization via path. Consider denormalizing `userId` or `loanApplicationId` if needed for enhanced authorization independence.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier of the user."
+            },
+            {
+              "name": "loanApplicationId",
+              "description": "The unique identifier of the loan application."
+            },
+            {
+              "name": "documentId",
+              "description": "The unique identifier of the document."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/loanCategories/{loanCategoryId}",
+        "definition": {
+          "entityName": "LoanCategory",
+          "schema": {
+            "$ref": "#/backend/entities/LoanCategory"
+          },
+          "description": "Stores loan categories. Globally readable, no specific authorization fields required.",
+          "params": [
+            {
+              "name": "loanCategoryId",
+              "description": "The unique identifier of the loan category."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The Firestore data structure is designed to ensure authorization independence, clarity, and scalability. It adheres to the principles of denormalization and structural segregation to simplify security rules and enable secure list operations. The structure prioritizes path-based ownership for user-owned data and employs membership maps for collaborative access where needed.\n\n1.  **User Profiles:** User profiles are stored under `/users/{userId}`. This structure provides straightforward ownership-based security. The `userId` in the path directly corresponds to the authenticated user's ID (`request.auth.uid`), enabling simple read/write rules.\n\n2.  **Loan Applications:** Loan applications are stored as subcollections under `/users/{userId}/loanApplications/{loanApplicationId}`. This path-based ownership ensures that only the user who owns the profile can access their loan applications. Additionally, to support Authorization Independence, key attributes such as the `userId` are also stored within each loan application document.\n\n3.  **Documents:** Documents related to loan applications are stored as subcollections under `/users/{userId}/loanApplications/{loanApplicationId}/documents/{documentId}`. This nested structure maintains the relationship between users, loan applications, and documents. The `userId` and `loanApplicationId` are implicitly available through the path. To fully enforce Authorization Independence, consider denormalizing relevant fields from parent documents (if applicable) into the `Document` documents to avoid `get()` calls in security rules, though this is not explicitly required by the schema.\n\n4.  **Loan Categories:** Loan categories are stored in a separate collection `/loanCategories/{loanCategoryId}`. These categories are globally accessible (read-only) to all users. No specific authorization fields are required in this collection, as all users can view loan categories.\n\n**Authorization Independence (Denormalization):** The structure ensures authorization independence by embedding the `userId` within the `LoanApplication` documents and utilizing path-based access control. This eliminates the need for `get()` calls to parent documents to validate ownership.\n\n**QAPs Support (Segregation & Membership):** The structure supports secure `list` operations by segregating data based on ownership (user profiles, loan applications) and global accessibility (loan categories). Path-based rules ensure that users can only list loan applications and documents associated with their user ID."
+  }
+}

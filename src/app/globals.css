@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 94.1%; /* Light Gray #F0F0F0 */
+    --foreground: 0 0% 20%;    /* Dark Gray #333333 */
+    --card: 0 0% 100%;         /* White */
+    --card-foreground: 0 0% 20%; /* Dark Gray */
+    --popover: 0 0% 100%;      /* White */
+    --popover-foreground: 0 0% 20%; /* Dark Gray */
+    --primary: 220 90% 55%; /* Modern Blue */
+    --primary-foreground: 0 0% 100%; /* White */
+    --secondary: 0 0% 87.8%;   /* Slightly darker gray for secondary backgrounds #E0E0E0 */
+    --secondary-foreground: 0 0% 15%; /* Darker gray for text on secondary #262626 */
+    --muted: 0 0% 80%;         /* Even lighter gray for muted elements #CCCCCC */
+    --muted-foreground: 0 0% 40%; /* Medium gray for muted text #666666 */
+    --accent: 120 73.3% 75.3%; /* Soft Green #90EE90 */
+    --accent-foreground: 120 60% 20%; /* Dark Green #285A28 */
+    --destructive: 0 70% 55%;  /* Red */
+    --destructive-foreground: 0 0% 100%; /* White */
+    --border: 0 0% 80%;        /* #CCCCCC, same as muted for borders */
+    --input: 0 0% 90%;         /* Lighter gray for input background #E5E5E5 */
+    --ring: 220 90% 60%;      /* Slightly lighter Modern Blue for focus ring */
+    
+    --chart-1: 220 90% 55%; /* Primary variant */
+    --chart-2: 120 73.3% 70%; /* Accent variant */
+    --chart-3: 210 80% 60%; /* A blue shade */
+    --chart-4: 43 74% 66%; 
+    --chart-5: 27 87% 67%; 
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 92%; 
+    --sidebar-foreground: 0 0% 20%; 
+    --sidebar-primary: 220 90% 55%; 
+    --sidebar-primary-foreground: 0 0% 100%; 
+    --sidebar-accent: var(--accent); /* Use main accent for active/hover tab background */
+    --sidebar-accent-foreground: var(--accent-foreground); /* Use main accent foreground for active/hover tab text */
+    --sidebar-border: 0 0% 80%;
+    --sidebar-ring: 220 90% 60%;
+  }
+
+  .dark {
+    --background: 0 0% 13%;    /* Dark Gray #212121 */
+    --foreground: 0 0% 85%;    /* Light Gray #D9D9D9 */
+    --card: 0 0% 18%;          /* Slightly Lighter Dark Gray #2E2E2E */
+    --card-foreground: 0 0% 85%; /* Light Gray */
+    --popover: 0 0% 15%;       /* Darker Popover #262626 */
+    --popover-foreground: 0 0% 85%; /* Light Gray */
+    --primary: 220 90% 65%;   /* Brighter Modern Blue */
+    --primary-foreground: 0 0% 10%; /* Dark text on blue for contrast */
+    --secondary: 0 0% 23%;     /* #3B3B3B */
+    --secondary-foreground: 0 0% 80%; /* #CCCCCC */
+    --muted: 0 0% 28%;         /* #474747 */
+    --muted-foreground: 0 0% 60%; /* #999999 */
+    --accent: 120 73.3% 65.3%; /* Slightly darker Soft Green for dark mode contrast */
+    --accent-foreground: 0 0% 10%; /* Black for high contrast on soft green in dark mode */
+    --destructive: 0 60% 50%;  /* Darker Red */
+    --destructive-foreground: 0 0% 95%; /* Light Gray */
+    --border: 0 0% 28%;        /* #474747 */
+    --input: 0 0% 25%;         /* #404040 */
+    --ring: 220 90% 70%;      /* Brighter Blue Ring */
+
+    --chart-1: 220 90% 65%;
+    --chart-2: 120 73.3% 60%;
+    --chart-3: 210 80% 65%;
+    --chart-4: 40 65% 70%; 
+    --chart-5: 20 75% 65%;
+
+    --sidebar-background: 0 0% 15%; 
+    --sidebar-foreground: 0 0% 85%; 
+    --sidebar-primary: 220 90% 65%; 
+    --sidebar-primary-foreground: 0 0% 10%; 
+    --sidebar-accent: var(--accent); /* Use main accent for active/hover tab background in dark mode */
+    --sidebar-accent-foreground: var(--accent-foreground); /* Use main accent foreground for active/hover tab text in dark mode */
+    --sidebar-border: 0 0% 28%;
+    --sidebar-ring: 220 90% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

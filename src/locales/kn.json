@@ -1,0 +1,262 @@
+{
+  "appName": "LoanView",
+  "nav": {
+    "dashboard": "ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
+    "applyLoan": "ಸಾಲಕ್ಕಾಗಿ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ",
+    "compareLoans": "ಸಾಲಗಳನ್ನು ಹೋಲಿಕೆ ಮಾಡಿ",
+    "interestRates": "ಬಡ್ಡಿ ದರಗಳು",
+    "downloadReport": "ವರದಿ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ"
+  },
+  "dashboard": {
+    "title": "ಸಾಲ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
+    "totalLoans": "ಒಟ್ಟು ಸಾಲಗಳು",
+    "avgLoanSize": "ಸರಾಸರಿ ಸಾಲದ ಗಾತ್ರ (INR)",
+    "approvalRate": "ಅನುಮೋದನೆ ದರ",
+    "aiSuggestions": {
+      "title": "AI-ಚಾಲಿತ ಸ್ಥಳೀಕರಣ ಒಳನೋಟಗಳು",
+      "description": "ಸಾಲದ ಡೇಟಾಗೆ ಸಾಂಸ್ಕೃತಿಕವಾಗಿ ಸಂಬಂಧಿತ ದೃಶ್ಯೀಕರಣ ಮತ್ತು ವ್ಯಾಖ್ಯಾನ ಸಲಹೆಗಳನ್ನು ಪಡೆಯಲು ಗುರಿ ಜನಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ.",
+      "demographicLabel": "ಗುರಿ ಜನಸಂಖ್ಯೆ",
+      "demographicPlaceholder": "ಉದಾ., ನಗರ ಪ್ರದೇಶದ ಯುವ ವೃತ್ತಿಪರರು",
+      "getSuggestions": "ಸಲಹೆಗಳನ್ನು ಪಡೆಯಿರಿ",
+      "visualizationSuggestion": "ದೃಶ್ಯೀಕರಣ ಸಲಹೆ",
+      "interpretationSuggestion": "ವ್ಯಾಖ್ಯಾನ ಸಲಹೆ",
+      "noSuggestions": "ಒಂದು ಜನಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ ಮತ್ತು AI ಒಳನೋಟಗಳನ್ನು ನೋಡಲು 'ಸಲಹೆಗಳನ್ನು ಪಡೆಯಿರಿ' ಕ್ಲಿಕ್ ಮಾಡಿ.",
+      "loadingSuggestions": "ಸಲಹೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...",
+      "errorSuggestions": "ಸಲಹೆಗಳನ್ನು ಪಡೆಯಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
+    },
+    "recentActivity": "ಇತ್ತೀಚಿನ ಚಟುಟಿಕೆ",
+    "noRecentActivity": "ಪ್ರದರ್ಶಿಸಲು ಯಾವುದೇ ಇತ್ತೀಚಿನ ಚಟುಟಿಕೆ ಇಲ್ಲ.",
+    "loanInterestRatesChart": {
+      "title": "ಸಾಲದ ಬಡ್ಡಿ ದರಗಳ ಅವಲೋಕನ",
+      "description": "ವಿವಿಧ ರೀತಿಯ ಸಾಲಗಳಿಗೆ ಬಡ್ಡಿ ದರಗಳ ದೃಶ್ಯ ಹೋಲಿಕೆ."
+    },
+    "bankLoanRates": {
+      "title": "ಬ್ಯಾಂಕ್ ಸಾಲ ಕೊಡುಗೆಗಳು",
+      "description": "ವಿವಿಧ ಬ್ಯಾಂಕುಗಳಿಂದ ವಿವಿಧ ಸಾಲಗಳಿಗೆ ಬಡ್ಡಿ ದರಗಳನ್ನು ಹೋಲಿಕೆ ಮಾಡಿ.",
+      "bankName": "ಬ್ಯಾಂಕಿನ ಹೆಸರು",
+      "loanType": "ಸಾಲದ ಪ್ರಕಾರ",
+      "interestRate": "ಬಡ್ಡಿ ದರ (%)",
+      "filters": {
+        "searchPlaceholder": "ಬ್ಯಾಂಕ್ ಅಥವಾ ಸಾಲದ ಪ್ರಕಾರದಿಂದ ಹುಡುಕಿ...",
+        "selectBank": "ಬ್ಯಾಂಕ್ ಆಯ್ಕೆಮಾಡಿ",
+        "allBanks": "ಎಲ್ಲಾ ಬ್ಯಾಂಕುಗಳು",
+        "selectLoanType": "ಸಾಲದ ಪ್ರಕಾರವನ್ನು ಆಯ್ಕೆಮಾಡಿ",
+        "allLoanTypes": "ಎಲ್ಲಾ ಸಾಲದ ಪ್ರಕಾರಗಳು",
+        "interestRateRange": "ಬಡ್ಡಿ ದರ ಶ್ರೇಣಿ",
+        "minRate": "ಕನಿಷ್ಠ ದರ",
+        "maxRate": "ಗರಿಷ್ಠ ದರ",
+        "selectBankCategory": "ಬ್ಯಾಂಕ್ ವರ್ಗವನ್ನು ಆಯ್ಕೆಮಾಡಿ",
+        "allBankCategories": "ಎಲ್ಲಾ ವರ್ಗಗಳು",
+        "publicSector": "ಸಾರ್ವಜನಿಕ ವಲಯ",
+        "privateSector": "ಖಾಸಗಿ ವಲಯ",
+        "smallFinanceBank": "ಸಣ್ಣ ಹಣಕಾಸು ಬ್ಯಾಂಕ್",
+        "paymentBank": "ಪಾವತಿ ಬ್ಯಾಂಕ್",
+        "nbfc": "NBFC",
+        "foreignBank": "ವಿದೇಶಿ ಬ್ಯಾಂಕ್"
+      },
+      "downloadCsv": "CSV ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ",
+      "tooltip": {
+        "tenure": "ಅವಧಿ: {{min}} - {{max}} ತಿಂಗಳುಗಳು",
+        "maxAmount": "ಗರಿಷ್ಠ ಮೊತ್ತ: {{amount}}",
+        "processingFee": "ಸಂಸ್ಕರಣಾ ಶುಲ್ಕ: {{fee}}",
+        "rateType": "ದರ ಪ್ರಕಾರ: {{type}}"
+      },
+       "noResults": "ನಿಮ್ಮ ಪ್ರಸ್ತುತ ಫಿಲ್ಟರ್‌ಗಳಿಗೆ ಯಾವುದೇ ಸಾಲ ಉತ್ಪನ್ನಗಳು ಹೊಂದಿಕೆಯಾಗುವುದಿಲ್ಲ."
+    },
+    "themeToggle": {
+      "light": "ಲೈಟ್ ಮೋಡ್‌ಗೆ ಬದಲಿಸಿ",
+      "dark": "ಡಾರ್ಕ್ ಮೋಡ್‌ಗೆ ಬದಲಿಸಿ",
+      "toggle": "ಥೀಮ್ ಬದಲಿಸಿ"
+    },
+    "keyRateStatistics": {
+      "title": "ಪ್ರಮುಖ ದರ ಅಂಕಿಅಂಶಗಳು",
+      "description": "ಪ್ರಸ್ತುತ ಫಿಲ್ಟರ್‌ಗಳ ಆಧಾರದ ಮೇಲೆ ಬಡ್ಡಿ ದರಗಳ ಸಾರಾಂಶ.",
+      "overallAvgRate": "ಒಟ್ಟಾರೆ ಸರಾಸರಿ ದರ",
+      "overallMinRate": "ಒಟ್ಟಾರೆ ಕನಿಷ್ಠ ದರ",
+      "overallMaxRate": "ಒಟ್ಟಾರೆ ಗರಿಷ್ಠ ದರ",
+      "lowestAvgRateLoanType": "ಅತ್ಯಂತ ಸ್ಪರ್ಧಾತ್ಮಕ ಸಾಲದ ಪ್ರಕಾರ",
+      "highestAvgRateLoanType": "ಅತ್ಯಂತ ದುಬಾರಿ ಸಾಲದ ಪ್ರಕಾರ",
+      "avgRateSuffix": "ಸರಾಸರಿ ದರ",
+      "noData": "ಅಂಕಿಅಂಶಗಳಿಗೆ ಸಾಕಷ್ಟು ಡೇಟಾ ಇಲ್ಲ."
+    },
+    "bankRatesComparisonChart": {
+      "title": "ಆಯ್ದ ಸಾಲದ ಪ್ರಕಾರಕ್ಕಾಗಿ ಬ್ಯಾಂಕ್ ದರಗಳ ಹೋಲಿಕೆ",
+      "description": "ವಿವಿಧ ಬ್ಯಾಂಕುಗಳ ನಡುವೆ ಬಡ್ಡಿ ದರಗಳು ಹೇಗೆ ಹೋಲಿಕೆಯಾಗುತ್ತವೆ ಎಂಬುದನ್ನು ನೋಡಲು ಸಾಲದ ಪ್ರಕಾರವನ್ನು ಆಯ್ಕೆಮಾಡಿ.",
+      "selectLoanTypePlaceholder": "ಹೋಲಿಸಲು ಸಾಲದ ಪ್ರಕಾರವನ್ನು ಆಯ್ಕೆಮಾಡಿ",
+      "noData": "ಆಯ್ದ ಸಾಲದ ಪ್ರಕಾರ ಮತ್ತು ಫಿಲ್ಟರ್‌ಗಳಿಗೆ ಯಾವುದೇ ಡೇಟಾ ಲಭ್ಯವಿಲ್ಲ.",
+      "yAxisLabel": "ಬಡ್ಡಿ ದರ (%)"
+    }
+  },
+  "loanTypes": {
+    "home": {
+      "name": "ಗೃಹ ಸಾಲ",
+      "description": "ಸ್ಪರ್ಧಾತ್ಮಕ ದರಗಳಲ್ಲಿ ನಿಮ್ಮ ಕನಸಿನ ಮನೆಗೆ ಹಣಕಾಸು ಒದಗಿಸಿ.",
+      "processingFee": "ಸಾಲದ ಮೊತ್ತದ 1% ವರೆಗೆ"
+    },
+    "personal": {
+      "name": "ವೈಯಕ್ತಿಕ ಸಾಲ",
+      "description": "ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಅಗತ್ಯಗಳಿಗಾಗಿ ಹೊಂದಿಕೊಳ್ಳುವ ಸಾಲಗಳು.",
+      "processingFee": "ಸಾಲದ ಮೊತ್ತದ 1-2%"
+    },
+    "education": {
+      "name": "ಶಿಕ್ಷಣ ಸಾಲ",
+      "description": "ನಮ್ಮ ಶಿಕ್ಷಣ ಹಣಕಾಸಿನೊಂದಿಗೆ ನಿಮ್ಮ ಭವಿಷ್ಯದಲ್ಲಿ ಹೂಡಿಕೆ ಮಾಡಿ.",
+      "processingFee": "ಸಾಮಾನ್ಯವಾಗಿ 0.5-1%"
+    },
+    "vehicle": {
+      "name": "ವಾಹನ ಸಾಲ",
+      "description": "ನಮ್ಮ ಆಕರ್ಷಕ ವಾಹನ ಸಾಲಗಳೊಂದಿಗೆ ರಸ್ತೆಗೆ ಇಳಿಯಿರಿ.",
+      "processingFee": "ಸಾಲದ ಮೊತ್ತದ 1.5% ವರೆಗೆ"
+    },
+    "business": {
+      "name": "ವ್ಯಾಪಾರ ಸಾಲ",
+      "description": "ನಮ್ಮ ಸೂಕ್ತ ಸಾಲಗಳೊಂದಿಗೆ ನಿಮ್ಮ ವ್ಯಾಪಾರ ಬೆಳವಣಿಗೆಗೆ ಉತ್ತೇಜನ ನೀಡಿ.",
+      "processingFee": "ಸಾಲದ ಮೊತ್ತದ 1-2.5%, ಷರತ್ತುಗಳಿಗೆ ಒಳಪಟ್ಟು"
+    },
+    "gold": {
+      "name": "ಚಿನ್ನದ ಸಾಲ",
+      "description": "ತಕ್ಷಣದ ಹಣಕಾಸಿನ ಅಗತ್ಯಗಳಿಗಾಗಿ ನಿಮ್ಮ ಚಿನ್ನದ ಆಸ್ತಿಗಳನ್ನು ಸದುಪಯೋಗಪಡಿಸಿಕೊಳ್ಳಿ.",
+      "processingFee": "ಸಾಲದ ಮೊತ್ತದ 0.5-1.5%"
+    },
+    "rateTypes": {
+      "fixed": "ಸ್ಥಿರ",
+      "floating": "ಚರ"
+    }
+  },
+  "loanApplication": {
+    "title": "ಸಾಲ ಅರ್ಜಿ",
+    "steps": {
+      "personalDetails": "ವೈಯಕ್ತಿಕ ವಿವರಗಳು",
+      "incomeDetails": "ಆದಾಯದ ವಿವರಗಳು",
+      "documentUpload": "ಡಾಕ್ಯುಮೆಂಟ್ ಅಪ್‌ಲೋಡ್",
+      "reviewSubmit": "ಪರಿಶೀಲಿಸಿ ಮತ್ತು ಸಲ್ಲಿಸಿ"
+    },
+    "next": "ಮುಂದೆ",
+    "previous": "ಹಿಂದಿನದು",
+    "submit": "ಅರ್ಜಿ ಸಲ್ಲಿಸಿ",
+    "selectLoanType": "ಸಾಲದ ಪ್ರಕಾರವನ್ನು ಆಯ್ಕೆಮಾಡಿ",
+    "selectLoanTypePlaceholder": "ಒಂದು ಸಾಲದ ಪ್ರಕಾರವನ್ನು ಆಯ್ಕೆಮಾಡಿ...",
+    "personalDetailsForm": {
+      "fullName": "ಪೂರ್ಣ ಹೆಸರು",
+      "fullNamePlaceholder": "ನಿಮ್ಮ ಪೂರ್ಣ ಹೆಸರನ್ನು ನಮೂದಿಸಿ",
+      "email": "ಇಮೇಲ್ ವಿಳಾಸ",
+      "emailPlaceholder": "ನಿಮ್ಮ ಇಮೇಲ್ ನಮೂದಿಸಿ",
+      "phone": "ದೂರವಾಣಿ ಸಂಖ್ಯೆ",
+      "phonePlaceholder": "ನಿಮ್ಮ ದೂರವಾಣಿ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ"
+    },
+    "incomeDetailsForm": {
+      "monthlyIncome": "ಮಾಸಿಕ ಆದಾಯ (INR)",
+      "monthlyIncomePlaceholderINR": "ಉದಾ., 50000",
+      "employmentStatus": "ಉದ್ಯೋಗ ಸ್ಥಿತಿ",
+      "employmentStatusPlaceholder": "ಉದ್ಯೋಗ ಸ್ಥಿತಿಯನ್ನು ಆಯ್ಕೆಮಾಡಿ",
+      "employed": "ಉದ್ಯೋಗಿ",
+      "selfEmployed": "ಸ್ವಯಂ ಉದ್ಯೋಗಿ",
+      "unemployed": "ನಿರುದ್ಯೋಗಿ"
+    },
+    "documentUploadForm": {
+      "idProof": "ಗುರುತಿನ ಪುರಾವೆ",
+      "addressProof": "ವಿಳಾಸ ಪುರಾವೆ",
+      "uploadHint": "ಅಪ್‌ಲೋಡ್ ಮಾಡಲು ಈ ಪ್ರದೇಶಕ್ಕೆ ಫೈಲ್ ಅನ್ನು ಕ್ಲಿಕ್ ಮಾಡಿ ಅಥವಾ ಎಳೆಯಿರಿ",
+      "notUploaded": "ಅಪ್‌ಲೋಡ್ ಮಾಡಲಾಗಿಲ್ಲ"
+    },
+    "reviewSubmitForm": {
+      "reviewDetails": "ಸಲ್ಲಿಸುವ ಮೊದಲು ದಯವಿಟ್ಟು ನಿಮ್ಮ ಅರ್ಜಿಯ ವಿವರಗಳನ್ನು ಪರಿಶೀಲಿಸಿ.",
+      "submitting": "ಸಲ್ಲಿಸಲಾಗುತ್ತಿದೆ...",
+      "loading": "ವಿವರಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ..."
+    },
+    "applicationSubmitted": "ಅರ್ಜಿ ಸಲ್ಲಿಸಲಾಗಿದೆ!",
+    "applicationSubmittedDesc": "ನಿಮ್ಮ ಸಾಲದ ಅರ್ಜಿಯನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಸಲ್ಲಿಸಲಾಗಿದೆ. ನಾವು ಶೀಘ್ರದಲ್ಲೇ ನಿಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸುತ್ತೇವೆ."
+  },
+  "compareLoans": {
+    "title": "ಸಾಲದ ಆಯ್ಕೆಗಳನ್ನು ಹೋಲಿಕೆ ಮಾಡಿ",
+    "loanTypeComparison": "ಸಾಲದ ಪ್ರಕಾರದ ಹೋಲಿಕೆ",
+    "loanType": "ಸಾಲದ ಪ್ರಕಾರ",
+    "interestRate": "ಬಡ್ಡಿ ದರ",
+    "maxTenure": "ಗರಿಷ್ಠ ಅವಧಿ (ತಿಂಗಳುಗಳು)",
+    "maxAmount": "ಗರಿಷ್ಠ ಮೊತ್ತ (INR)",
+    "calculateEMI": "EMI ಲೆಕ್ಕಾಚಾರ ಮಾಡಿ",
+    "selectForEMI": "EMI ಲೆಕ್ಕಾಚಾರಕ್ಕಾಗಿ ಆಯ್ಕೆಮಾಡಿ",
+    "loanAmount": "ಸಾಲದ ಮೊತ್ತ",
+    "loanTenure": "ಸಾಲದ ಅವಧಿ (ತಿಂಗಳುಗಳು)",
+    "monthlyEMI": "ಮಾಸಿಕ EMI: {{emi}}",
+    "enterAllDetails": "ದಯವಿಟ್ಟು ಸಾಲದ ಮೊತ್ತ, ಅವಧಿಯನ್ನು ನಮೂದಿಸಿ ಮತ್ತು ಬಡ್ಡಿ ದರವನ್ನು ಆಯ್ಕೆಮಾಡಿ/ನಮೂದಿಸಿ.",
+    "clickToCalculateEMI": "ಮಾಸಿಕ ಪಾವತಿಯನ್ನು ನೋಡಲು 'EMI ಲೆಕ್ಕಾಚಾರ ಮಾಡಿ' ಕ್ಲಿಕ್ ಮಾಡಿ.",
+    "usingSelectedRate": "ಆಯ್ದ ಸಾಲದ ಪ್ರಕಾರದ ದರವನ್ನು ಬಳಸಲಾಗುತ್ತಿದೆ: {{rate}}%",
+    "selectOrEnterRate": "ಮೇಲಿನ ಕೋಷ್ಟಕದಿಂದ ಸಾಲದ ಪ್ರಕಾರವನ್ನು ಆಯ್ಕೆಮಾಡಿ ಅಥವಾ ಕೈಯಾರೆ ಬಡ್ಡಿ ದರವನ್ನು ನಮೂದಿಸಿ.",
+    "calculateEMIButton": "EMI ಲೆಕ್ಕಾಚಾರ ಮಾಡಿ",
+    "emiDetails": "ಇಎಂಐ ವಿವರಗಳು",
+    "loanRepaymentBreakdown": "ಸಾಲ ಮರುಪಾವತಿ ವಿಭಜನೆ",
+    "principalAmount": "ಅಸಲು ಮೊತ್ತ",
+    "totalInterest": "ಒಟ್ಟು ಬಡ್ಡಿ",
+    "totalPayment": "ಒಟ್ಟು ಪಾವತಿ"
+  },
+  "interestRatesPage": {
+    "title": "ಪ್ರಸ್ತುತ ಬಡ್ಡಿ ದರಗಳು",
+    "loanCategory": "ಸಾಲ ವರ್ಗ",
+    "rate": "ಬಡ್ಡಿ ದರ (ವಾರ್ಷಿಕ)",
+    "updatedOn": "{{date}} ರಂದು ದರಗಳನ್ನು ನವೀಕರಿಸಲಾಗಿದೆ"
+  },
+  "reportPage": {
+    "title": "ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ ವರದಿ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ",
+    "generateTitle": "PDF ಸಾರಾಂಶವನ್ನು ರಚಿಸಿ",
+    "description": "ಪ್ರಸ್ತುತ ಸಾಲ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ ಡೇಟಾದ PDF ಸಾರಾಂಶವನ್ನು ರಚಿಸಲು ಮತ್ತು ಡೌನ್‌ಲೋಡ್ ಮಾಡಲು ಕೆಳಗಿನ ಬಟన్ ಕ್ಲಿಕ್ ಮಾಡಿ.",
+    "infoText": "PDF ನಲ್ಲಿ ಪ್ರಮುಖ ಮೆಟ್ರಿಕ್‌ಗಳು, ಸಾಲದ ಪ್ರಕಾರದ ಬಡ್ಡಿ ದರಗಳು ಮತ್ತು ಬ್ಯಾಂಕ್-ನಿರ್ದಿಷ್ಟ ಸಾಲ ಕೊಡುಗೆಗಳು ಇರುತ್ತವೆ.",
+    "downloadButton": "PDF ರಚಿಸಿ ಮತ್ತು ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ",
+    "imageAlt": "ಹಣಕಾಸು ವರದಿಯ ಶೈಲೀಕೃತ ನಿರೂಪಣೆ",
+    "imageCaption": "ನಿಮ್ಮ ವ್ಯಾಪಕ ಸಾಲದ ಡೇಟಾ, ಸಾರಾಂಶಗೊಳಿಸಲಾಗಿದೆ."
+  },
+  "footer": {
+    "copyRight": "© {{year}} LoanView. ಎಲ್ಲಾ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ."
+  },
+  "formValidation": {
+    "required": "ಈ ಕ್ಷೇತ್ರ ಅಗತ್ಯವಿದೆ.",
+    "invalidEmail": "ಅಮಾನ್ಯ ಇಮೇಲ್ ವಿಳಾಸ.",
+    "positiveNumber": "ಧನಾತ್ಮಕ ಸಂಖ್ಯೆಯಾಗಿರಬೇಕು."
+  },
+  "pdf": {
+    "reportGenerated": "ವರದಿಯನ್ನು ರಚಿಸಲಾಗಿದೆ",
+    "page": "ಪುಟ",
+    "years": "ವರ್ಷಗಳು",
+    "applicationSummary": {
+      "title": "ಸಾಲದ ಅರ್ಜಿಯ ಸಾರಾಂಶ"
+    },
+    "keyFacts": {
+      "title": "ಪ್ರಮುಖ ಸಂಗತಿಗಳ ಹೇಳಿಕೆ"
+    },
+    "marketComparison": {
+      "title": "{{loanType}} ಗಾಗಿ ಮಾರುಕಟ್ಟೆ ಹೋಲಿಕೆ"
+    },
+    "loanSummary": {
+      "loanAmount": "ಸಾಲದ ಮೊತ್ತ",
+      "principalAmount": "ಅಸಲು ಮೊತ್ತ",
+      "interestRate": "ವಾರ್ಷಿಕ ಬಡ್ಡಿ ದರ",
+      "tenure": "ಅವಧಿ",
+      "monthlyEMI": "ಮಾಸಿಕ ಇಎಂಐ",
+      "totalInterest": "ಒಟ್ಟು ಪಾವತಿಸಬೇಕಾದ ಬಡ್ಡಿ",
+      "totalPayment": "ಒಟ್ಟು ಪಾವತಿ (ಅಸಲು + ಬಡ್ಡಿ)"
+    },
+    "paymentPlan": {
+      "title": "ಪಾವತಿ ಯೋಜನೆ (ಅಮೋರ್ಟೈಸೇಶನ್ ವೇಳಾಪಟ್ಟಿ)",
+      "month": "ತಿಂಗಳು #",
+      "principal": "ಅಸಲು",
+      "interest": "ಬಡ್ಡಿ",
+      "totalPayment": "ಒಟ್ಟು ಪಾವತಿ",
+      "balance": "ಉಳಿದ ಮೊತ್ತ"
+    },
+    "disclaimers": {
+      "title": "ಹಕ್ಕುತ್ಯಾಗಗಳು ಮತ್ತು ಎಚ್ಚರಿಕೆಗಳು",
+      "discrepancy": "ದಯವಿಟ್ಟು ಈ ಹೇಳಿಕೆಯನ್ನು ಎಚ್ಚರಿಕೆಯಿಂದ ಪರಿಶೀಲಿಸಿ. ಯಾವುದೇ ವ್ಯತ್ಯಾಸವನ್ನು ಹೇಳಿಕೆಯ ದಿನಾಂಕದಿಂದ 30 ದಿನಗಳೊಳಗೆ ಬ್ಯಾಂಕಿಗೆ ವರದಿ ಮಾಡಬೇಕು.",
+      "fraudWarning": "ವಂಚನೆ ಎಚ್ಚರಿಕೆ: ನಿಮ್ಮ ಪಿನ್, ಒಟಿಪಿ, ಅಥವಾ ಯಾವುದೇ ಗೌಪ್ಯ ಬ್ಯಾಂಕಿಂಗ್ ವಿವರಗಳನ್ನು ಯಾರೊಂದಿಗೂ ಹಂಚಿಕೊಳ್ಳಬೇಡಿ. ಬ್ಯಾಂಕ್ ಈ ಮಾಹಿತಿಯನ್ನು ಎಂದಿಗೂ ಕೇಳುವುದಿಲ್ಲ."
+    },
+    "support": {
+      "title": "ಬೆಂಬಲ ಮತ್ತು ಸಂಪರ್ಕ ಮಾಹಿತಿ",
+      "helpline": "ಗ್ರಾಹಕ ಬೆಂಬಲ ಸಹಾಯವಾಣಿ"
+    },
+    "summary": "ಸಾರಾಂಶ",
+    "dashboardMetrics": "ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ ಮೆಟ್ರಿಕ್‌ಗಳು"
+  },
+  "currency": {
+    "inr": "INR"
+  },
+  "N/A": "N/A"
+}
