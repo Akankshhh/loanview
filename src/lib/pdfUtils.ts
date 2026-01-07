@@ -21,7 +21,7 @@ const forceCustomFontHook = (data: any) => {
   data.doc.setFont('Roboto', 'normal');
 };
 
-const createSampleLoanData = (): NonNullable<LoanReportData> => {
+const createSampleLoanData = (i18n: I18nContextType): NonNullable<LoanReportData> => {
     const details = calculateLoanDetails(500000, 8.5, 60);
     return {
       loanAmount: 500000,
@@ -40,19 +40,16 @@ const createSampleLoanData = (): NonNullable<LoanReportData> => {
 const formatPdfNumber = (value: number | string | undefined, currency = false): string => {
     if (value === undefined || value === null || value === '') return 'N/A';
     
-    // Attempt to convert to a number, handling potential non-numeric strings gracefully
     const num = Number(String(value).replace(/[^0-9.-]/g, ''));
     
     if (isNaN(num)) {
-        // If it's a string that's not a number (e.g., from form input), return it as is.
         return String(value);
     }
   
-    // Converts number to a plain string with up to 2 decimal places, no currency symbols or commas.
     const fixedValue = num.toLocaleString('en-US', {
         minimumFractionDigits: 0,
         maximumFractionDigits: 2,
-        useGrouping: false // This is important, it prevents commas
+        useGrouping: false
     });
     
     return currency ? `INR ${fixedValue}` : fixedValue;
@@ -65,7 +62,6 @@ export const generateLoanReportPdf = (i18n: I18nContextType, loanCalculationData
   const doc = new jsPDF({ orientation: 'p', unit: 'mm', format: 'a4' });
   
   // --- FONT SETUP ---
-  // Add the Roboto font file to the jsPDF instance.
   doc.addFileToVFS("Roboto-Regular.ttf", RobotoRegular);
   doc.addFont("Roboto-Regular.ttf", "Roboto", "normal");
   
@@ -82,47 +78,47 @@ export const generateLoanReportPdf = (i18n: I18nContextType, loanCalculationData
   let finalY = 40;
 
   // --- HELPER FUNCTIONS ---
-  const addHeaderFooter = () => {
-    const pageCount = (doc as any).internal.getNumberOfPages();
+  const addHeaderFooter = (docInstance: jsPDF) => {
+    const pageCount = (docInstance as any).internal.getNumberOfPages();
     for (let i = 1; i <= pageCount; i++) {
-      doc.setPage(i);
+      docInstance.setPage(i);
       
       // All text must use the embedded font to avoid garbage values
-      doc.setFont('Roboto', 'normal');
-      doc.setFontSize(18);
-      doc.setTextColor(PRIMARY_COLOR);
-      doc.text(t('appName'), 15, 20);
+      docInstance.setFont('Roboto', 'normal');
+      docInstance.setFontSize(18);
+      docInstance.setTextColor(PRIMARY_COLOR);
+      docInstance.text(t('appName'), 15, 20);
 
-      doc.setFont('Roboto', 'normal');
-      doc.setFontSize(10);
-      doc.setTextColor(150);
-      doc.text(`${t('pdf.reportGenerated')}: ${formatDate(new Date())}`, pageWidth - 15, 15, { align: 'right' });
-      doc.text(`${t('pdf.page')} ${i} / ${pageCount}`, pageWidth - 15, 20, { align: 'right' });
+      docInstance.setFont('Roboto', 'normal');
+      docInstance.setFontSize(10);
+      docInstance.setTextColor(150);
+      docInstance.text(`${t('pdf.reportGenerated')}: ${formatDate(new Date())}`, pageWidth - 15, 15, { align: 'right' });
+      docInstance.text(`${t('pdf.page')} ${i} / ${pageCount}`, pageWidth - 15, 20, { align: 'right' });
 
-      doc.setDrawColor(BORDER_COLOR);
-      doc.line(15, 25, pageWidth - 15, 25);
+      docInstance.setDrawColor(BORDER_COLOR);
+      docInstance.line(15, 25, pageWidth - 15, 25);
 
-      doc.setFont('Roboto', 'normal');
-      doc.setFontSize(8);
-      doc.setTextColor(150);
+      docInstance.setFont('Roboto', 'normal');
+      docInstance.setFontSize(8);
+      docInstance.setTextColor(150);
       const footerText = `${t('footer.copyRight', { year: new Date().getFullYear().toString() })}`;
-      doc.text(footerText, pageWidth / 2, pageHeight - 10, { align: 'center' });
+      docInstance.text(footerText, pageWidth / 2, pageHeight - 10, { align: 'center' });
     }
   };
 
-  const addSectionTitle = (title: string, y: number) => {
-    doc.setFont('Roboto', 'normal');
-    doc.setFontSize(14);
-    doc.setTextColor(HEADER_COLOR);
-    doc.text(title, 15, y);
-    doc.setDrawColor(PRIMARY_COLOR);
-    doc.setLineWidth(0.5);
-    doc.line(15, y + 2, 65, y + 2); // Shorter line under title
+  const addSectionTitle = (docInstance: jsPDF, title: string, y: number) => {
+    docInstance.setFont('Roboto', 'normal');
+    docInstance.setFontSize(14);
+    docInstance.setTextColor(HEADER_COLOR);
+    docInstance.text(title, 15, y);
+    docInstance.setDrawColor(PRIMARY_COLOR);
+    docInstance.setLineWidth(0.5);
+    docInstance.line(15, y + 2, 65, y + 2); // Shorter line under title
     return y + 10;
   };
 
-  const createTwoColumnTable = (doc: jsPDF, data: Record<string, any>, y: number) => {
-     (doc as any).autoTable({
+  const createTwoColumnTable = (docInstance: jsPDF, data: Record<string, any>, y: number) => {
+     (docInstance as any).autoTable({
         startY: y,
         theme: 'plain',
         body: Object.entries(data).map(([key, value]) => [key, value || t('N/A')]),
@@ -130,12 +126,12 @@ export const generateLoanReportPdf = (i18n: I18nContextType, loanCalculationData
         columnStyles: { 0: { fontStyle: 'bold' } },
         didParseCell: forceCustomFontHook
     });
-    return (doc as any).lastAutoTable.finalY;
+    return (docInstance as any).lastAutoTable.finalY;
   }
 
   // --- LOAN APPLICATION SUMMARY ---
   if (applicationData) {
-    finalY = addSectionTitle(t('pdf.applicationSummary.title'), finalY);
+    finalY = addSectionTitle(doc, t('pdf.applicationSummary.title'), finalY);
 
     const personalDetails = {
       [t('applicationForm.sections.personalDetails.fullName')]: applicationData.personalDetails.fullName,
@@ -163,13 +159,13 @@ export const generateLoanReportPdf = (i18n: I18nContextType, loanCalculationData
   }
 
   // --- KEY FACTS STATEMENT from Calculation ---
-  const loanData = loanCalculationData || createSampleLoanData();
+  const loanData = loanCalculationData || createSampleLoanData(i18n);
 
   if (pageHeight - finalY < 80 && applicationData) {
     doc.addPage();
     finalY = 40;
   }
-  finalY = addSectionTitle(t('pdf.keyFacts.title'), finalY);
+  finalY = addSectionTitle(doc, t('pdf.keyFacts.title'), finalY);
   
   const keyFactsBody = [
     [t('pdf.loanSummary.loanAmount'), formatPdfNumber(loanData.loanAmount, true)],
@@ -200,7 +196,7 @@ export const generateLoanReportPdf = (i18n: I18nContextType, loanCalculationData
     doc.addPage();
     finalY = 40;
   }
-  finalY = addSectionTitle(t('pdf.marketComparison.title', { loanType: t(loanTypeName) }), finalY);
+  finalY = addSectionTitle(doc, t('pdf.marketComparison.title', { loanType: t(loanTypeName) }), finalY);
 
   const comparisonProducts = BANKS_DATA
       .map(bank => {
@@ -237,7 +233,7 @@ export const generateLoanReportPdf = (i18n: I18nContextType, loanCalculationData
     doc.addPage();
     finalY = 40;
   }
-  finalY = addSectionTitle(t('pdf.paymentPlan.title'), finalY);
+  finalY = addSectionTitle(doc, t('pdf.paymentPlan.title'), finalY);
 
   const scheduleBody: (string | number)[][] = [];
   let balance = loanData.loanAmount;
@@ -285,9 +281,9 @@ export const generateLoanReportPdf = (i18n: I18nContextType, loanCalculationData
         }
     }
   });
+  finalY = (doc as any).lastAutoTable.finalY;
 
   // --- DISCLAIMERS AND SUPPORT ---
-  finalY = (doc as any).lastAutoTable.finalY;
   if (pageHeight - finalY < 60) { 
     doc.addPage();
     finalY = 40;
@@ -296,7 +292,7 @@ export const generateLoanReportPdf = (i18n: I18nContextType, loanCalculationData
   }
 
   // --- NEXT STEPS ---
-  finalY = addSectionTitle(t('pdf.nextSteps.title'), finalY);
+  finalY = addSectionTitle(doc, t('pdf.nextSteps.title'), finalY);
   doc.setFont('Roboto', 'normal');
   doc.setFontSize(9);
   doc.setTextColor(TEXT_COLOR);
@@ -304,13 +300,18 @@ export const generateLoanReportPdf = (i18n: I18nContextType, loanCalculationData
   doc.text(nextStepsText, 15, finalY);
   finalY += nextStepsText.length * 4 + 10;
 
-  finalY = addSectionTitle(t('pdf.disclaimers.title'), finalY);
+  finalY = addSectionTitle(doc, t('pdf.disclaimers.title'), finalY);
   doc.setFont('Roboto', 'normal');
   doc.setFontSize(9);
   doc.setTextColor(TEXT_COLOR);
   const disclaimerText = doc.splitTextToSize(`${t('pdf.disclaimers.discrepancy')}\n\n${t('pdf.disclaimers.fraudWarning')}`, pageWidth - 30);
   doc.text(disclaimerText, 15, finalY);
   finalY += disclaimerText.length * 4 + 10;
+  
+  if (pageHeight - finalY < 20) {
+    doc.addPage();
+    finalY = 40;
+  }
 
   doc.setFont('Roboto', 'normal');
   doc.text(t('pdf.support.title'), 15, finalY);
@@ -319,7 +320,7 @@ export const generateLoanReportPdf = (i18n: I18nContextType, loanCalculationData
   doc.text(`${t('pdf.support.helpline')}: 1-800-LOAN-VIEW`, 15, finalY);
 
   // --- FINALIZATION ---
-  addHeaderFooter();
+  addHeaderFooter(doc);
 
   const filename = `${t('appName')}_Report_${formatDate(new Date(), { year: 'numeric', month: '2-digit', day: '2-digit' })}.pdf`.replace(/[^a-zA-Z0-9_.-]/g, '_');
   doc.save(filename);
