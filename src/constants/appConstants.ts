@@ -1,5 +1,5 @@
 
-import type { Language, NavItem, LoanMetric, LoanType, Bank, LoanTypeId, RateType, BankCategory } from '@/types';
+import type { Language, NavItem, LoanMetric, LoanType, Bank, BankCategory } from '@/types';
 import { Home, User, GraduationCap, Car, Landmark, Percent, FileText, GitCompareArrows, HandCoins, FileDown, BadgeIndianRupee, Briefcase, Gem, Building, FileEdit, Calculator, Archive, Sparkles, LogIn, UserCircle, BarChart, HelpCircle } from 'lucide-react';
 
 export const APP_NAME_KEY = "appName";
@@ -244,5 +244,3 @@ export const RATE_THRESHOLDS = {
   medium: 12.0, // Rates > 9.0% and <= 12.0% are medium
   // Rates > 12.0% are high
 };
-
-    

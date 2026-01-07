@@ -1,7 +1,7 @@
 // src/lib/data.ts
 
 import type { Language, NavItem, LoanMetric, LoanType, Bank, BankCategory } from '@/types';
-import { Home, User, GraduationCap, Car, Landmark, Percent, FileText, GitCompareArrows, HandCoins, FileDown, BadgeIndianRupee, Briefcase, Gem, Building, FileEdit, Calculator, Archive, Sparkles, LogIn, UserCircle, BarChart, HelpCircle } from 'lucide-react';
+import { Home, User, GraduationCap, Car, Landmark, Percent, FileText, GitCompareArrows, HandCoins, FileDown, BadgeIndianRupee, Briefcase, Gem, Building, FileEdit, Calculator, Archive, Sparkles, LogIn, UserCircle, BarChart } from 'lucide-react';
 
 export const APP_NAME_KEY = "appName";
 
@@ -27,7 +27,7 @@ export const SUPPORTED_LANGUAGES: { code: Language; name: string }[] = [
   { code: 'ne', name: 'नेपाली' },
   { code: 'sd', name: 'سنڌي' },
   { code: 'mai', name: 'मैथिली' },
-  { code:- 'doi', name: 'डोगरी' },
+  { code: 'doi', name: 'डोगरी' },
   { code: 'ks', name: 'کٲشُر' },
   { code: 'mni', name: 'মৈতৈলোন্' },
   { code: 'brx', name: 'बर’' },
@@ -44,7 +44,6 @@ export const NAV_ITEMS: NavItem[] = [
   { href: '/ai-advisor', labelKey: 'nav.bankingAdvisor', icon: Sparkles },
   { href: '/report', labelKey: 'nav.downloadReport', icon: FileDown },
   { href: '/profile', labelKey: 'nav.profile', icon: UserCircle },
-  { href: '/how-to-play', labelKey: 'nav.howToPlay', icon: HelpCircle },
 ];
 
 export const DASHBOARD_METRICS: LoanMetric[] = [
@@ -238,7 +237,6 @@ export const BANKS_DATA: Bank[] = [
     ]
   }
 ];
-
 
 export const RATE_THRESHOLDS = {
   low: 9.0,  // Rates <= 9.0% are considered low

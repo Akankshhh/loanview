@@ -34,17 +34,17 @@ const createSampleLoanData = (i18n: I18nContextType): NonNullable<LoanReportData
 const formatPdfNumber = (value: number | string | undefined, currency = false): string => {
     if (value === undefined || value === null || value === '') return 'N/A';
     
+    // Convert to number, removing any non-numeric characters except for decimal point and minus sign
     const num = Number(String(value).replace(/[^0-9.-]/g, ''));
     
     if (isNaN(num)) {
+        // If it's not a number after cleaning, return the original string
         return String(value);
     }
   
-    const fixedValue = num.toLocaleString('en-US', {
-        minimumFractionDigits: 0,
-        maximumFractionDigits: 2,
-        useGrouping: false
-    });
+    // Use toFixed(2) for a simple, universally safe number-to-string conversion
+    // This avoids locale-specific characters like commas.
+    const fixedValue = num.toFixed(2);
     
     return currency ? `INR ${fixedValue}` : fixedValue;
 };
