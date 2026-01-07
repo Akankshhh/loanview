@@ -37,6 +37,7 @@ const formatPdfNumber = (value: number | string | undefined): string => {
   if (value === undefined || value === null) return 'N/A';
   const num = Number(value);
   if (isNaN(num)) {
+    // If it's a string that's not a number (e.g., from form input), return it as is.
     return String(value);
   }
   // Converts number to a plain string with 2 decimal places, no currency symbols or commas.
