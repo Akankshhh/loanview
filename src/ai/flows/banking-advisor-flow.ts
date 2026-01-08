@@ -3,7 +3,6 @@
 
 import { ai } from '@/ai/genkit';
 import { generate } from '@genkit-ai/ai';
-import { gemini15Flash } from '@genkit-ai/googleai'; // Keep for direct reference if needed, but we'll use the global model.
 import { z } from 'zod';
 
 const BankingAdvisorInputSchema = z.object({
@@ -30,6 +29,8 @@ const INTERNAL_KNOWLEDGE_BASE: Record<string, string> = {
   "personal loan": "Our Personal Loans are unsecured and available up to ₹25 Lakhs based on your income profile. Disbursal is typically processed within 24 to 48 hours for pre-approved customers.",
   
   "car loan": "Car loans are available for up to 90% of the vehicle's on-road price. Tenures range from 1 to 7 years with competitive interest rates starting at 8.75%.",
+  
+  "loan process": "The typical loan process involves these steps: 1. Application submission with required documents. 2. Verification of your identity, income, and credit history. 3. Loan sanctioning by the bank. 4. Signing the loan agreement. 5. Disbursement of the loan amount into your account.",
 
   "default": "I am your Banking Advisor. I can assist you with Home Loans, Education Loans, Personal Loans, and documentation requirements. How may I assist you today?"
 };
@@ -71,6 +72,9 @@ const bankingAdvisorGenkitFlow = ai.defineFlow(
     }
     if (query.includes("car") || query.includes("vehicle")) {
         return { text: INTERNAL_KNOWLEDGE_BASE["car loan"] };
+    }
+    if (query.includes("process")) {
+        return { text: INTERNAL_KNOWLEDGE_BASE["loan process"] };
     }
     if (query.length < 5 || query.includes("hello") || query.includes("hi")) {
         return { text: INTERNAL_KNOWLEDGE_BASE["default"] };
