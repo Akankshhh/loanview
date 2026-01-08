@@ -12,6 +12,8 @@ export type BankingAdvisorInput = z.infer<typeof BankingAdvisorInputSchema>;
 
 const BankingAdvisorOutputSchema = z.object({
   text: z.string(),
+  // Add a field to signal the start of a special flow
+  flow: z.enum(['none', 'eligibilityCheck']).optional().default('none'),
 });
 export type BankingAdvisorOutput = z.infer<typeof BankingAdvisorOutputSchema>;
 
@@ -63,7 +65,14 @@ const bankingAdvisorGenkitFlow = ai.defineFlow(
     console.log(`[Banking Advisor] Received: "${query}"`);
 
     // 2. CHECK INTERNAL KNOWLEDGE BASE (Layer 1 - Instant & Reliable)
-    // This logic ensures your demo questions NEVER fail.
+    
+    // NEW: Check for eligibility trigger phrases
+    if (query.includes("eligible") || query.includes("eligibility") || query.includes("can i get a loan")) {
+      return {
+        flow: 'eligibilityCheck',
+        text: "I can help with that. To check your eligibility, I'll need to ask a few questions."
+      };
+    }
     
     // Process-specific queries
     if (query.includes("home") && query.includes("process")) {
@@ -85,10 +94,7 @@ const bankingAdvisorGenkitFlow = ai.defineFlow(
         return { text: INTERNAL_KNOWLEDGE_BASE["loan process"] };
     }
 
-    // Eligibility and general info queries
-    if (query.includes("home") && (query.includes("eligible") || query.includes("eligibility") || query.includes("can i get"))) {
-        return { text: INTERNAL_KNOWLEDGE_BASE["home loan eligibility"] };
-    }
+    // General info queries
     if (query.includes("interest") || query.includes("rate") || query.includes("roi")) {
         return { text: INTERNAL_KNOWLEDGE_BASE["home loan interest"] };
     }
@@ -130,7 +136,6 @@ const bankingAdvisorGenkitFlow = ai.defineFlow(
 
     } catch (error: any) {
       // 4. PROFESSIONAL FALLBACK (Layer 3 - Safety Net)
-      // If the API Key fails, this runs. It looks like a standard banking response.
       console.error("\n🔴 CRITICAL ERROR DETECTED 🔴");
       console.error("   Error Type:", error.name);
       console.error("   Message:", error.message);

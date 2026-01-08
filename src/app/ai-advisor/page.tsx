@@ -1,48 +1,37 @@
 
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
-import { Send, Bot, User, ShieldCheck, Lightbulb } from 'lucide-react';
+import { Send, Bot, User, ShieldCheck, Lightbulb, FileText, CheckCircle, XCircle } from 'lucide-react';
 import { bankingAdvisorFlow, type BankingAdvisorOutput } from '@/ai/flows/banking-advisor-flow';
 import { useI18n } from '@/hooks/useI18n';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
-// --- MOCK KNOWLEDGE BASE (STATIC UI DATA) ---
-const BANK_DATA = [
-  {
-    id: 'apex',
-    name: 'Apex Financial',
-    loans: {
-      home: { rate: 6.5, maxTenure: 30, minScore: 700 },
-      auto: { rate: 8.2, maxTenure: 7, minScore: 650 },
-      personal: { rate: 11.5, maxTenure: 5, minScore: 600 },
-      education: { rate: 7.0, maxTenure: 15, minScore: 0 },
-      business: { rate: 10.5, maxTenure: 10, minScore: 700 },
-      gadget: { rate: 12.0, maxTenure: 2, minScore: 0 }
-    }
-  },
-  {
-    id: 'horizon',
-    name: 'Horizon Trust',
-    loans: {
-      home: { rate: 6.8, maxTenure: 25, minScore: 650 },
-      auto: { rate: 7.9, maxTenure: 8, minScore: 680 },
-      personal: { rate: 10.9, maxTenure: 6, minScore: 620 },
-      education: { rate: 6.8, maxTenure: 12, minScore: 0 },
-      business: { rate: 11.0, maxTenure: 7, minScore: 650 },
-      gadget: { rate: 0.0, maxTenure: 1, minScore: 0 } // 0% EMI scheme
-    }
-  }
-];
+// --- ELIGIBILITY CHECK FLOW LOGIC ---
 
-// --- Helper functions for eligibility flow ---
-const eligibilitySteps = [
-  { key: 'loanType', question: `Which loan type? (home, auto, personal, education, business, gadget)` },
-  { key: 'amount', question: 'What loan amount do you need? (in ₹)' },
-  { key: 'tenure', question: 'Preferred tenure (years)?' },
-  { key: 'monthlyIncome', question: 'Your monthly income (in ₹)?' },
-  { key: 'creditScore', question: 'Approx. your credit score (e.g., 600, 700)?' },
-  { key: 'existingEMI', question: 'Existing monthly EMI/outgoings (in ₹). If none, type 0.' },
-  { key: 'employmentType', question: 'Employment type: salaried / self-employed / student / other' }
+type EligibilityStep = {
+  key: keyof EligibilityData;
+  question: string;
+  type: 'text' | 'number';
+};
+
+type EligibilityData = {
+  loanType: string;
+  amount: number | null;
+  tenure: number | null;
+  monthlyIncome: number | null;
+  creditScore: number | null;
+  existingEMI: number | null;
+  employmentType: string;
+};
+
+const eligibilitySteps: EligibilityStep[] = [
+  { key: 'loanType', question: `Which loan type are you interested in? (e.g., home, personal, car, education)`, type: 'text' },
+  { key: 'amount', question: 'What loan amount do you need? (in ₹)', type: 'number' },
+  { key: 'monthlyIncome', question: 'What is your approximate monthly income? (in ₹)', type: 'number' },
+  { key: 'creditScore', question: 'What is your CIBIL score? (e.g., 600, 700, 750)', type: 'number' },
+  { key: 'existingEMI', question: 'Do you have any existing monthly EMIs? If so, what is the total amount? (Enter 0 if none)', type: 'number' },
 ];
 
 const parseNumber = (text: string) => {
@@ -51,52 +40,18 @@ const parseNumber = (text: string) => {
   return isNaN(parsed) ? null : parsed;
 };
 
-const calculateMonthlyEMI = (principal: number, annualRatePercent: number, years: number) => {
-  if (annualRatePercent === 0) return principal / (years * 12);
-  const r = annualRatePercent / 100 / 12;
-  const n = years * 12;
-  const emi = (principal * r) / (1 - Math.pow(1 + r, -n));
-  return emi;
-};
-
-export const checkBankEligibility = (bank: any, loanKey: string, data: any) => {
-  const reasons: string[] = [];
-  const loanDef = bank.loans[loanKey];
-  if (!loanDef) {
-    reasons.push('Loan type not offered by this bank.');
-    return { eligible: false, reasons };
-  }
-
-  // credit score check
-  if (loanDef.minScore && loanDef.minScore > 0 && data.creditScore < loanDef.minScore) {
-    reasons.push(`Credit score below required (${loanDef.minScore}).`);
-  }
-
-  // tenure check
-  if (data.tenure > loanDef.maxTenure) {
-    reasons.push(`Requested tenure (${data.tenure}y) exceeds bank's max tenure (${loanDef.maxTenure}y).`);
-  }
-
-  // affordability check: EMI <= 50% of (monthlyIncome - existingEMI)
-  const emi = calculateMonthlyEMI(data.amount, loanDef.rate, data.tenure);
-  const netAvailable = Math.max(0, data.monthlyIncome - data.existingEMI);
-  const allowed = netAvailable * 0.5;
-  if (emi > allowed) {
-    reasons.push(`Estimated EMI ₹${emi.toFixed(0)} exceeds 50% of your net income after existing EMIs (₹${allowed.toFixed(0)}).`);
-  }
-
-  const eligible = reasons.length === 0;
-  return { eligible, reasons, emi: Math.round(emi), bankRate: loanDef.rate };
-};
 
 // --- COMPONENTS ---
 const MessageBubble = ({ message }: { message: any }) => {
   const isBot = message.sender === 'bot';
 
-  // Function to render text with bold tags
+  // Function to render text with bold tags and detect links
   const renderText = (text: string) => {
     if (!text) return null;
+    
+    // Split by markdown bold syntax
     const parts = text.split(/(\*\*.*?\*\*)/g);
+    
     return parts.map((part, index) => {
       if (part.startsWith('**') && part.endsWith('**')) {
         return <strong key={index}>{part.slice(2, -2)}</strong>;
@@ -123,7 +78,25 @@ const MessageBubble = ({ message }: { message: any }) => {
               ? 'bg-white text-slate-800 rounded-tl-none border-slate-200' 
               : 'bg-teal-600 text-white rounded-tr-none border-teal-600'
           }`}>
-            {renderText(message.text)}
+             {message.isResult ? (
+                <div className='space-y-3'>
+                    <div className='flex items-center gap-2'>
+                        {message.isSuccess ? <CheckCircle className="h-6 w-6 text-green-500" /> : <XCircle className="h-6 w-6 text-red-500" />}
+                        <h4 className="font-bold text-lg">{message.isSuccess ? "Congratulations! You are likely eligible." : "Eligibility Check Result"}</h4>
+                    </div>
+                    <p>{renderText(message.text)}</p>
+                    {message.isSuccess && (
+                         <Button asChild className='mt-2'>
+                            <Link href="/apply">
+                                <FileText className='mr-2 h-4 w-4'/>
+                                Proceed to Application
+                            </Link>
+                        </Button>
+                    )}
+                </div>
+            ) : (
+                renderText(message.text)
+            )}
           </div>
         </div>
       </div>
@@ -134,16 +107,22 @@ const MessageBubble = ({ message }: { message: any }) => {
 
 export default function AIAdvisorPage() {
   const { t } = useI18n();
-  const [messages, setMessages] = useState<(BankingAdvisorOutput & { id: number, sender: 'bot' | 'user' })[]>([
+  const [messages, setMessages] = useState<(BankingAdvisorOutput & { id: number, sender: 'bot' | 'user', isResult?: boolean, isSuccess?: boolean })[]>([
     { 
       id: 1, 
       sender: 'bot', 
-      text: "Hello! I am your Banking Advisor. I can assist you with Home Loans, Education Loans, Personal Loans, and documentation requirements. How may I assist you today?"
+      text: "Hello! I am your Banking Advisor. I can assist with loan information, processes, or even check your basic eligibility. How may I assist you today? (Try: 'am i eligible for a loan?')"
     }
   ]);
   const [inputText, setInputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  
+  // State for the eligibility flow
+  const [inEligibilityFlow, setInEligibilityFlow] = useState(false);
+  const [currentStep, setCurrentStep] = useState(0);
+  const [eligibilityData, setEligibilityData] = useState<Partial<EligibilityData>>({});
+
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -161,8 +140,66 @@ export default function AIAdvisorPage() {
 
   // push user message helper
   const pushUserMessage = (text: string) => {
-    const userMsg = { id: Date.now(), text, sender: 'user', type: 'text' };
+    const userMsg = { id: Date.now(), text, sender: 'user' };
     setMessages(prev => [...prev, userMsg] as any);
+  };
+  
+  const resetFlow = () => {
+      setInEligibilityFlow(false);
+      setCurrentStep(0);
+      setEligibilityData({});
+  };
+  
+  const handleEligibilityFlow = (text: string) => {
+    const currentQuestion = eligibilitySteps[currentStep];
+    const updatedData = { ...eligibilityData };
+    let value: string | number | null = text;
+    
+    if (currentQuestion.type === 'number') {
+      value = parseNumber(text);
+      if (value === null) {
+        pushBotMessage({ text: "Please enter a valid number." });
+        return;
+      }
+    }
+    
+    updatedData[currentQuestion.key] = value as any;
+    setEligibilityData(updatedData);
+
+    const nextStep = currentStep + 1;
+
+    if (nextStep < eligibilitySteps.length) {
+      // Ask the next question
+      setCurrentStep(nextStep);
+      pushBotMessage({ text: eligibilitySteps[nextStep].question });
+    } else {
+      // End of flow, evaluate eligibility
+      evaluateEligibility(updatedData as EligibilityData);
+      resetFlow();
+    }
+  };
+
+  const evaluateEligibility = (data: EligibilityData) => {
+    const { creditScore } = data;
+    
+    if (creditScore === null) {
+        pushBotMessage({ isResult: true, isSuccess: false, text: "Could not determine eligibility due to missing credit score." });
+        return;
+    }
+
+    if (creditScore < 650) {
+      pushBotMessage({ 
+          isResult: true, 
+          isSuccess: false, 
+          text: `Based on the information provided, you are likely **not eligible** for a loan at this time. Your CIBIL score of ${creditScore} is below the minimum requirement of 650. We recommend improving your score before reapplying.` 
+      });
+    } else {
+       pushBotMessage({ 
+          isResult: true, 
+          isSuccess: true, 
+          text: `With a CIBIL score of ${creditScore} and the other details provided, you have a good chance of being eligible. You can proceed with a formal application.`
+      });
+    }
   };
 
   const handleSendMessage = async (text = inputText) => {
@@ -172,12 +209,28 @@ export default function AIAdvisorPage() {
     setInputText('');
     setIsLoading(true);
 
+    if (inEligibilityFlow) {
+      handleEligibilityFlow(text);
+      setIsLoading(false);
+      return;
+    }
+
     try {
       const response = await bankingAdvisorFlow({ query: text });
       pushBotMessage({ text: response.text });
+      
+      // Check if the response triggers the eligibility flow
+      if (response.flow === 'eligibilityCheck') {
+        setInEligibilityFlow(true);
+        setCurrentStep(0);
+        setEligibilityData({});
+        // Ask the first question of the flow
+        pushBotMessage({ text: eligibilitySteps[0].question });
+      }
+
     } catch (error) {
       console.error("Error calling banking advisor flow:", error);
-      const errorMsg = { id: Date.now() + 1, text: "I'm sorry, I'm having trouble connecting to my knowledge base right now. Please try again in a moment.", sender: 'bot', type: 'text' };
+      const errorMsg = { id: Date.now() + 1, text: "I'm sorry, I'm having trouble connecting to my knowledge base right now. Please try again in a moment.", sender: 'bot' };
       setMessages(prev => [...prev, errorMsg] as any);
     } finally {
       setIsLoading(false);
@@ -199,7 +252,7 @@ export default function AIAdvisorPage() {
         {messages.map((msg, index) => (
           <MessageBubble key={msg.id || index} message={msg} />
         ))}
-        {isLoading && <MessageBubble message={{ id: 'typing', sender: 'bot', type: 'text', text: '...' }} />}
+        {isLoading && <MessageBubble message={{ id: 'typing', sender: 'bot', text: '...' }} />}
         <div ref={messagesEndRef} />
       </CardContent>
 
@@ -211,7 +264,7 @@ export default function AIAdvisorPage() {
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
-            placeholder="Type your query here... (try: 'Am I eligible for a home loan?')"
+            placeholder={inEligibilityFlow ? eligibilitySteps[currentStep].question : "Ask about loans or eligibility..."}
             className="flex-1 bg-transparent px-6 py-4 outline-none text-slate-700 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-500"
             disabled={isLoading}
           />
