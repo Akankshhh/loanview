@@ -32,6 +32,8 @@ const INTERNAL_KNOWLEDGE_BASE: Record<string, string> = {
   
   "loan process": "The typical loan process involves these steps: 1. Application submission with required documents. 2. Verification of your identity, income, and credit history. 3. Loan sanctioning by the bank. 4. Signing the loan agreement. 5. Disbursement of the loan amount into your account.",
 
+  "education loan process": "The process for an Education Loan is straightforward: 1. Secure admission to your desired course/university. 2. Gather key documents: Admission Letter, academic records, KYC, and co-borrower's income proof. 3. Submit the completed application form online or at a branch. 4. The bank will review the application and may conduct a personal discussion. 5. Upon approval, you will sign the loan agreement. 6. The tuition fee is typically disbursed directly to the educational institution.",
+
   "default": "I am your Banking Advisor. I can assist you with Home Loans, Education Loans, Personal Loans, and documentation requirements. How may I assist you today?"
 };
 
@@ -57,6 +59,9 @@ const bankingAdvisorGenkitFlow = ai.defineFlow(
     
     if (query.includes("home") && (query.includes("eligible") || query.includes("eligibility") || query.includes("can i get"))) {
         return { text: INTERNAL_KNOWLEDGE_BASE["home loan eligibility"] };
+    }
+    if ((query.includes("education") || query.includes("student")) && query.includes("process")) {
+        return { text: INTERNAL_KNOWLEDGE_BASE["education loan process"] };
     }
     if (query.includes("interest") || query.includes("rate") || query.includes("roi")) {
         return { text: INTERNAL_KNOWLEDGE_BASE["home loan interest"] };
@@ -98,7 +103,7 @@ const bankingAdvisorGenkitFlow = ai.defineFlow(
       });
 
       console.log("   ✅ AI Response Generated successfully.");
-      return { text: llmResponse.text() };
+      return { text: llmResponse.text };
 
     } catch (error: any) {
       // 4. PROFESSIONAL FALLBACK (Layer 3 - Safety Net)
