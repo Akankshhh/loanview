@@ -49,6 +49,7 @@ export default function AIAdvisorPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [eligibilityState, setEligibilityState] = useState<EligibilityState>('idle');
   const chatContainerRef = useRef<HTMLDivElement>(null);
+  const nextId = useRef(2); // Start message IDs from 2
 
   useEffect(() => {
     // Scroll to the bottom when new messages are added
@@ -58,7 +59,7 @@ export default function AIAdvisorPage() {
   }, [messages]);
 
   const addMessage = (text: string, sender: 'bot' | 'user', flow: Message['flow'] = 'none') => {
-    setMessages(prev => [...prev, { id: Date.now(), text, sender, flow }]);
+    setMessages(prev => [...prev, { id: nextId.current++, text, sender, flow }]);
   };
 
   const handleSendMessage = async () => {
