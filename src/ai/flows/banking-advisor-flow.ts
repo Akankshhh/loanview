@@ -68,7 +68,7 @@ const bankingAdvisorGenkitFlow = ai.defineFlow(
     // Scenario 2: User is asking for a process
     if (intent === 'process') {
       const { text } = await ai.generate({
-        model: 'gemini-1.5-flash-latest',
+        model: 'googleai/gemini-1.5-flash-latest',
         prompt: `You are a helpful banking assistant. The user wants to know the application process for a specific type of loan.
         Based on the user's query about a "${loanType}", provide a clear, step-by-step guide for that loan application process.
         Your answer should be concise, in simple language, and formatted as a numbered list.
@@ -80,7 +80,7 @@ const bankingAdvisorGenkitFlow = ai.defineFlow(
 
     // Scenario 3: General question
     const { text } = await ai.generate({
-        model: 'gemini-1.5-flash-latest',
+        model: 'googleai/gemini-1.5-flash-latest',
         prompt: `You are a helpful banking assistant. The user is asking a general question. 
         If the question is about loans or banking, provide a helpful answer. 
         If it's off-topic, politely state that you can only answer banking-related questions.
