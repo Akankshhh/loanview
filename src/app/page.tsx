@@ -130,7 +130,7 @@ export default function DashboardPage() {
 
       <section className="grid gap-6 md:grid-cols-1 lg:grid-cols-2 animate-in fade-in-0 slide-in-from-top-24 duration-500 delay-500">
          <LoanInterestRatesChart />
-         <BankRatesComparisonChart filteredLoanProducts={filteredLoanProducts} />
+         <BankRatesComparisonChart filteredLoanProducts={allBankLoanProducts} />
       </section>
     </div>
   );

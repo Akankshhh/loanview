@@ -2,7 +2,7 @@
 "use client";
 
 import type { FC } from 'react';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis, Legend } from 'recharts';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { ChartContainer, ChartTooltipContent, type ChartConfig } from '@/components/ui/chart';
@@ -21,30 +21,38 @@ export const BankRatesComparisonChart: FC<BankRatesComparisonChartProps> = ({ fi
   const [selectedLoanTypeId, setSelectedLoanTypeId] = useState<LoanTypeId | 'all'>('home');
 
   const availableLoanTypesInProducts = useMemo(() => {
+    if (!filteredLoanProducts) return [];
     const uniqueLoanTypeIds = new Set(filteredLoanProducts.map(p => p.loanTypeId));
     return LOAN_TYPES.filter(lt => uniqueLoanTypeIds.has(lt.id));
   }, [filteredLoanProducts]);
+  
+  useEffect(() => {
+    // If the currently selected loan type is not in the available list,
+    // or if 'all' is selected, default to the first available one.
+    if (availableLoanTypesInProducts.length > 0) {
+      const isSelectedTypeAvailable = availableLoanTypesInProducts.some(lt => lt.id === selectedLoanTypeId);
+      if (!isSelectedTypeAvailable) {
+        setSelectedLoanTypeId(availableLoanTypesInProducts[0].id);
+      }
+    } else {
+        setSelectedLoanTypeId('all');
+    }
+  }, [availableLoanTypesInProducts, selectedLoanTypeId]);
+
 
   const chartData = useMemo(() => {
-    let typeId = selectedLoanTypeId;
-    if (typeId === 'all' || !availableLoanTypesInProducts.find(lt => lt.id === typeId)) {
-        if (availableLoanTypesInProducts.length > 0) {
-            typeId = availableLoanTypesInProducts[0].id;
-            // Update state asynchronously to avoid issues during render
-            setTimeout(() => setSelectedLoanTypeId(typeId as LoanTypeId), 0);
-        } else {
-            return [];
-        }
+    if (selectedLoanTypeId === 'all' || !filteredLoanProducts) {
+        return [];
     }
     
     return filteredLoanProducts
-      .filter(product => product.loanTypeId === typeId)
+      .filter(product => product.loanTypeId === selectedLoanTypeId)
       .map(product => ({
         bankName: product.bankName,
         interestRate: product.interestRate,
       }))
       .sort((a,b) => a.interestRate - b.interestRate); // Sort by interest rate
-  }, [filteredLoanProducts, selectedLoanTypeId, availableLoanTypesInProducts]);
+  }, [filteredLoanProducts, selectedLoanTypeId]);
 
   const chartConfig = {
     interestRate: {
@@ -71,11 +79,17 @@ export const BankRatesComparisonChart: FC<BankRatesComparisonChartProps> = ({ fi
             <SelectValue placeholder={t('dashboard.bankRatesComparisonChart.selectLoanTypePlaceholder')} />
           </SelectTrigger>
           <SelectContent>
-            {availableLoanTypesInProducts.map(loanType => (
-              <SelectItem key={loanType.id} value={loanType.id}>
-                {t(loanType.nameKey)}
-              </SelectItem>
-            ))}
+            {availableLoanTypesInProducts.length > 0 ? (
+              availableLoanTypesInProducts.map(loanType => (
+                <SelectItem key={loanType.id} value={loanType.id}>
+                  {t(loanType.nameKey)}
+                </SelectItem>
+              ))
+            ) : (
+                <SelectItem value="all" disabled>
+                    {t('dashboard.bankLoanRates.filters.allLoanTypes')}
+                </SelectItem>
+            )}
           </SelectContent>
         </Select>
 
