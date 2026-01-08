@@ -1,6 +1,10 @@
 
 import type {NextConfig} from 'next';
 
+// Load environment variables from .env file at the root of the project
+require('dotenv').config({ path: './.env' });
+
+
 const nextConfig: NextConfig = {
   /* config options here */
   typescript: {
